@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WildStrokes — Game Audio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0d0d0f;
+    --bg1: #141417;
+    --bg2: #1a1a1f;
+    --bg3: #202027;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #f0f0f2;
+    --text2: #9a9aaa;
+    --text3: #5a5a6a;
+    --accent: #7c6dfa;
+    --accent-bg: rgba(124,109,250,0.12);
+    --accent-border: rgba(124,109,250,0.3);
+    --green: #3dd68c;
+    --green-bg: rgba(61,214,140,0.1);
+    --amber: #f59e0b;
+    --amber-bg: rgba(245,158,11,0.1);
+    --red: #f87171;
+    --red-bg: rgba(248,113,113,0.1);
+    --discord: #5865f2;
+    --discord-bg: rgba(88,101,242,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 58px;
+    background: rgba(13,13,15,0.85); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a {
+    font-size: 13px; color: var(--text2); text-decoration: none;
+    transition: color 0.2s; cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 2rem 4rem; max-width: 700px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    padding: 4px 12px; border-radius: 20px; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: 42px; font-weight: 600; line-height: 1.15;
+    letter-spacing: -1px; margin-bottom: 1rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 16px; color: var(--text2); line-height: 1.7; max-width: 520px; }
+  .hero-cta { display: flex; gap: 10px; margin-top: 2rem; flex-wrap: wrap; }
+  .btn {
+    padding: 10px 20px; font-size: 14px; font-weight: 500;
+    border-radius: 8px; cursor: pointer; transition: all 0.2s; border: none;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { background: #6b5ce8; }
+  .btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
+  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.25); background: var(--bg2); }
+
+  /* STATS ROW */
+  .stats {
+    display: flex; gap: 0; border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    flex: 1; padding: 1.25rem 2rem; border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
+  .stat-label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  /* SECTION */
+  .section { padding: 2.5rem 2rem; border-bottom: 1px solid var(--border); }
+  .section-head { display: flex; align-items: center; gap: 10px; margin-bottom: 1.75rem; }
+  .section-icon {
+    width: 34px; height: 34px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+  }
+  .section-title { font-size: 17px; font-weight: 600; }
+  .section-sub { font-size: 13px; color: var(--text2); margin-top: 1px; }
+
+  /* TRACK LIST */
+  .track-list { display: flex; flex-direction: column; gap: 6px; }
+  .track {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--bg1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 14px; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .track:hover { border-color: var(--border2); background: var(--bg2); }
+  .track.active { border-color: var(--accent-border); background: var(--accent-bg); }
+
+  .track-num { font-size: 12px; color: var(--text3); min-width: 20px; text-align: center; font-variant-numeric: tabular-nums; }
+  .track.active .track-num { display: none; }
+  .wave-anim { display: none; align-items: flex-end; gap: 2px; height: 16px; min-width: 20px; justify-content: center; }
+  .track.active .wave-anim { display: flex; }
+  .track.active.paused .wave-anim { display: none; }
+  .track.active.paused .track-num { display: block; }
+  .wave-anim span {
+    width: 3px; background: var(--accent); border-radius: 2px;
+    animation: wave 0.7s ease-in-out infinite;
+  }
+  .wave-anim span:nth-child(2) { animation-delay: 0.1s; }
+  .wave-anim span:nth-child(3) { animation-delay: 0.2s; }
+  @keyframes wave { 0%,100% { height: 4px; } 50% { height: 14px; } }
+
+  .play-btn {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--border2); background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.15s; color: var(--text2);
+  }
+  .play-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+  .track.active .play-btn { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .track-info { flex: 1; min-width: 0; }
+  .track-name { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .track.active .track-name { color: var(--accent); }
+  .track-genre { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  .track-progress-wrap { flex: 1; max-width: 200px; display: none; flex-direction: column; gap: 4px; }
+  .track.active .track-progress-wrap { display: flex; }
+  .track-bar { height: 3px; background: var(--border2); border-radius: 2px; cursor: pointer; position: relative; }
+  .track-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.2s linear; width: 0%; }
+  .track-time { font-size: 11px; color: var(--text3); font-variant-numeric: tabular-nums; display: flex; justify-content: space-between; }
+
+  .track-dur { font-size: 12px; color: var(--text3); min-width: 36px; text-align: right; font-variant-numeric: tabular-nums; }
+  .track.active .track-dur { display: none; }
+
+  /* SFX GRID */
+  .sfx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .sfx-card {
+    background: var(--bg1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px; cursor: pointer;
+    transition: all 0.2s; display: flex; align-items: center; gap: 12px;
+  }
+  .sfx-card:hover { border-color: var(--border2); background: var(--bg2); }
+  .sfx-card.sfx-playing { border-color: var(--green-bg); background: var(--green-bg); }
+  .sfx-play {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    border: 1px solid var(--border2); background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; color: var(--text2);
+  }
+  .sfx-card:hover .sfx-play { border-color: var(--green); color: var(--green); }
+  .sfx-card.sfx-playing .sfx-play { background: var(--green); border-color: var(--green); color: #fff; }
+  .sfx-info { flex: 1; min-width: 0; }
+  .sfx-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sfx-meta { font-size: 11px; color: var(--text2); margin-top: 2px; }
+  .sfx-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.05em;
+    padding: 2px 7px; border-radius: 20px; margin-top: 4px; display: inline-block;
+  }
+
+  /* DISCORD */
+  .discord-wrap {
+    background: var(--bg1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .discord-logo {
+    width: 56px; height: 56px; border-radius: 12px;
+    background: var(--discord-bg); border: 1px solid rgba(88,101,242,0.3);
+    display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0;
+  }
+  .discord-text h3 { font-size: 16px; font-weight: 600; }
+  .discord-text p { font-size: 13px; color: var(--text2); margin-top: 4px; line-height: 1.5; }
+  .discord-handle { font-size: 13px; color: var(--discord); margin-top: 6px; font-weight: 500; }
+  .discord-btn {
+    margin-left: auto; padding: 10px 18px; font-size: 14px; font-weight: 500;
+    background: var(--discord); color: #fff; border: none; border-radius: 8px;
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    text-decoration: none; transition: opacity 0.2s; white-space: nowrap;
+  }
+  .discord-btn:hover { opacity: 0.85; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .contact-card {
+    background: var(--bg1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.1rem 1.25rem;
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: inherit; transition: border-color 0.2s;
+  }
+  .contact-card:hover { border-color: var(--accent-border); }
+  .contact-icon {
+    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .contact-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-val { font-size: 14px; font-weight: 500; margin-top: 2px; }
+
+  /* FOOTER */
+  .footer {
+    padding: 1.5rem 2rem; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .footer-copy { font-size: 13px; color: var(--text3); }
+  .footer-links { display: flex; gap: 1.25rem; }
+  .footer-links a { font-size: 13px; color: var(--text2); text-decoration: none; cursor: pointer; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* MINI PLAYER */
+  .mini-player {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(20,20,23,0.95); backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    display: none; align-items: center; gap: 16px;
+    padding: 10px 2rem; height: 64px;
+  }
+  .mini-player.visible { display: flex; }
+  .mini-info { flex: 1; min-width: 0; }
+  .mini-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mini-genre { font-size: 11px; color: var(--text2); }
+  .mini-controls { display: flex; align-items: center; gap: 10px; }
+  .mini-btn {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--border2); background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text2); transition: all 0.15s;
+  }
+  .mini-btn:hover { color: var(--text); border-color: var(--border2); }
+  .mini-btn.play { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .mini-btn.play:hover { background: #6b5ce8; }
+  .mini-progress { flex: 2; max-width: 400px; display: flex; flex-direction: column; gap: 4px; }
+  .mini-bar { height: 3px; background: var(--border2); border-radius: 2px; cursor: pointer; }
+  .mini-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 0%; transition: width 0.2s linear; }
+  .mini-times { display: flex; justify-content: space-between; font-size: 10px; color: var(--text3); font-variant-numeric: tabular-nums; }
+  .mini-vol { display: flex; align-items: center; gap: 6px; }
+  .mini-vol input[type=range] { width: 70px; accent-color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 28px; }
+    .stats { flex-wrap: wrap; }
+    .stat { min-width: 50%; }
+    .mini-progress { display: none; }
+    .nav-links { display: none; }
+  }
+
+  svg.icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">wild<span>strokes</span></div>
+  <div class="nav-links">
+    <a onclick="scrollTo('soundtracks')">Soundtracks</a>
+    <a onclick="scrollTo('sfx')">SFX</a>
+    <a onclick="scrollTo('discord')">Discord</a>
+    <a onclick="scrollTo('contact')">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🎮 Game Audio Designer</div>
+  <h1>Sound that makes<br>your game <em>unforgettable.</em></h1>
+  <p>Original soundtracks, handcrafted SFX, and custom audio design. Every sound built to immerse — from epic boss battles to subtle UI clicks.</p>
+  <div class="hero-cta">
+    <a class="btn btn-accent" onclick="scrollTo('soundtracks')">
+      <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Listen Now
+    </a>
+    <a class="btn btn-ghost" onclick="scrollTo('contact')">Get in Touch</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num" style="color:var(--accent)">20+</div>
+    <div class="stat-label">Soundtracks</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" style="color:var(--green)">25+</div>
+    <div class="stat-label">SFX Clips</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" style="color:var(--amber)">100%</div>
+    <div class="stat-label">Original</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" style="color:var(--discord)">Open</div>
+    <div class="stat-label">For Commissions</div>
+  </div>
+</div>
+
+<!-- SOUNDTRACKS -->
+<div class="section" id="soundtracks">
+  <div class="section-head">
+    <div class="section-icon" style="background:var(--accent-bg);border:1px solid var(--accent-border)">🎵</div>
+    <div>
+      <div class="section-title">Soundtracks</div>
+      <div class="section-sub">Full-length game music — cinematic, loopable, genre-diverse</div>
+    </div>
+  </div>
+  <div class="track-list" id="track-list"></div>
+</div>
+
+<!-- SFX -->
+<div class="section" id="sfx">
+  <div class="section-head">
+    <div class="section-icon" style="background:var(--green-bg);border:1px solid rgba(61,214,140,0.25)">🔊</div>
+    <div>
+      <div class="section-title">Sound Effects (SFX)</div>
+      <div class="section-sub">One-shot clips — UI, alerts, game events, ambience</div>
+    </div>
+  </div>
+  <div class="sfx-grid" id="sfx-grid"></div>
+</div>
+
+<!-- DISCORD -->
+<div class="section" id="discord">
+  <div class="section-head">
+    <div class="section-icon" style="background:var(--discord-bg);border:1px solid rgba(88,101,242,0.3)">💬</div>
+    <div>
+      <div class="section-title">Discord</div>
+      <div class="section-sub">Join the community — collabs, feedback, WIP drops</div>
+    </div>
+  </div>
+  <div class="discord-wrap">
+    <div class="discord-logo">🎮</div>
+    <div class="discord-text">
+      <h3>WildStrokes Community</h3>
+      <p>Talk game audio, share projects, get feedback, and find collab partners.</p>
+      <div class="discord-handle">@wildstrokes23</div>
+    </div>
+    <a href="https://discord.com/users/wildstrokes23" class="discord-btn" target="_blank">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.112 18.1.132 18.116a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Open Discord
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="section-head">
+    <div class="section-icon" style="background:var(--amber-bg);border:1px solid rgba(245,158,11,0.25)">📬</div>
+    <div>
+      <div class="section-title">Get in Touch</div>
+      <div class="section-sub">Commission, licensing, or collab inquiries</div>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <a href="mailto:strokeswild08@gmail.com" class="contact-card">
+      <div class="contact-icon" style="background:var(--accent-bg)">📧</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">strokeswild08@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://discord.com/users/wildstrokes23" class="contact-card" target="_blank">
+      <div class="contact-icon" style="background:var(--discord-bg)">💬</div>
+      <div>
+        <div class="contact-label">Discord</div>
+        <div class="contact-val">wildstrokes23</div>
+      </div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-icon" style="background:var(--green-bg)">⏱️</div>
+      <div>
+        <div class="contact-label">Response Time</div>
+        <div class="contact-val">24–48 hours</div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon" style="background:var(--amber-bg)">✅</div>
+      <div>
+        <div class="contact-label">Status</div>
+        <div class="contact-val">Open for commissions</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-copy">© 2026 WildStrokes · All rights reserved</div>
+  <div class="footer-links">
+    <a onclick="scrollTo('soundtracks')">Soundtracks</a>
+    <a onclick="scrollTo('sfx')">SFX</a>
+    <a onclick="scrollTo('discord')">Discord</a>
+    <a onclick="scrollTo('contact')">Contact</a>
+  </div>
+</div>
+
+<!-- MINI PLAYER -->
+<div class="mini-player" id="mini-player">
+  <div class="mini-info">
+    <div class="mini-name" id="mini-name">—</div>
+    <div class="mini-genre" id="mini-genre">—</div>
+  </div>
+  <div class="mini-controls">
+    <button class="mini-btn" id="mini-prev" title="Previous" onclick="prevTrack()">
+      <svg class="icon" viewBox="0 0 24 24"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+    </button>
+    <button class="mini-btn play" id="mini-play" onclick="toggleMiniPlay()">
+      <svg class="icon" id="mini-play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+    <button class="mini-btn" id="mini-next" title="Next" onclick="nextTrack()">
+      <svg class="icon" viewBox="0 0 24 24"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+    </button>
+  </div>
+  <div class="mini-progress">
+    <div class="mini-bar" id="mini-bar" onclick="seekMini(event)">
+      <div class="mini-fill" id="mini-fill"></div>
+    </div>
+    <div class="mini-times">
+      <span id="mini-cur">0:00</span>
+      <span id="mini-tot">0:00</span>
+    </div>
+  </div>
+  <div class="mini-vol">
+    <svg class="icon" viewBox="0 0 24 24" style="color:var(--text2)"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    <input type="range" id="vol-slider" min="0" max="1" step="0.01" value="0.8" oninput="setVolume(this.value)"/>
+  </div>
+</div>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────
+const SOUNDTRACKS = [
+  { file: "backgroundmusicmaster-gamer-menu-431351.mp3",      name: "Gamer Menu",             genre: "Menu · Ambient",    dur: "2:36" },
+  { file: "cyberwave-orchestra-puzzle-game-bright-casual-video-game-music-249202.mp3", name: "Puzzle Bright",  genre: "Casual · Upbeat",   dur: "1:15" },
+  { file: "emmraan-action-fighting-theme-background-motivate-retro-518719.mp3",        name: "Action Fighting Theme", genre: "Retro · Action",  dur: "1:47" },
+  { file: "fasttech123-action-movie-tailer-music-270486.mp3", name: "Action Trailer",         genre: "Cinematic · Epic",  dur: "1:29" },
+  { file: "hauntsync-356-8-bit-chiptune-game-music-357518.mp3", name: "8-Bit Adventure",      genre: "Chiptune · 8-bit",  dur: "3:56" },
+  { file: "hauntsync-tower-defense-8-bit-chiptune-game-music-358521.mp3", name: "Tower Defense",       genre: "Chiptune · Strategy", dur: "3:52" },
+  { file: "hexxel-game-over-528369.mp3",                      name: "Hexxel Game Over",       genre: "Dramatic · Cinematic", dur: "3:16" },
+  { file: "hitslab-game-gaming-video-game-music-459876.mp3",  name: "Hitslab Gaming",         genre: "Electronic · Loop", dur: "1:54" },
+  { file: "ivan_luzan-mobile-casual-video-game-music-158301.mp3", name: "Mobile Casual",      genre: "Casual · Mobile",   dur: "2:53" },
+  { file: "litesaturation-modern-trailer-medium-version-16065.mp3", name: "Modern Trailer",   genre: "Cinematic · Trailer", dur: "1:33" },
+  { file: "mondamusic-retro-arcade-game-music-512837.mp3",    name: "Retro Arcade",           genre: "Retro · Arcade",    dur: "1:18" },
+  { file: "mroneilovealot-pixel-rush-8-bit-chiptune-background-music-410043.mp3", name: "Pixel Rush", genre: "Chiptune · Fast",  dur: "3:31" },
+  { file: "music_and_wallpaper-game-_-ui-cartoon-sfx-music-background-582199.mp3", name: "Cartoon UI Background", genre: "Casual · UI",  dur: "2:30" },
+  { file: "paulyudin-game-game-music-573991.mp3",             name: "Paulyudin Game",         genre: "Electronic · Intense", dur: "1:14" },
+  { file: "sonican-hyper-action-loop-3-tailer-scifi-music-505694.mp3", name: "Hyper Action Sci-Fi", genre: "Sci-Fi · Trailer", dur: "0:53" },
+  { file: "the_mountain-game-179496.mp3",                     name: "The Mountain",           genre: "Ambient · Epic",    dur: "2:54" },
+  { file: "the_mountain-game-game-music-508018.mp3",          name: "Mountain Game Music",    genre: "Cinematic · Ambient", dur: "0:54" },
+  { file: "the_mountain-game-intro-133287.mp3",               name: "Mountain Intro",         genre: "Intro · Cinematic", dur: "1:45" },
+  { file: "thellywellyn-horror-ambience-7-312752.mp3",        name: "Horror Ambience",        genre: "Horror · Dark",     dur: "1:20" },
+  { file: "tunetank-game-minecraft-gaming-background-music-349296.mp3", name: "Minecraft Vibes", genre: "Adventure · Loop", dur: "3:13" },
+  { file: "viacheslavstarostin-game-gaming-video-game-music-471936.mp3", name: "Epic Gaming",  genre: "Epic · Orchestral", dur: "1:37" },
+  { file: "atlasaudio-game-game-music-576637.mp3",            name: "Atlas Game",             genre: "Cinematic · Loop",  dur: "0:44" },
+  { file: "the_mountain-game-game-music-508018__1_.mp3",      name: "Mountain Game Alt",      genre: "Ambient · Loop",    dur: "0:54" },
+];
+
+const SFX = [
+  { file: "chrysalyn-bright-chime-notification-alert-tone-562420.mp3", name: "Bright Chime Alert",     tag: "Notification", color: "accent" },
+  { file: "emand_edroff-cyberpunk-ui-interface-click-562148.mp3",      name: "Cyberpunk UI Click",     tag: "UI Click",     color: "accent" },
+  { file: "armotonic-game-activation-sound-effect-03-561800.mp3",      name: "Activation SFX 01",      tag: "Activation",   color: "green" },
+  { file: "armotonic-game-activation-sound-effect-07-561805.mp3",      name: "Activation SFX 02",      tag: "Activation",   color: "green" },
+  { file: "joe_bou_khalil-micro-transient-balloon-burst-a-procedural-sound-design-562337.mp3", name: "Balloon Burst", tag: "Impact", color: "amber" },
+  { file: "lightyeartraxx-kl-peach-game-over-ii-135684.mp3",           name: "Peach Game Over",        tag: "Game Over",    color: "red" },
+  { file: "wild_sfx_01.mp3",                                            name: "Wild SFX 01",            tag: "SFX",          color: "green" },
+  { file: "wild_sfx_002.mp3",                                           name: "Wild SFX 02",            tag: "SFX",          color: "green" },
+  { file: "wild_sfx_03.mp3",                                            name: "Wild SFX 03",            tag: "SFX",          color: "green" },
+  { file: "wild_sfx_4.mp3",                                             name: "Wild SFX 04",            tag: "SFX",          color: "green" },
+  { file: "wild_sfx_05.mp3",                                            name: "Wild SFX 05",            tag: "SFX",          color: "green" },
+  { file: "wild_sfx_06.mp3",                                            name: "Wild SFX 06",            tag: "SFX",          color: "green" },
+  { file: "wildarcade-retro-game-over-213.wav",                         name: "Retro Game Over",        tag: "Game Over",    color: "red" },
+  { file: "wild-game-over-417465.mp3",                                  name: "Wild Game Over",         tag: "Game Over",    color: "red" },
+  { file: "wild-game-start-317318.mp3",                                 name: "Game Start",             tag: "Game Start",   color: "green" },
+  { file: "wild-video-game-bonus-323603.mp3",                           name: "Video Game Bonus",       tag: "Bonus",        color: "amber" },
+  { file: "wildretro-game-emergency-alarm-1000.wav",                    name: "Emergency Alarm",        tag: "Alert",        color: "red" },
+  { file: "wildretro-game-notification-212.wav",                        name: "Retro Notification",     tag: "Notification", color: "accent" },
+  { file: "mixkit-movie-trailer-epic-impact-2908.wav",                  name: "Epic Impact",            tag: "Impact",       color: "amber" },
+  { file: "mixkit-sad-game-over-trombone-471.wav",                      name: "Sad Game Over",          tag: "Game Over",    color: "red" },
+  { file: "mixkit-stadium-crowd-light-applause-362.wav",                name: "Crowd Applause",         tag: "Ambient",      color: "green" },
+  { file: "mixkit-footsteps-on-tall-grass-532.wav",                     name: "Footsteps Grass",        tag: "Footsteps",    color: "green" },
+];
+
+// ─── AUDIO ENGINE ────────────────────────────────────────
+const AUDIO_BASE = "audio/";
+let audio = null;
+let currentTrackIdx = -1;
+let progressTimer = null;
+
+const colorMap = {
+  accent: { bg: "var(--accent-bg)", border: "rgba(124,109,250,0.3)", text: "var(--accent)" },
+  green:  { bg: "var(--green-bg)",  border: "rgba(61,214,140,0.25)", text: "var(--green)" },
+  amber:  { bg: "var(--amber-bg)",  border: "rgba(245,158,11,0.25)", text: "var(--amber)" },
+  red:    { bg: "var(--red-bg)",    border: "rgba(248,113,113,0.25)", text: "var(--red)" },
+};
+
+function fmtTime(s) {
+  if (isNaN(s)) return "0:00";
+  const m = Math.floor(s / 60), ss = Math.floor(s % 60);
+  return m + ":" + String(ss).padStart(2, "0");
+}
+
+// ─── BUILD TRACKS ─────────────────────────────────────────
+const trackList = document.getElementById("track-list");
+SOUNDTRACKS.forEach((t, i) => {
+  const el = document.createElement("div");
+  el.className = "track";
+  el.id = "track-" + i;
+  el.innerHTML = `
+    <div class="track-num">${i + 1}</div>
+    <div class="wave-anim" aria-hidden="true"><span></span><span></span><span></span></div>
+    <button class="play-btn" onclick="playTrack(${i}, event)" aria-label="Play ${t.name}">
+      <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24" class="icon-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+    <div class="track-info">
+      <div class="track-name">${t.name}</div>
+      <div class="track-genre">${t.genre}</div>
+    </div>
+    <div class="track-progress-wrap">
+      <div class="track-bar" onclick="seekTrack(event)" data-idx="${i}">
+        <div class="track-fill" id="fill-${i}"></div>
+      </div>
+      <div class="track-time">
+        <span id="cur-${i}">0:00</span>
+        <span>${t.dur}</span>
+      </div>
+    </div>
+    <div class="track-dur">${t.dur}</div>
+  `;
+  trackList.appendChild(el);
+});
+
+// ─── BUILD SFX ────────────────────────────────────────────
+const sfxGrid = document.getElementById("sfx-grid");
+SFX.forEach((s, i) => {
+  const c = colorMap[s.color];
+  const el = document.createElement("div");
+  el.className = "sfx-card";
+  el.id = "sfx-" + i;
+  el.onclick = () => playSfx(i);
+  el.innerHTML = `
+    <div class="sfx-play" aria-label="Play ${s.name}">
+      <svg style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </div>
+    <div class="sfx-info">
+      <div class="sfx-name">${s.name}</div>
+      <div class="sfx-meta">${s.tag}</div>
+      <span class="sfx-tag" style="background:${c.bg};color:${c.text};border:1px solid ${c.border}">${s.tag}</span>
+    </div>
+  `;
+  sfxGrid.appendChild(el);
+});
+
+// ─── PLAY TRACK ───────────────────────────────────────────
+function playTrack(idx, e) {
+  if (e) e.stopPropagation();
+
+  if (currentTrackIdx === idx) {
+    if (audio.paused) {
+      audio.play();
+      setPlayingState(idx, true);
+    } else {
+      audio.pause();
+      setPlayingState(idx, false);
+    }
+    return;
+  }
+
+  stopAll();
+  currentTrackIdx = idx;
+  const t = SOUNDTRACKS[idx];
+  audio = new Audio(AUDIO_BASE + t.file);
+  audio.volume = parseFloat(document.getElementById("vol-slider").value);
+  audio.play().catch(() => {});
+  setPlayingState(idx, true);
+  updateMiniPlayer(t, idx);
+
+  audio.addEventListener("timeupdate", () => {
+    if (!audio.duration) return;
+    const pct = (audio.currentTime / audio.duration) * 100;
+    const fill = document.getElementById("fill-" + idx);
+    if (fill) fill.style.width = pct + "%";
+    const cur = document.getElementById("cur-" + idx);
+    if (cur) cur.textContent = fmtTime(audio.currentTime);
+    document.getElementById("mini-fill").style.width = pct + "%";
+    document.getElementById("mini-cur").textContent = fmtTime(audio.currentTime);
+    document.getElementById("mini-tot").textContent = fmtTime(audio.duration);
+  });
+
+  audio.addEventListener("ended", () => {
+    nextTrack();
+  });
+}
+
+function setPlayingState(idx, playing) {
+  document.querySelectorAll(".track").forEach((el, i) => {
+    if (i === idx) {
+      el.classList.toggle("active", true);
+      el.classList.toggle("paused", !playing);
+      const icon = el.querySelector(".icon-play");
+      if (playing) {
+        icon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+      } else {
+        icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+      }
+    } else {
+      el.classList.remove("active", "paused");
+      const icon = el.querySelector(".icon-play");
+      if (icon) icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+      const fill = document.getElementById("fill-" + i);
+      if (fill) fill.style.width = "0%";
+    }
+  });
+
+  const miniIcon = document.getElementById("mini-play-icon");
+  if (playing) {
+    miniIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  } else {
+    miniIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  }
+}
+
+function stopAll() {
+  if (audio) { audio.pause(); audio.src = ""; }
+  document.querySelectorAll(".track").forEach(el => { el.classList.remove("active","paused"); });
+  document.querySelectorAll(".track .icon-play").forEach(i => {
+    i.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  });
+}
+
+function updateMiniPlayer(t, idx) {
+  document.getElementById("mini-player").classList.add("visible");
+  document.getElementById("mini-name").textContent = t.name;
+  document.getElementById("mini-genre").textContent = t.genre;
+  document.getElementById("mini-fill").style.width = "0%";
+  document.getElementById("mini-cur").textContent = "0:00";
+  document.getElementById("mini-tot").textContent = t.dur;
+}
+
+function toggleMiniPlay() {
+  if (!audio || currentTrackIdx < 0) return;
+  if (audio.paused) {
+    audio.play();
+    setPlayingState(currentTrackIdx, true);
+  } else {
+    audio.pause();
+    setPlayingState(currentTrackIdx, false);
+  }
+}
+
+function prevTrack() {
+  if (currentTrackIdx <= 0) return;
+  playTrack(currentTrackIdx - 1);
+}
+
+function nextTrack() {
+  const next = (currentTrackIdx + 1) % SOUNDTRACKS.length;
+  playTrack(next);
+}
+
+function seekMini(e) {
+  if (!audio || !audio.duration) return;
+  const rect = document.getElementById("mini-bar").getBoundingClientRect();
+  const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+  audio.currentTime = pct * audio.duration;
+}
+
+function seekTrack(e) {
+  if (!audio || !audio.duration) return;
+  const bar = e.currentTarget;
+  const rect = bar.getBoundingClientRect();
+  const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+  audio.currentTime = pct * audio.duration;
+}
+
+function setVolume(v) { if (audio) audio.volume = parseFloat(v); }
+
+// ─── SFX PLAYBACK ─────────────────────────────────────────
+let sfxAudio = null;
+let sfxPlayingIdx = -1;
+
+function playSfx(idx) {
+  if (sfxAudio) { sfxAudio.pause(); sfxAudio.src = ""; }
+  if (sfxPlayingIdx >= 0) {
+    document.getElementById("sfx-" + sfxPlayingIdx).classList.remove("sfx-playing");
+  }
+  if (sfxPlayingIdx === idx && !sfxAudio.paused) { sfxPlayingIdx = -1; return; }
+
+  sfxPlayingIdx = idx;
+  const s = SFX[idx];
+  sfxAudio = new Audio(AUDIO_BASE + s.file);
+  sfxAudio.volume = 0.9;
+  sfxAudio.play().catch(() => {});
+  document.getElementById("sfx-" + idx).classList.add("sfx-playing");
+
+  sfxAudio.addEventListener("ended", () => {
+    document.getElementById("sfx-" + idx).classList.remove("sfx-playing");
+    sfxPlayingIdx = -1;
+  });
+}
+
+// ─── UTILS ────────────────────────────────────────────────
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+</script>
+</body>
+</html>
