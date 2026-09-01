@@ -8,7 +8,7 @@
   <meta property="og:description" content="Characters, animation and complete pixel worlds.">
   <meta property="og:image" content="og.png">
   <title>Wild Strokes — Pixel Art, Animation & Game Worlds</title>
-  <link rel="stylesheet" href="styles.css?v=20260901-4">
+  <link rel="stylesheet" href="styles.css?v=20260902-1">
 </head>
 <body>
   <main>
@@ -20,28 +20,37 @@
     </header>
 
     <section class="hero" id="top">
+      <aside class="issue-rail" aria-label="Portfolio edition"><strong>ISSUE</strong><b>01</b><span>EST. 2026</span><em>207<br>PIECES</em></aside>
       <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> OPEN FOR COMMISSIONS</div>
-        <h1><span>WILD</span><span class="stroke-title">STROKES</span></h1>
-        <p class="hero-lede">Bold characters, living worlds and frame-by-frame magic—crafted for games, stories and creators who refuse to look ordinary.</p>
-        <div class="hero-actions"><a class="pixel-button primary" href="#work">EXPLORE 207 WORKS <span>→</span></a><a class="text-link" href="#contact">LET'S CREATE <span>↗</span></a></div>
-        <div class="mini-stats" aria-label="Portfolio highlights"><span><b>207</b> UNIQUE PIECES</span><span><b>06</b> CATEGORIES</span><span><b>2D</b> PIXEL FOCUSED</span></div>
+        <span class="section-kicker">THE PIXEL ARCHIVE / CURATED EDITION</span>
+        <h1>EXPLORE<br>THE WORK</h1>
+        <p>Animation first. Then the strongest characters, worlds and game assets—arranged from warm tones through green, blue, violet and dark.</p>
+        <a class="pixel-button primary" href="#work">VIEW THE COLLECTION →</a>
       </div>
-      <div class="hero-showcase" aria-label="Featured pixel art collection">
-        <div class="showcase-label"><span>SELECTED WORK / 2026</span><span>● LIVE</span></div>
-        <button class="feature feature-main" data-art="art-153" aria-label="Open featured environment artwork"><img src="gallery/art-153.jpg" alt="Colorful isometric fantasy environment"></button>
-        <button class="feature feature-a" data-art="art-178" aria-label="Open featured character animation"><img src="gallery/art-178.gif" alt="Pixel character animation"></button>
-        <button class="feature feature-b" data-art="art-087" aria-label="Open featured island artwork"><img src="gallery/art-087.jpg" alt="Pixel island environment"></button>
-        <div class="showcase-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <button class="cover-art" data-art="art-207" aria-label="Open featured sprite studies artwork">
+        <img src="gallery/art-207.jpg" alt="Featured pixel-art character collection">
+        <span><b>FEATURED COLLECTION</b><em>SPRITE STUDIES / YURI YAKOVLEV</em></span>
+      </button>
+    </section>
+
+    <section class="ticker" aria-label="Studio specialties"><div>ANIMATION <b>★</b> CHARACTER ART <b>★</b> ENVIRONMENTS <b>★</b> GAME ASSETS &amp; UI <b>★</b> PIXEL FX <b>★</b> MATCHING SETS <b>★</b> ANIMATION <b>★</b> CHARACTER ART <b>★</b></div></section>
+
+    <section class="animation-front" aria-labelledby="animation-title">
+      <div class="animation-heading"><div><span>01 / MOTION FIRST</span><h2 id="animation-title">ANIMATION SPOTLIGHT</h2></div><p>Selected loops, attacks and movement studies playing right on the front page.</p></div>
+      <div class="animation-grid">
+        <button class="spotlight-card spotlight-main" data-art="art-177"><img src="gallery/art-177.gif" alt="Featured character animation"><span>CECILLE PROFILE <b>FEATURED LOOP</b></span></button>
+        <button class="spotlight-card" data-art="art-178"><img src="gallery/art-178.gif" alt="Character gun animation"><span>GUN <b>ACTION</b></span></button>
+        <button class="spotlight-card" data-art="art-012"><img src="gallery/art-012.gif" alt="Sword attack animation"><span>GREEN ATTACK <b>COMBAT</b></span></button>
+        <button class="spotlight-card" data-art="art-038"><img src="gallery/art-038.gif" alt="Character run animation"><span>RUN CYCLE <b>MOVEMENT</b></span></button>
+        <button class="spotlight-card" data-art="art-073"><img src="gallery/art-073.gif" alt="Viking idle animation"><span>VIKING IDLE <b>IDLE LOOP</b></span></button>
       </div>
     </section>
 
-    <section class="marquee" aria-label="Studio specialties"><div>CHARACTERS <b>✦</b> ANIMATION <b>✦</b> ENVIRONMENTS <b>✦</b> GAME ASSETS <b>✦</b> MATCHING SETS <b>✦</b> PIXEL WORLDS <b>✦</b> CHARACTERS <b>✦</b> ANIMATION <b>✦</b> ENVIRONMENTS <b>✦</b></div></section>
-
     <section class="portfolio" id="work">
-      <div class="section-heading"><div><span class="section-kicker">THE PIXEL ARCHIVE</span><h2>EXPLORE THE WORK</h2></div><p>Every artist gets the spotlight: one selected work from each artist appears first in A–Z order, followed by the complete archive.</p></div>
+      <div class="section-heading"><div><span class="section-kicker">02 / FULL ARCHIVE</span><h2>ALL THE WORK</h2></div><p>The strongest work appears first in a deliberate colour sequence; the complete 207-piece archive follows.</p></div>
       <div class="view-only-note" aria-label="Portfolio viewing notice"><span>VIEW ONLY</span> Right-click, drag and direct download are disabled.</div>
       <div class="filters" role="group" aria-label="Filter portfolio"></div>
+      <div class="palette-order" aria-label="Artwork colour sequence"><span class="warm">WARM</span><span class="earth">EARTH</span><span class="green">GREEN</span><span class="blue">BLUE</span><span class="violet">VIOLET</span><span class="mono">DARK</span></div>
       <div class="gallery-grid" aria-live="polite"></div>
       <button class="load-more" type="button" hidden>LOAD MORE PIXELS <span></span></button>
     </section>
@@ -70,7 +79,7 @@
     <button class="close-lightbox" type="button" aria-label="Close artwork preview">×</button>
     <div class="lightbox-content"><div class="lightbox-media"></div><div class="lightbox-meta"><span></span><h2></h2><p></p><small>Press ESC or tap outside to close</small></div></div>
   </div>
-  <script src="gallery-data.js?v=20260901-4" defer></script>
-  <script src="app.js?v=20260901-4" defer></script>
+  <script src="gallery-data.js?v=20260902-1" defer></script>
+  <script src="app.js?v=20260902-1" defer></script>
 </body>
 </html>
