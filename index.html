@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore 207 unique pixel-art works across characters, animation, environments, game assets, concepts and matching sets.">
+  <meta property="og:title" content="Wild Strokes — Pixel Art Studio">
+  <meta property="og:description" content="Characters, animation and complete pixel worlds.">
+  <meta property="og:image" content="og.png">
+  <title>Wild Strokes — Pixel Art, Animation & Game Worlds</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <div class="pixel-grid" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Wild Strokes home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>WILD STROKES</span></a>
+      <nav aria-label="Main navigation"><a href="#work">WORK</a><a href="#services">SERVICES</a><a href="#process">PROCESS</a><a href="#contact">CONTACT</a></nav>
+      <a class="pixel-button compact" href="mailto:strokeswild08@gmail.com">START A QUEST</a>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> OPEN FOR COMMISSIONS</div>
+        <h1><span>WILD</span><span class="stroke-title">STROKES</span></h1>
+        <p class="hero-lede">Bold characters, living worlds and frame-by-frame magic—crafted for games, stories and creators who refuse to look ordinary.</p>
+        <div class="hero-actions"><a class="pixel-button primary" href="#work">EXPLORE 207 WORKS <span>→</span></a><a class="text-link" href="#contact">LET'S CREATE <span>↗</span></a></div>
+        <div class="mini-stats" aria-label="Portfolio highlights"><span><b>207</b> UNIQUE PIECES</span><span><b>06</b> CATEGORIES</span><span><b>2D</b> PIXEL FOCUSED</span></div>
+      </div>
+      <div class="hero-showcase" aria-label="Featured pixel art collection">
+        <div class="showcase-label"><span>SELECTED WORK / 2026</span><span>● LIVE</span></div>
+        <button class="feature feature-main" data-art="art-153" aria-label="Open featured environment artwork"><img src="gallery/art-153.jpg" alt="Colorful isometric fantasy environment"></button>
+        <button class="feature feature-a" data-art="art-178" aria-label="Open featured character animation"><img src="gallery/art-178.gif" alt="Pixel character animation"></button>
+        <button class="feature feature-b" data-art="art-087" aria-label="Open featured island artwork"><img src="gallery/art-087.jpg" alt="Pixel island environment"></button>
+        <div class="showcase-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Studio specialties"><div>CHARACTERS <b>✦</b> ANIMATION <b>✦</b> ENVIRONMENTS <b>✦</b> GAME ASSETS <b>✦</b> MATCHING SETS <b>✦</b> PIXEL WORLDS <b>✦</b> CHARACTERS <b>✦</b> ANIMATION <b>✦</b> ENVIRONMENTS <b>✦</b></div></section>
+
+    <section class="portfolio" id="work">
+      <div class="section-heading"><div><span class="section-kicker">THE PIXEL ARCHIVE</span><h2>EXPLORE THE WORK</h2></div><p>From tiny heroes to complete worlds. Choose a category, then tap any piece for a closer look.</p></div>
+      <div class="filters" role="group" aria-label="Filter portfolio"></div>
+      <div class="gallery-grid" aria-live="polite"></div>
+      <button class="load-more" type="button" hidden>LOAD MORE PIXELS <span></span></button>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-heading inverse"><div><span class="section-kicker">WHAT WE CRAFT</span><h2>BUILD YOUR WORLD</h2></div><p>Flexible pixel-art support for indie games, creators, brands and personal commissions.</p></div>
+      <div class="service-grid">
+        <article class="service-card coral"><span>01 / HEROES</span><b>◆</b><h3>CHARACTER ART</h3><p>Heroes, creatures, portraits, enemies and expressive matching designs.</p></article>
+        <article class="service-card aqua"><span>02 / MOTION</span><b>▶</b><h3>ANIMATION</h3><p>Idle loops, attacks, VFX, movement cycles and story-ready moments.</p></article>
+        <article class="service-card yellow"><span>03 / WORLDS</span><b>▦</b><h3>GAME ASSETS</h3><p>Tiles, props, UI, environments and cohesive production-ready art packs.</p></article>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <span class="section-kicker">THE WILD STROKES FORMULA</span>
+      <div class="process-grid"><article><b>01</b><h3>SHARE THE IDEA</h3><p>Send references, size, style and the feeling you want.</p></article><i>→</i><article><b>02</b><h3>SHAPE THE PIXELS</h3><p>We sketch, refine and animate with clear checkpoints.</p></article><i>→</i><article><b>03</b><h3>GO LIVE</h3><p>You receive polished, organized files ready for your world.</p></article></div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-copy"><span class="footer-kicker">READY FOR THE NEXT LEVEL?</span><h2>LET'S MAKE<br><em>SOMETHING WILD.</em></h2><p>Tell us what you're building and where the pixels need to go.</p></div>
+      <div class="contact-links"><a href="https://discord.com/users/wildstrokes23" target="_blank" rel="noreferrer"><span>DISCORD</span><strong>@wildstrokes23</strong><i>↗</i></a><a href="mailto:strokeswild08@gmail.com"><span>EMAIL</span><strong>strokeswild08@gmail.com</strong><i>↗</i></a><small>Artwork credits are retained from the supplied source filenames.</small></div>
+    </footer>
+  </main>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Artwork preview" hidden>
+    <button class="close-lightbox" type="button" aria-label="Close artwork preview">×</button>
+    <div class="lightbox-content"><div class="lightbox-media"></div><div class="lightbox-meta"><span></span><h2></h2><p></p><small>Press ESC or tap outside to close</small></div></div>
+  </div>
+  <script src="gallery-data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

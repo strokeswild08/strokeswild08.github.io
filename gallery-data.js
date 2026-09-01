@@ -1,0 +1,2072 @@
+window.GALLERY_DATA = [
+  {
+    "id": "art-207",
+    "src": "/gallery/art-207.jpg",
+    "title": "Sprite Studies Large",
+    "artist": "Yuri Yakovlev",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "yuri-yakovlev-sprite-studies-large.jpg"
+  },
+  {
+    "id": "art-172",
+    "src": "/gallery/art-172.jpg",
+    "title": "Interactable Assets 2",
+    "artist": "Pollobi Ferdousi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-interactable-assets-2.jpg"
+  },
+  {
+    "id": "art-171",
+    "src": "/gallery/art-171.jpg",
+    "title": "Game Ui",
+    "artist": "Pollobi Ferdousi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-game-ui.jpg"
+  },
+  {
+    "id": "art-075",
+    "src": "/gallery/art-075.jpg",
+    "title": "Bllood Uplox",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-bllood-uplox.jpg"
+  },
+  {
+    "id": "art-169",
+    "src": "/gallery/art-169.jpg",
+    "title": "Fireplace Hub With Ambience Large Resize 1",
+    "artist": "Pollobi Ferdousi",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-fireplace-hub-with-ambience-large-resize-1.jpg"
+  },
+  {
+    "id": "art-168",
+    "src": "/gallery/art-168.jpg",
+    "title": "Chest Sprite Sheet",
+    "artist": "Pollobi Ferdousi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-chest-sprite-sheet.jpg"
+  },
+  {
+    "id": "art-089",
+    "src": "/gallery/art-089.jpg",
+    "title": "Tiles Model2",
+    "artist": "Fiona Bosquet",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "fiona-bosquet-tiles-model2.jpg"
+  },
+  {
+    "id": "art-088",
+    "src": "/gallery/art-088.jpg",
+    "title": "Island2",
+    "artist": "Fiona Bosquet",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "fiona-bosquet-island2.jpg"
+  },
+  {
+    "id": "art-087",
+    "src": "/gallery/art-087.jpg",
+    "title": "Island1",
+    "artist": "Fiona Bosquet",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "fiona-bosquet-island1.jpg"
+  },
+  {
+    "id": "art-160",
+    "src": "/gallery/art-160.jpg",
+    "title": "Projectsaffron 11 Blacksmithshop2",
+    "artist": "Miyuki Yamada",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-11-blacksmithshop2.jpg"
+  },
+  {
+    "id": "art-159",
+    "src": "/gallery/art-159.jpg",
+    "title": "Projectsaffron 10 Temple2",
+    "artist": "Miyuki Yamada",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-10-temple2.jpg"
+  },
+  {
+    "id": "art-158",
+    "src": "/gallery/art-158.jpg",
+    "title": "Projectsaffron 08 Potionshop2",
+    "artist": "Miyuki Yamada",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-08-potionshop2.jpg"
+  },
+  {
+    "id": "art-157",
+    "src": "/gallery/art-157.jpg",
+    "title": "Projectsaffron 07 Itemshop2",
+    "artist": "Miyuki Yamada",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-07-itemshop2.jpg"
+  },
+  {
+    "id": "art-156",
+    "src": "/gallery/art-156.jpg",
+    "title": "Projectsaffron 06 Tiles",
+    "artist": "Miyuki Yamada",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-06-tiles.jpg"
+  },
+  {
+    "id": "art-155",
+    "src": "/gallery/art-155.jpg",
+    "title": "Projectsaffron 05 Props",
+    "artist": "Miyuki Yamada",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-05-props.jpg"
+  },
+  {
+    "id": "art-154",
+    "src": "/gallery/art-154.jpg",
+    "title": "Projectsaffron 03 Nighttime",
+    "artist": "Miyuki Yamada",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-03-nighttime.jpg"
+  },
+  {
+    "id": "art-153",
+    "src": "/gallery/art-153.jpg",
+    "title": "Projectsaffron 02 Daytime",
+    "artist": "Miyuki Yamada",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "miyuki-yamada-projectsaffron-02-daytime.jpg"
+  },
+  {
+    "id": "art-112",
+    "src": "/gallery/art-112.jpg",
+    "title": "Backfutureup",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-backfutureup.jpg"
+  },
+  {
+    "id": "art-147",
+    "src": "/gallery/art-147.jpg",
+    "title": "New Enemies",
+    "artist": "Mav Vandagriff",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "mav-vandagriff-new-enemies - Copy.jpg"
+  },
+  {
+    "id": "art-146",
+    "src": "/gallery/art-146.jpg",
+    "title": "Goboma",
+    "artist": "Mav Vandagriff",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "mav-vandagriff-goboma - Copy.jpg"
+  },
+  {
+    "id": "art-145",
+    "src": "/gallery/art-145.jpg",
+    "title": "Chonky Bois",
+    "artist": "Mav Vandagriff",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "mav-vandagriff-chonky-bois - Copy.jpg"
+  },
+  {
+    "id": "art-144",
+    "src": "/gallery/art-144.jpg",
+    "title": "Bomb Gobo",
+    "artist": "Mav Vandagriff",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "mav-vandagriff-bomb-gobo - Copy.jpg"
+  },
+  {
+    "id": "art-082",
+    "src": "/gallery/art-082.jpg",
+    "title": "Veronica",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-veronica.jpg"
+  },
+  {
+    "id": "art-081",
+    "src": "/gallery/art-081.jpg",
+    "title": "Noel",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-noel.jpg"
+  },
+  {
+    "id": "art-080",
+    "src": "/gallery/art-080.jpg",
+    "title": "Midoriya",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-midoriya.jpg"
+  },
+  {
+    "id": "art-079",
+    "src": "/gallery/art-079.jpg",
+    "title": "Lunica",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-lunica.jpg"
+  },
+  {
+    "id": "art-078",
+    "src": "/gallery/art-078.jpg",
+    "title": "Kid Gohan",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-kid-gohan.jpg"
+  },
+  {
+    "id": "art-077",
+    "src": "/gallery/art-077.jpg",
+    "title": "Erza",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-erza.jpg"
+  },
+  {
+    "id": "art-076",
+    "src": "/gallery/art-076.jpg",
+    "title": "Diva",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-diva.jpg"
+  },
+  {
+    "id": "art-136",
+    "src": "/gallery/art-136.gif",
+    "title": "Ezgif Com Gif Maker",
+    "artist": "Maria Moreno",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "maria-moreno-ezgif-com-gif-maker - Copy.gif"
+  },
+  {
+    "id": "art-173",
+    "src": "/gallery/art-173.jpg",
+    "title": "Interactable Assets",
+    "artist": "Pollobi Ferdousi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-interactable-assets.jpg"
+  },
+  {
+    "id": "art-174",
+    "src": "/gallery/art-174.jpg",
+    "title": "Office Hub",
+    "artist": "Pollobi Ferdousi",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-office-hub.jpg"
+  },
+  {
+    "id": "art-170",
+    "src": "/gallery/art-170.jpg",
+    "title": "Fireplace Spritesheet",
+    "artist": "Pollobi Ferdousi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "pollobi-ferdousi-fireplace-spritesheet.jpg"
+  },
+  {
+    "id": "art-124",
+    "src": "/gallery/art-124.jpg",
+    "title": "5 Village",
+    "artist": "Lullaby Tran",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "lullaby-tran-5-village.jpg"
+  },
+  {
+    "id": "art-116",
+    "src": "/gallery/art-116.jpg",
+    "title": "Coffeemanup",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-coffeemanup.jpg"
+  },
+  {
+    "id": "art-193",
+    "src": "/gallery/art-193.gif",
+    "title": "Redd Enemies3",
+    "artist": "Viktor Stambert",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-enemies3.gif"
+  },
+  {
+    "id": "art-194",
+    "src": "/gallery/art-194.jpg",
+    "title": "Redd Pic 4",
+    "artist": "Viktor Stambert",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-pic-4.jpg"
+  },
+  {
+    "id": "art-195",
+    "src": "/gallery/art-195.jpg",
+    "title": "Redd S Adventure 2Nd Picture Fixed",
+    "artist": "Viktor Stambert",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-s-adventure-2nd-picture-fixed.jpg"
+  },
+  {
+    "id": "art-196",
+    "src": "/gallery/art-196.gif",
+    "title": "Redd S Adventure Intro Art Station Gif",
+    "artist": "Viktor Stambert",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-s-adventure-intro-art-station-gif.gif"
+  },
+  {
+    "id": "art-197",
+    "src": "/gallery/art-197.gif",
+    "title": "Redd S Adventure Sealine Beach Gif2",
+    "artist": "Viktor Stambert",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-s-adventure-sealine-beach-gif2.gif"
+  },
+  {
+    "id": "art-125",
+    "src": "/gallery/art-125.jpg",
+    "title": "6 Village",
+    "artist": "Lullaby Tran",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "lullaby-tran-6-village.jpg"
+  },
+  {
+    "id": "art-198",
+    "src": "/gallery/art-198.gif",
+    "title": "Redd S Adventure Sealine Beach",
+    "artist": "Viktor Stambert",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-s-adventure-sealine-beach.gif"
+  },
+  {
+    "id": "art-206",
+    "src": "/gallery/art-206.jpg",
+    "title": "Sprite Studies Crop3",
+    "artist": "Yuri Yakovlev",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "yuri-yakovlev-sprite-studies-crop3.jpg"
+  },
+  {
+    "id": "art-115",
+    "src": "/gallery/art-115.jpg",
+    "title": "Buinessmanup",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-buinessmanup.jpg"
+  },
+  {
+    "id": "art-114",
+    "src": "/gallery/art-114.jpg",
+    "title": "Breakingbad02up",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-breakingbad02up.jpg"
+  },
+  {
+    "id": "art-113",
+    "src": "/gallery/art-113.jpg",
+    "title": "Backtothefutureup",
+    "artist": "Liam Wolf",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-backtothefutureup.jpg"
+  },
+  {
+    "id": "art-204",
+    "src": "/gallery/art-204.jpg",
+    "title": "Sprite Studies Crop1",
+    "artist": "Yuri Yakovlev",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "yuri-yakovlev-sprite-studies-crop1.jpg"
+  },
+  {
+    "id": "art-205",
+    "src": "/gallery/art-205.jpg",
+    "title": "Sprite Studies Crop2",
+    "artist": "Yuri Yakovlev",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "yuri-yakovlev-sprite-studies-crop2.jpg"
+  },
+  {
+    "id": "art-199",
+    "src": "/gallery/art-199.gif",
+    "title": "Redd S Animations Gif Done Fixed",
+    "artist": "Viktor Stambert",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "viktor-stambert-redd-s-animations-gif-done-fixed.gif"
+  },
+  {
+    "id": "art-190",
+    "src": "/gallery/art-190.jpg",
+    "title": "Pixel Icons",
+    "artist": "Tiny Mint",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "tiny-mint-pixel-icons - Copy.jpg"
+  },
+  {
+    "id": "art-191",
+    "src": "/gallery/art-191.jpg",
+    "title": "196 20240621102700 Scaled 8X Pngcrushed",
+    "artist": "Tiny Mint",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "tiny-mint-untitled196-20240621102700-scaled-8x-pngcrushed - Copy.jpg"
+  },
+  {
+    "id": "art-188",
+    "src": "/gallery/art-188.jpg",
+    "title": "Pixel Assets",
+    "artist": "Tiny Mint",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "tiny-mint-pixel-assets - Copy.jpg"
+  },
+  {
+    "id": "art-177",
+    "src": "/gallery/art-177.gif",
+    "title": "Cecille Profile",
+    "artist": "Sam Bayot",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "sam-bayot-cecille-profile - Copy.gif"
+  },
+  {
+    "id": "art-178",
+    "src": "/gallery/art-178.gif",
+    "title": "Gun",
+    "artist": "Sam Bayot",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "sam-bayot-gun - Copy.gif"
+  },
+  {
+    "id": "art-179",
+    "src": "/gallery/art-179.gif",
+    "title": "Jumpgun",
+    "artist": "Sam Bayot",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "sam-bayot-jumpgun - Copy.gif"
+  },
+  {
+    "id": "art-180",
+    "src": "/gallery/art-180.gif",
+    "title": "Kickair",
+    "artist": "Sam Bayot",
+    "category": "Animation",
+    "media": "image",
+    "featured": true,
+    "original": "sam-bayot-kickair - Copy.gif"
+  },
+  {
+    "id": "art-123",
+    "src": "/gallery/art-123.jpg",
+    "title": "4 Village",
+    "artist": "Lullaby Tran",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "lullaby-tran-4-village.jpg"
+  },
+  {
+    "id": "art-189",
+    "src": "/gallery/art-189.jpg",
+    "title": "Pixel Bubbles",
+    "artist": "Tiny Mint",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": true,
+    "original": "tiny-mint-pixel-bubbles - Copy.jpg"
+  },
+  {
+    "id": "art-120",
+    "src": "/gallery/art-120.jpg",
+    "title": "Smallpixelboyup",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-smallpixelboyup.jpg"
+  },
+  {
+    "id": "art-122",
+    "src": "/gallery/art-122.jpg",
+    "title": "3 Village",
+    "artist": "Lullaby Tran",
+    "category": "Environments",
+    "media": "image",
+    "featured": true,
+    "original": "lullaby-tran-3-village.jpg"
+  },
+  {
+    "id": "art-119",
+    "src": "/gallery/art-119.jpg",
+    "title": "Pulpfictionup",
+    "artist": "Liam Wolf",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-pulpfictionup.jpg"
+  },
+  {
+    "id": "art-118",
+    "src": "/gallery/art-118.jpg",
+    "title": "Pixeltruckup",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-pixeltruckup.jpg"
+  },
+  {
+    "id": "art-117",
+    "src": "/gallery/art-117.jpg",
+    "title": "Pixelguy02up",
+    "artist": "Liam Wolf",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "liam-wolf-pixelguy02up.jpg"
+  },
+  {
+    "id": "art-074",
+    "src": "/gallery/art-074.jpg",
+    "title": "Blazblue Makoto",
+    "artist": "Eric Benavidez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": true,
+    "original": "eric-benavidez-blazblue-makoto.jpg"
+  },
+  {
+    "id": "art-121",
+    "src": "/gallery/art-121.gif",
+    "title": "Tumblr Nx6lwzizmr1u3yg8do1 1280",
+    "artist": "Lucas Pacheco",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "lucas-pacheco-tumblr-nx6lwzizmr1u3yg8do1-1280 - Copy.gif"
+  },
+  {
+    "id": "art-132",
+    "src": "/gallery/art-132.jpg",
+    "title": "Forgebowl2022 Concept 8S",
+    "artist": "Manuel Vormwald",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "manuel-vormwald-forgebowl2022-concept-8s.jpg"
+  },
+  {
+    "id": "art-129",
+    "src": "/gallery/art-129.jpg",
+    "title": "Pixel Motion Study",
+    "artist": "Maira Gallushi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "maira-gallushi-asset.jpg"
+  },
+  {
+    "id": "art-128",
+    "src": "/gallery/art-128.jpg",
+    "title": "Pixel Motion Study",
+    "artist": "Maira Gallushi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "maira-gallushi-asset (4).jpg"
+  },
+  {
+    "id": "art-127",
+    "src": "/gallery/art-127.jpg",
+    "title": "Pixel Motion Study",
+    "artist": "Maira Gallushi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "maira-gallushi-asset (3).jpg"
+  },
+  {
+    "id": "art-126",
+    "src": "/gallery/art-126.jpg",
+    "title": "Pixel Motion Study",
+    "artist": "Maira Gallushi",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "maira-gallushi-asset (1).jpg"
+  },
+  {
+    "id": "art-131",
+    "src": "/gallery/art-131.jpg",
+    "title": "Fall2021 Concept Smallsizefile5s",
+    "artist": "Manuel Vormwald",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "manuel-vormwald-fall2021-concept-smallsizefile5s.jpg"
+  },
+  {
+    "id": "art-130",
+    "src": "/gallery/art-130.jpg",
+    "title": "Fall2021 Concept Harvest Scene7s",
+    "artist": "Manuel Vormwald",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "manuel-vormwald-fall2021-concept-harvest-scene7s.jpg"
+  },
+  {
+    "id": "art-133",
+    "src": "/gallery/art-133.jpg",
+    "title": "Forgebowl2022 Concept Alllvels S",
+    "artist": "Manuel Vormwald",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "manuel-vormwald-forgebowl2022-concept-alllvels-s.jpg"
+  },
+  {
+    "id": "art-152",
+    "src": "/gallery/art-152.jpg",
+    "title": "Tbmpromo07",
+    "artist": "Michael Fitzhywel",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "michael-fitzhywel-tbmpromo07.jpg"
+  },
+  {
+    "id": "art-135",
+    "src": "/gallery/art-135.jpg",
+    "title": "Wood Garden Assets Samplex200",
+    "artist": "Maria Kuzmicheva",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "maria-kuzmicheva-wood-garden-assets-samplex200.jpg"
+  },
+  {
+    "id": "art-175",
+    "src": "/gallery/art-175.jpg",
+    "title": "2",
+    "artist": "Ruby Realm",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "ruby-realm-2.jpg"
+  },
+  {
+    "id": "art-176",
+    "src": "/gallery/art-176.jpg",
+    "title": "Pages",
+    "artist": "Ruby Realm",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "ruby-realm-pages.jpg"
+  },
+  {
+    "id": "art-181",
+    "src": "/gallery/art-181.jpg",
+    "title": "Antonio Armors",
+    "artist": "Samantha Ezrana",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "samantha-ezrana-antonio-armors.jpg"
+  },
+  {
+    "id": "art-182",
+    "src": "/gallery/art-182.jpg",
+    "title": "Armor Set 1",
+    "artist": "Samantha Ezrana",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": false,
+    "original": "samantha-ezrana-armor-set-1.jpg"
+  },
+  {
+    "id": "art-183",
+    "src": "/gallery/art-183.jpg",
+    "title": "Armor Set 2",
+    "artist": "Samantha Ezrana",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": false,
+    "original": "samantha-ezrana-armor-set-2.jpg"
+  },
+  {
+    "id": "art-184",
+    "src": "/gallery/art-184.jpg",
+    "title": "Weapons",
+    "artist": "Samantha Ezrana",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "samantha-ezrana-weapons.jpg"
+  },
+  {
+    "id": "art-167",
+    "src": "/gallery/art-167.jpg",
+    "title": "Temple Pixel",
+    "artist": "Pauline Brennetot",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "pauline-brennetot-temple-pixel.jpg"
+  },
+  {
+    "id": "art-185",
+    "src": "/gallery/art-185.webp",
+    "title": "Stab",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "stab.webp"
+  },
+  {
+    "id": "art-187",
+    "src": "/gallery/art-187.jpg",
+    "title": "7031 Thru 7037 Matresses R",
+    "artist": "Stone Perales",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "stone-perales-7031-thru-7037-matresses-r.jpg"
+  },
+  {
+    "id": "art-192",
+    "src": "/gallery/art-192.jpg",
+    "title": "Tyler Sprite 0003 Sheet Sheet",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "tyler-sprite-0003-sheet-sheet.jpg"
+  },
+  {
+    "id": "art-200",
+    "src": "/gallery/art-200.jpg",
+    "title": "Dragon Showoff",
+    "artist": "VLX Lipinski",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "vlx-lipinski-dragon-showoff - Copy.jpg"
+  },
+  {
+    "id": "art-201",
+    "src": "/gallery/art-201.jpg",
+    "title": "Tortoise Showoff",
+    "artist": "VLX Lipinski",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "vlx-lipinski-tortoise-showoff - Copy.jpg"
+  },
+  {
+    "id": "art-202",
+    "src": "/gallery/art-202.jpg",
+    "title": "Tox Showoff",
+    "artist": "VLX Lipinski",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "vlx-lipinski-tox-showoff - Copy.jpg"
+  },
+  {
+    "id": "art-203",
+    "src": "/gallery/art-203.gif",
+    "title": "Water Witch Splash Screen",
+    "artist": "Water Witch Studio",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "water-witch-studio-water-witch-splash-screen.gif"
+  },
+  {
+    "id": "art-186",
+    "src": "/gallery/art-186.jpg",
+    "title": "4018 Residential R03 Uprezed 2018",
+    "artist": "Stone Perales",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "stone-perales-4018-residential-r03-uprezed-2018.jpg"
+  },
+  {
+    "id": "art-134",
+    "src": "/gallery/art-134.jpg",
+    "title": "Wood Garden 2",
+    "artist": "Maria Kuzmicheva",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "maria-kuzmicheva-wood-garden-2.jpg"
+  },
+  {
+    "id": "art-166",
+    "src": "/gallery/art-166.jpg",
+    "title": "Img 1214",
+    "artist": "Pauline Brennetot",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "pauline-brennetot-img-1214.jpg"
+  },
+  {
+    "id": "art-164",
+    "src": "/gallery/art-164.jpg",
+    "title": "2",
+    "artist": "Olga Alimina",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "olga-alimina-2.jpg"
+  },
+  {
+    "id": "art-137",
+    "src": "/gallery/art-137.jpg",
+    "title": "Crops",
+    "artist": "Mariana Moreira",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "mariana-moreira-crops.jpg"
+  },
+  {
+    "id": "art-138",
+    "src": "/gallery/art-138.jpg",
+    "title": "Spring",
+    "artist": "Mariana Moreira",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "mariana-moreira-spring.jpg"
+  },
+  {
+    "id": "art-139",
+    "src": "/gallery/art-139.jpg",
+    "title": "Terrain",
+    "artist": "Mariana Moreira",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "mariana-moreira-terrain.jpg"
+  },
+  {
+    "id": "art-140",
+    "src": "/gallery/art-140.jpg",
+    "title": "Winter",
+    "artist": "Mariana Moreira",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "mariana-moreira-winter.jpg"
+  },
+  {
+    "id": "art-141",
+    "src": "/gallery/art-141.jpg",
+    "title": "Card Vfx Shader Base Cards",
+    "artist": "Mart Leander Barco",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "mart-leander-barco-card-vfx-shader-base-cards - Copy.jpg"
+  },
+  {
+    "id": "art-142",
+    "src": "/gallery/art-142.mp4",
+    "title": "Vfx Card Holographic Foil Artstn",
+    "artist": "Mart Leander Barco",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "mart-leander-barco-vfx-card-holographic-foil-artstn - Copy.mp4"
+  },
+  {
+    "id": "art-165",
+    "src": "/gallery/art-165.gif",
+    "title": "22",
+    "artist": "Olga Alimina",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "olga-alimina-22.gif"
+  },
+  {
+    "id": "art-143",
+    "src": "/gallery/art-143.mp4",
+    "title": "Vfx Card Holographic Foil Back Focus",
+    "artist": "Mart Leander Barco",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "mart-leander-barco-vfx-card-holographic-foil-back-focus - Copy.mp4"
+  },
+  {
+    "id": "art-149",
+    "src": "/gallery/art-149.jpg",
+    "title": "Tbmpromo01",
+    "artist": "Michael Fitzhywel",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "michael-fitzhywel-tbmpromo01.jpg"
+  },
+  {
+    "id": "art-150",
+    "src": "/gallery/art-150.jpg",
+    "title": "Tbmpromo03",
+    "artist": "Michael Fitzhywel",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "michael-fitzhywel-tbmpromo03.jpg"
+  },
+  {
+    "id": "art-151",
+    "src": "/gallery/art-151.jpg",
+    "title": "Tbmpromo06",
+    "artist": "Michael Fitzhywel",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "michael-fitzhywel-tbmpromo06.jpg"
+  },
+  {
+    "id": "art-161",
+    "src": "/gallery/art-161.jpg",
+    "title": "Projectsaffron 12 Mockup",
+    "artist": "Miyuki Yamada",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "miyuki-yamada-projectsaffron-12-mockup.jpg"
+  },
+  {
+    "id": "art-162",
+    "src": "/gallery/art-162.jpg",
+    "title": "Sprite Sheet2",
+    "artist": "Nicolas Garrido",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "nicolas-garrido-sprite-sheet2.jpg"
+  },
+  {
+    "id": "art-163",
+    "src": "/gallery/art-163.gif",
+    "title": "11",
+    "artist": "Olga Alimina",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "olga-alimina-11.gif"
+  },
+  {
+    "id": "art-148",
+    "src": "/gallery/art-148.jpg",
+    "title": "1000 Pix Props",
+    "artist": "Michael Fitzhywel",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "michael-fitzhywel-1000-pix-props.jpg"
+  },
+  {
+    "id": "art-111",
+    "src": "/gallery/art-111.jpg",
+    "title": "Spritesheetdownlox",
+    "artist": "Kyle Galenzoga",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "kyle-galenzoga-spritesheetdownlox.jpg"
+  },
+  {
+    "id": "art-104",
+    "src": "/gallery/art-104.webp",
+    "title": "Desert Export 2 Large",
+    "artist": "Jax Crow",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "jax-crow-desert-export-2-large.webp"
+  },
+  {
+    "id": "art-109",
+    "src": "/gallery/art-109.jpg",
+    "title": "Menubackground",
+    "artist": "Kyle Galenzoga",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "kyle-galenzoga-menubackground.jpg"
+  },
+  {
+    "id": "art-027",
+    "src": "/gallery/art-027.gif",
+    "title": "Piggy 1",
+    "artist": "Andrei Mishanin",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "andrei-mishanin-piggy-1.gif"
+  },
+  {
+    "id": "art-028",
+    "src": "/gallery/art-028.gif",
+    "title": "Piggy 2",
+    "artist": "Andrei Mishanin",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "andrei-mishanin-piggy-2.gif"
+  },
+  {
+    "id": "art-029",
+    "src": "/gallery/art-029.jpg",
+    "title": "(1)",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev- (1).jpg"
+  },
+  {
+    "id": "art-030",
+    "src": "/gallery/art-030.jpg",
+    "title": "Pixel Motion Study",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-.jpg"
+  },
+  {
+    "id": "art-031",
+    "src": "/gallery/art-031.jpg",
+    "title": "11",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-11.jpg"
+  },
+  {
+    "id": "art-032",
+    "src": "/gallery/art-032.jpg",
+    "title": "343",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-343.jpg"
+  },
+  {
+    "id": "art-033",
+    "src": "/gallery/art-033.jpg",
+    "title": "5 1",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-5-1.jpg"
+  },
+  {
+    "id": "art-034",
+    "src": "/gallery/art-034.jpg",
+    "title": "90B96869980723 5B980a2b96d2b",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-90b96869980723-5b980a2b96d2b.jpg"
+  },
+  {
+    "id": "art-035",
+    "src": "/gallery/art-035.jpg",
+    "title": "A9f96b69980723 5B93de32ce7c6",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-a9f96b69980723-5b93de32ce7c6.jpg"
+  },
+  {
+    "id": "art-026",
+    "src": "/gallery/art-026.webp",
+    "title": "122 20260209222621",
+    "artist": "Anastasia Burko",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "anastasia-burko-untitled122-20260209222621.webp"
+  },
+  {
+    "id": "art-036",
+    "src": "/gallery/art-036.jpg",
+    "title": "Tile Sets",
+    "artist": "Andrey Bychev",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "andrey-bychev-tile-sets.jpg"
+  },
+  {
+    "id": "art-038",
+    "src": "/gallery/art-038.gif",
+    "title": "01Rrk H Run 4X",
+    "artist": "Angelo Di Rosa",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "angelo-di-rosa-01rrk-h-run-4x - Copy.gif"
+  },
+  {
+    "id": "art-039",
+    "src": "/gallery/art-039.gif",
+    "title": "01Rrk H Stillatk",
+    "artist": "Angelo Di Rosa",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "angelo-di-rosa-01rrk-h-stillatk - Copy.gif"
+  },
+  {
+    "id": "art-040",
+    "src": "/gallery/art-040.gif",
+    "title": "01Rrk Idle 4X",
+    "artist": "Angelo Di Rosa",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "angelo-di-rosa-01rrk-idle-4x - Copy.gif"
+  },
+  {
+    "id": "art-041",
+    "src": "/gallery/art-041.webp",
+    "title": "Archher",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "archher.webp"
+  },
+  {
+    "id": "art-042",
+    "src": "/gallery/art-042.webp",
+    "title": "Pixel Motion Study",
+    "artist": "Artisan of Artifacts",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "artisan-of-artifacts-asset (1).webp"
+  },
+  {
+    "id": "art-043",
+    "src": "/gallery/art-043.webp",
+    "title": "Pixel Motion Study",
+    "artist": "Artisan of Artifacts",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "artisan-of-artifacts-asset (2).webp"
+  },
+  {
+    "id": "art-044",
+    "src": "/gallery/art-044.webp",
+    "title": "Pixel Motion Study",
+    "artist": "Artisan of Artifacts",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "artisan-of-artifacts-asset (3).webp"
+  },
+  {
+    "id": "art-045",
+    "src": "/gallery/art-045.webp",
+    "title": "Pixel Motion Study",
+    "artist": "Artisan of Artifacts",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "artisan-of-artifacts-asset.webp"
+  },
+  {
+    "id": "art-046",
+    "src": "/gallery/art-046.mp4",
+    "title": "Pixel Motion Study",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "asset (1).mp4"
+  },
+  {
+    "id": "art-037",
+    "src": "/gallery/art-037.gif",
+    "title": "01Rrk H Idle Show",
+    "artist": "Angelo Di Rosa",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "angelo-di-rosa-01rrk-h-idle-show - Copy.gif"
+  },
+  {
+    "id": "art-025",
+    "src": "/gallery/art-025.gif",
+    "title": "02 09 2026 10 33 50",
+    "artist": "Anastasia Burko",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "anastasia-burko-untitled-02-09-2026-10-33-50.gif"
+  },
+  {
+    "id": "art-024",
+    "src": "/gallery/art-024.gif",
+    "title": "02 09 2026 10 33 50 2",
+    "artist": "Anastasia Burko",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "anastasia-burko-untitled-02-09-2026-10-33-50-2.gif"
+  },
+  {
+    "id": "art-023",
+    "src": "/gallery/art-023.gif",
+    "title": "02 09 2026 10 33 50 1",
+    "artist": "Anastasia Burko",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "anastasia-burko-untitled-02-09-2026-10-33-50-1.gif"
+  },
+  {
+    "id": "art-002",
+    "src": "/gallery/art-002.webp",
+    "title": "0555",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "0555.webp"
+  },
+  {
+    "id": "art-003",
+    "src": "/gallery/art-003.png",
+    "title": "1349",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "1349.png"
+  },
+  {
+    "id": "art-004",
+    "src": "/gallery/art-004.png",
+    "title": "231637",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "231637.png"
+  },
+  {
+    "id": "art-005",
+    "src": "/gallery/art-005.png",
+    "title": "234619",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "234619.png"
+  },
+  {
+    "id": "art-006",
+    "src": "/gallery/art-006.png",
+    "title": "234812",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "234812.png"
+  },
+  {
+    "id": "art-007",
+    "src": "/gallery/art-007.png",
+    "title": "235107",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "235107.png"
+  },
+  {
+    "id": "art-008",
+    "src": "/gallery/art-008.png",
+    "title": "235608",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "235608.png"
+  },
+  {
+    "id": "art-009",
+    "src": "/gallery/art-009.png",
+    "title": "31527",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "31527.png"
+  },
+  {
+    "id": "art-010",
+    "src": "/gallery/art-010.png",
+    "title": "431",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "431.png"
+  },
+  {
+    "id": "art-011",
+    "src": "/gallery/art-011.png",
+    "title": "936",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "936.png"
+  },
+  {
+    "id": "art-012",
+    "src": "/gallery/art-012.gif",
+    "title": "Greenattack2newpost",
+    "artist": "Adam Jufer",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "adam-jufer-greenattack2newpost.gif"
+  },
+  {
+    "id": "art-013",
+    "src": "/gallery/art-013.jpg",
+    "title": "Spritesheet",
+    "artist": "Alex Bartlett",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "alex-bartlett-spritesheet.jpg"
+  },
+  {
+    "id": "art-014",
+    "src": "/gallery/art-014.jpg",
+    "title": "Chasseur Twi",
+    "artist": "Alice HMCK Draws",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-chasseur-twi - Copy.jpg"
+  },
+  {
+    "id": "art-015",
+    "src": "/gallery/art-015.jpg",
+    "title": "Forge Twi 2",
+    "artist": "Alice HMCK Draws",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-forge-twi-2 - Copy.jpg"
+  },
+  {
+    "id": "art-016",
+    "src": "/gallery/art-016.jpg",
+    "title": "Marche Twi",
+    "artist": "Alice HMCK Draws",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-marche-twi - Copy.jpg"
+  },
+  {
+    "id": "art-017",
+    "src": "/gallery/art-017.jpg",
+    "title": "Nouvelle Eglise Twi",
+    "artist": "Alice HMCK Draws",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-nouvelle-eglise-twi - Copy.jpg"
+  },
+  {
+    "id": "art-018",
+    "src": "/gallery/art-018.jpg",
+    "title": "Port Twi",
+    "artist": "Alice HMCK Draws",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-port-twi - Copy.jpg"
+  },
+  {
+    "id": "art-019",
+    "src": "/gallery/art-019.jpg",
+    "title": "Sorciere Twi",
+    "artist": "Alice HMCK Draws",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-sorciere-twi - Copy.jpg"
+  },
+  {
+    "id": "art-020",
+    "src": "/gallery/art-020.jpg",
+    "title": "Taverne Twi",
+    "artist": "Alice HMCK Draws",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "alice-hmck-draws-taverne-twi - Copy.jpg"
+  },
+  {
+    "id": "art-021",
+    "src": "/gallery/art-021.jpg",
+    "title": "Chara Sprite",
+    "artist": "Alicia Lee",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "alicia-lee-chara-sprite.jpg"
+  },
+  {
+    "id": "art-022",
+    "src": "/gallery/art-022.jpg",
+    "title": "Tiles",
+    "artist": "Alicia Lee",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "alicia-lee-tiles.jpg"
+  },
+  {
+    "id": "art-047",
+    "src": "/gallery/art-047.mp4",
+    "title": "Pixel Motion Study",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "asset (2).mp4"
+  },
+  {
+    "id": "art-110",
+    "src": "/gallery/art-110.jpg",
+    "title": "Spritesheetdownload2",
+    "artist": "Kyle Galenzoga",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "kyle-galenzoga-spritesheetdownload2.jpg"
+  },
+  {
+    "id": "art-048",
+    "src": "/gallery/art-048.mp4",
+    "title": "Pixel Motion Study",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "asset (3).mp4"
+  },
+  {
+    "id": "art-050",
+    "src": "/gallery/art-050.mp4",
+    "title": "Pixel Motion Study",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "asset.mp4"
+  },
+  {
+    "id": "art-085",
+    "src": "/gallery/art-085.jpg",
+    "title": "Img 1172",
+    "artist": "Finnja Pabst",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "finnja-pabst-img-1172 - Copy.jpg"
+  },
+  {
+    "id": "art-086",
+    "src": "/gallery/art-086.jpg",
+    "title": "Img 1174",
+    "artist": "Finnja Pabst",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "finnja-pabst-img-1174 - Copy.jpg"
+  },
+  {
+    "id": "art-090",
+    "src": "/gallery/art-090.jpg",
+    "title": "Attack Spritessheet 512 512",
+    "artist": "Guillermo Benites Casanova",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "guillermo-benites-casanova-attack-spritessheet-512-512.jpg"
+  },
+  {
+    "id": "art-091",
+    "src": "/gallery/art-091.jpg",
+    "title": "Idle Spritesheet 512 512",
+    "artist": "Guillermo Benites Casanova",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "guillermo-benites-casanova-idle-spritesheet-512-512.jpg"
+  },
+  {
+    "id": "art-092",
+    "src": "/gallery/art-092.jpg",
+    "title": "Jump Spritesheet 512 512",
+    "artist": "Guillermo Benites Casanova",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "guillermo-benites-casanova-jump-spritesheet-512-512.jpg"
+  },
+  {
+    "id": "art-093",
+    "src": "/gallery/art-093.jpg",
+    "title": "Run Srpitesheet 512 512",
+    "artist": "Guillermo Benites Casanova",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "guillermo-benites-casanova-run-srpitesheet-512-512.jpg"
+  },
+  {
+    "id": "art-094",
+    "src": "/gallery/art-094.jpg",
+    "title": "Walk Spritesheet 512 512",
+    "artist": "Guillermo Benites Casanova",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "guillermo-benites-casanova-walk-spritesheet-512-512.jpg"
+  },
+  {
+    "id": "art-095",
+    "src": "/gallery/art-095.jpg",
+    "title": "05Smaller",
+    "artist": "Jackie Cummings",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "jackie-cumminngs-05smaller.jpg"
+  },
+  {
+    "id": "art-096",
+    "src": "/gallery/art-096.jpg",
+    "title": "House",
+    "artist": "Jackie Cummings",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "jackie-cumminngs-house.jpg"
+  },
+  {
+    "id": "art-084",
+    "src": "/gallery/art-084.jpg",
+    "title": "Img 1169",
+    "artist": "Finnja Pabst",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "finnja-pabst-img-1169 - Copy.jpg"
+  },
+  {
+    "id": "art-097",
+    "src": "/gallery/art-097.jpg",
+    "title": "Project05c",
+    "artist": "Jackie Cummings",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "jackie-cumminngs-project05c.jpg"
+  },
+  {
+    "id": "art-099",
+    "src": "/gallery/art-099.jpg",
+    "title": "Trees",
+    "artist": "Jackie Cummings",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "jackie-cumminngs-trees.jpg"
+  },
+  {
+    "id": "art-100",
+    "src": "/gallery/art-100.gif",
+    "title": "Gameobject Forge Main",
+    "artist": "Janina Heese",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "janina-heese-gameobject-forge-main.gif"
+  },
+  {
+    "id": "art-101",
+    "src": "/gallery/art-101.jpg",
+    "title": "Highrisers Assets 1",
+    "artist": "Janina Heese",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "janina-heese-highrisers-assets-1.jpg"
+  },
+  {
+    "id": "art-102",
+    "src": "/gallery/art-102.jpg",
+    "title": "Highrisers Assets 3",
+    "artist": "Janina Heese",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "janina-heese-highrisers-assets-3.jpg"
+  },
+  {
+    "id": "art-103",
+    "src": "/gallery/art-103.jpg",
+    "title": "Portfolio Pixelart Janinaheese Html M4bfab468",
+    "artist": "Janina Heese",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "janina-heese-portfolio-pixelart-janinaheese-html-m4bfab468.jpg"
+  },
+  {
+    "id": "art-105",
+    "src": "/gallery/art-105.webp",
+    "title": "Itch Wallpaperbg 2",
+    "artist": "Jax Crow",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "jax-crow-itch-wallpaperbg-2.webp"
+  },
+  {
+    "id": "art-106",
+    "src": "/gallery/art-106.webp",
+    "title": "Itchio Asset",
+    "artist": "Jax Crow",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "jax-crow-itchio-asset.webp"
+  },
+  {
+    "id": "art-107",
+    "src": "/gallery/art-107.gif",
+    "title": "Konark Sun Temple",
+    "artist": "Kartheek Raj",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "kartheek-raj-konark-sun-temple.gif"
+  },
+  {
+    "id": "art-108",
+    "src": "/gallery/art-108.jpg",
+    "title": "Asset Sheet",
+    "artist": "Kayleigh",
+    "category": "Matching Sets",
+    "media": "image",
+    "featured": false,
+    "original": "kayleigh-asset-sheet - Copy.jpg"
+  },
+  {
+    "id": "art-098",
+    "src": "/gallery/art-098.jpg",
+    "title": "Rocks",
+    "artist": "Jackie Cummings",
+    "category": "Game Assets & UI",
+    "media": "image",
+    "featured": false,
+    "original": "jackie-cumminngs-rocks.jpg"
+  },
+  {
+    "id": "art-083",
+    "src": "/gallery/art-083.webm",
+    "title": "Fcb80112 Fb03 4433 9C9f 5579Aa1cb2f3",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "fcb80112-fb03-4433-9c9f-5579aa1cb2f3.webm"
+  },
+  {
+    "id": "art-073",
+    "src": "/gallery/art-073.gif",
+    "title": "Viking Idle Reflect",
+    "artist": "E. Everett",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "e-everett-viking-idle-reflect - Copy.gif"
+  },
+  {
+    "id": "art-072",
+    "src": "/gallery/art-072.gif",
+    "title": "Attack Combo Reflect",
+    "artist": "E. Everett",
+    "category": "Animation",
+    "media": "image",
+    "featured": false,
+    "original": "e-everett-attack-combo-reflect - Copy.gif"
+  },
+  {
+    "id": "art-051",
+    "src": "/gallery/art-051.webp",
+    "title": "Fhalk 89V99fi9y2afinalered",
+    "artist": "Barbs Lopez",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "barbs-lopez-fhalk-89v99fi9y2afinalered.webp"
+  },
+  {
+    "id": "art-052",
+    "src": "/gallery/art-052.webm",
+    "title": "Bd487477 26E9 4696 84F4 Ae95bbe75fcf",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "bd487477-26e9-4696-84f4-ae95bbe75fcf.webm"
+  },
+  {
+    "id": "art-053",
+    "src": "/gallery/art-053.jpg",
+    "title": "Ancient Building2",
+    "artist": "Carlos Aguilera",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "carlos-aguilera-ancient-building2.jpg"
+  },
+  {
+    "id": "art-054",
+    "src": "/gallery/art-054.jpg",
+    "title": "Illustration",
+    "artist": "Cassandra FRG",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "cassandra-frg-illustration.jpg"
+  },
+  {
+    "id": "art-055",
+    "src": "/gallery/art-055.webm",
+    "title": "Ce71edcf 4904 4Fb2 B56c Dcdfbdeecf0b",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "ce71edcf-4904-4fb2-b56c-dcdfbdeecf0b.webm"
+  },
+  {
+    "id": "art-056",
+    "src": "/gallery/art-056.jpg",
+    "title": "Waiko Level Design Cbb",
+    "artist": "Claude Blanchet Babin",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "claude-blanchet-babin-waiko-level-design-cbb.jpg"
+  },
+  {
+    "id": "art-057",
+    "src": "/gallery/art-057.jpg",
+    "title": "Waiko Level Design Conception Cbb 1",
+    "artist": "Claude Blanchet Babin",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "claude-blanchet-babin-waiko-level-design-conception-cbb-1.jpg"
+  },
+  {
+    "id": "art-058",
+    "src": "/gallery/art-058.jpg",
+    "title": "Waiko Level Design Conception Cbb 2",
+    "artist": "Claude Blanchet Babin",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "claude-blanchet-babin-waiko-level-design-conception-cbb-2.jpg"
+  },
+  {
+    "id": "art-059",
+    "src": "/gallery/art-059.webp",
+    "title": "Anggakusumah Hiker House",
+    "artist": "Codem Crafts",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-anggakusumah-hiker-house - Copy.webp"
+  },
+  {
+    "id": "art-060",
+    "src": "/gallery/art-060.webp",
+    "title": "Anggakusumah House Proses",
+    "artist": "Codem Crafts",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-anggakusumah-house-proses - Copy.webp"
+  },
+  {
+    "id": "art-061",
+    "src": "/gallery/art-061.webp",
+    "title": "Anggakusumah Proses",
+    "artist": "Codem Crafts",
+    "category": "Process & Concepts",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-anggakusumah-proses - Copy.webp"
+  },
+  {
+    "id": "art-062",
+    "src": "/gallery/art-062.jpg",
+    "title": "Deniz Ates Home Outside Demo",
+    "artist": "Codem Crafts",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-deniz-ates-home-outside-demo - Copy.jpg"
+  },
+  {
+    "id": "art-063",
+    "src": "/gallery/art-063.jpg",
+    "title": "Nxshpxl Mock Up16 Cleanup",
+    "artist": "Codem Crafts",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-nxshpxl-mock-up16-cleanup - Copy.jpg"
+  },
+  {
+    "id": "art-064",
+    "src": "/gallery/art-064.jpg",
+    "title": "Nxshpxl Mock Up17 Cleanup",
+    "artist": "Codem Crafts",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-nxshpxl-mock-up17-cleanup - Copy.jpg"
+  },
+  {
+    "id": "art-065",
+    "src": "/gallery/art-065.jpg",
+    "title": "Nxshpxl Mock Up18 Cleanup",
+    "artist": "Codem Crafts",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-nxshpxl-mock-up18-cleanup - Copy.jpg"
+  },
+  {
+    "id": "art-066",
+    "src": "/gallery/art-066.jpg",
+    "title": "Nxshpxl Mock Up20 Cleanup",
+    "artist": "Codem Crafts",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-nxshpxl-mock-up20-cleanup - Copy.jpg"
+  },
+  {
+    "id": "art-067",
+    "src": "/gallery/art-067.jpg",
+    "title": "Nxshpxl Mock Up21 Cleanup",
+    "artist": "Codem Crafts",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-nxshpxl-mock-up21-cleanup - Copy.jpg"
+  },
+  {
+    "id": "art-068",
+    "src": "/gallery/art-068.jpg",
+    "title": "Nxshpxl Suburb House Cleanup",
+    "artist": "Codem Crafts",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "codem-crafts-nxshpxl-suburb-house-cleanup - Copy.jpg"
+  },
+  {
+    "id": "art-069",
+    "src": "/gallery/art-069.jpg",
+    "title": "Traditional Balinesse Building",
+    "artist": "Daffa Robbie",
+    "category": "Environments",
+    "media": "image",
+    "featured": false,
+    "original": "daffa-robbie-traditional-balinesse-building.jpg"
+  },
+  {
+    "id": "art-070",
+    "src": "/gallery/art-070.webp",
+    "title": "Death",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "death.webp"
+  },
+  {
+    "id": "art-071",
+    "src": "/gallery/art-071.webp",
+    "title": "Doll",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "doll.webp"
+  },
+  {
+    "id": "art-049",
+    "src": "/gallery/art-049.mp4",
+    "title": "Pixel Motion Study",
+    "artist": "Supplied artwork",
+    "category": "Animation",
+    "media": "video",
+    "featured": false,
+    "original": "asset (4).mp4"
+  },
+  {
+    "id": "art-001",
+    "src": "/gallery/art-001.png",
+    "title": "00425",
+    "artist": "Supplied artwork",
+    "category": "Character Art",
+    "media": "image",
+    "featured": false,
+    "original": "00425.png"
+  }
+];
