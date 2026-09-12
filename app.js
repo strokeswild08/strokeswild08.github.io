@@ -6,7 +6,6 @@ const lightbox = document.querySelector('.lightbox');
 const lightboxMedia = document.querySelector('.lightbox-media');
 const lightboxCategory = document.querySelector('.lightbox-meta span');
 const lightboxTitle = document.querySelector('.lightbox-meta h2');
-const lightboxCredit = document.querySelector('.lightbox-meta p');
 let items = [];
 let activeCategory = 'Animation';
 const pageSize = 24;
@@ -63,10 +62,10 @@ function renderGallery() {
   const filtered = filteredItems();
   gallery.innerHTML = filtered.slice(0, visibleCount).map((item,index) => `
     <article class="gallery-card tone-${Math.min(5, Math.floor(index / 4))}">
-      <button class="art-frame" type="button" data-art="${item.id}" aria-label="Open ${item.title} by ${item.artist}">
+      <button class="art-frame" type="button" data-art="${item.id}" aria-label="Open ${item.title}">
         ${mediaMarkup(item,index)}<span class="open-cue">OPEN +</span>
       </button>
-      <div class="card-meta"><div><span>${item.category}</span><h3>${item.title}</h3></div><p>${item.artist}</p></div>
+      <div class="card-meta"><div><span>${item.category}</span><h3>${item.title}</h3></div></div>
     </article>`).join('');
   gallery.querySelectorAll('[data-art]').forEach(button => {
     button.addEventListener('click', () => openArt(button.dataset.art));
@@ -87,7 +86,6 @@ function openArt(id) {
   lightboxMedia.innerHTML = item.media === 'video' ? `<video src="${src}" controls controlslist="nodownload" autoplay loop playsinline draggable="false"></video>` : `<img src="${src}" alt="${item.title}" draggable="false">`;
   lightboxCategory.textContent = item.category;
   lightboxTitle.textContent = item.title;
-  lightboxCredit.textContent = `Credit: ${item.artist}`;
   lightbox.hidden = false;
   document.body.classList.add('modal-open');
   document.querySelector('.close-lightbox').focus();
