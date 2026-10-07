@@ -4,7 +4,7 @@ import {validTarget,damagePreview,targetsFor} from './combat.js';
 import {canAct} from './turns.js';
 export const project=(x,y,height=0)=>({x:480+(x-y)*32,y:130+(x+y)*16-height*17});
 export class Renderer{
-  constructor(canvas,sprites,camera,effects){this.canvas=canvas;this.c=canvas.getContext('2d');this.sprites=sprites;this.camera=camera;this.fx=effects;this.hp=new Map();}
+  constructor(canvas,sprites,camera,effects){this.canvas=canvas;this.c=canvas.getContext('2d');this.sprites=sprites;this.camera=camera;this.fx=effects;this.hp=new Map();this.groundCache=null;this.cachedGrid=null;}
   position(state,u){const motion=this.fx.motions.get(u.id);let x=u.x,y=u.y,height=tile(state,x,y)?.height||0;
     if(motion){const k=Math.min(1,(this.fx.time-motion.start)/motion.duration);x=motion.from.x+(motion.to.x-motion.from.x)*k;y=motion.from.y+(motion.to.y-motion.from.y)*k;height=(tile(state,motion.from.x,motion.from.y)?.height||0)*(1-k)+(tile(state,motion.to.x,motion.to.y)?.height||0)*k;}
     return project(x,y,height);
@@ -20,7 +20,11 @@ export class Renderer{
     c.fillStyle='#7b987919';c.beginPath();c.ellipse(480,371,345,132,0,0,Math.PI*2);c.fill();
     const shake=this.fx.shake;c.translate(480+this.camera.x+Math.sin(time*60)*shake,300+this.camera.y+Math.cos(time*46)*shake*.5);c.scale(this.camera.zoom,this.camera.zoom);c.translate(-480,-300);
     const selected=state.units.find(u=>u.id===view.selected),reach=selected&&canAct(state,selected)&&view.mode==='move'&&!view.busy?reachable(state,selected).cost:null;
-    for(const t of [...state.grid].sort((a,b)=>(a.x+a.y)-(b.x+b.y)||a.y-b.y)){const p=project(t.x,t.y,t.height);this.drawGround(c,t,p,time);
+    // Terrain does not change during a match. Rasterize its thousands of pixel
+    // strokes once, then draw a single surface while units and effects animate.
+    if(this.cachedGrid!==state.grid){this.groundCache=document.createElement('canvas');this.groundCache.width=960;this.groundCache.height=610;const ground=this.groundCache.getContext('2d');for(const t of [...state.grid].sort((a,b)=>(a.x+a.y)-(b.x+b.y)||a.y-b.y)){const p=project(t.x,t.y,t.height);this.drawGround(ground,t,p,time);}this.cachedGrid=state.grid;}
+    c.drawImage(this.groundCache,0,0);
+    for(const t of [...state.grid].sort((a,b)=>(a.x+a.y)-(b.x+b.y)||a.y-b.y)){const p=project(t.x,t.y,t.height);
       if(!view.menu&&reach?.has(key(t.x,t.y))&&!(t.x===selected.x&&t.y===selected.y)){polygon(c,[[p.x,p.y-14],[p.x+28,p.y],[p.x,p.y+14],[p.x-28,p.y]],'#a8c79c34');stroke(c,p.x-27,p.y,p.x,p.y+13,'#98b38d',1);stroke(c,p.x,p.y+13,p.x+27,p.y,'#98b38d',1);}
       if(!view.menu&&selected&&['attack','ability'].includes(view.mode)&&view.ability!=='stance'&&view.ability!=='step'&&canAct(state,selected)&&!view.busy){const a=validTarget(state,selected,t,view.mode==='attack'?'basic':view.ability);if(a.ok){polygon(c,[[p.x,p.y-13],[p.x+27,p.y],[p.x,p.y+13],[p.x-27,p.y]],view.ability==='shield'?'#83bace44':'#d187624a');}}
       if(!view.menu&&view.hover?.x===t.x&&view.hover?.y===t.y||!view.menu&&view.pending?.x===t.x&&view.pending?.y===t.y){const pending=view.pending?.x===t.x&&view.pending?.y===t.y;stroke(c,p.x-30,p.y,p.x,p.y-15,pending?'#f2d49c':'#cdd6b7',2);stroke(c,p.x,p.y-15,p.x+30,p.y,pending?'#f2d49c':'#cdd6b7',2);stroke(c,p.x+30,p.y,p.x,p.y+15,pending?'#f2d49c':'#cdd6b7',2);stroke(c,p.x,p.y+15,p.x-30,p.y,pending?'#f2d49c':'#cdd6b7',2);}
