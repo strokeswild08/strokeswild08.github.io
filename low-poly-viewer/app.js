@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from './vendor/OrbitControls.js';
 import { GLTFLoader } from './vendor/GLTFLoader.js';
 import { SVGRenderer } from './vendor/SVGRenderer.js';
-import { createOutpost, createRobot } from './models.js?v=2';
+import { createOutpost, createRobot } from './models.js?v=3';
 import { inspectModel, normalizeModel, validateFile, validateGlb, disposeModel } from './viewer-utils.js';
 
 const ui = Object.fromEntries([...document.querySelectorAll('[id]')].map(element => [element.id, element]));

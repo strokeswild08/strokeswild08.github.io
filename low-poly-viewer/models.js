@@ -127,8 +127,8 @@ export function createRobot() {
   face.position.set(0,3.09,.06);
   face.rotation.y = -.14;
   box(face, [1.04,.52,.08], '#35534e', [0,0,.47]);
-  for (const side of [-1,1]) box(face, [.18,.15,.09], '#d7e9ad', [side*.26,.055,.52]);
-  box(face, [.27,.035,.09], '#93b3a0', [0,-.14,.52]);
+  for (const side of [-1,1]) box(face, [.18,.15,.05], '#d7e9ad', [side*.26,.055,.72]);
+  box(face, [.27,.035,.04], '#93b3a0', [0,-.14,.70]);
   group.add(face);
   addMesh(group, new THREE.CylinderGeometry(.047,.047,.53,5), '#617a64', [.33,3.77,-.03], [0,0,-.15]);
   addMesh(group, new THREE.IcosahedronGeometry(.13,0), '#e1b668', [.37,4.04,-.03]);
