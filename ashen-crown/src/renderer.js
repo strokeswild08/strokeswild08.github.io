@@ -1,7 +1,8 @@
 import {polygon,stroke,rect} from './art.js';
-import {tile,key,reachable,distance} from './grid.js';
-import {validTarget,damagePreview,targetsFor} from './combat.js';
+import {tile,key,reachable} from './grid.js';
+import {validTarget,targetsFor} from './combat.js';
 import {canAct} from './turns.js';
+import {movementPreview,impactCells,targetAtCell} from './preview.js';
 export const project=(x,y,height=0)=>({x:480+(x-y)*32,y:130+(x+y)*16-height*17});
 export class Renderer{
   constructor(canvas,sprites,camera,effects){this.canvas=canvas;this.c=canvas.getContext('2d');this.sprites=sprites;this.camera=camera;this.fx=effects;this.hp=new Map();this.groundCache=null;this.cachedGrid=null;}
@@ -9,8 +10,24 @@ export class Renderer{
     if(motion){const k=Math.min(1,(this.fx.time-motion.start)/motion.duration);x=motion.from.x+(motion.to.x-motion.from.x)*k;y=motion.from.y+(motion.to.y-motion.from.y)*k;height=(tile(state,motion.from.x,motion.from.y)?.height||0)*(1-k)+(tile(state,motion.to.x,motion.to.y)?.height||0)*k;}
     return project(x,y,height);
   }
-  pick(state,sx,sy){const p=this.camera.world(sx,sy);const units=state.units.filter(u=>u.hp>0).sort((a,b)=>(b.x+b.y)-(a.x+a.y));for(const u of units){const v=this.position(state,u);if(Math.abs(p.x-v.x)<18&&p.y<v.y+8&&p.y>v.y-(u.kind==='boss'?68:53))return{x:u.x,y:u.y,unit:u};}
-    const ordered=[...state.grid].sort((a,b)=>(b.x+b.y)-(a.x+a.y));for(const t of ordered){const v=project(t.x,t.y,t.height);if(Math.abs(p.x-v.x)/32+Math.abs(p.y-v.y)/16<=1)return{x:t.x,y:t.y,unit:null};}return null;
+  pick(state,sx,sy,view=null){
+    const p=this.camera.world(sx,sy);
+    const units=state.units.filter(u=>u.hp>0).sort((a,b)=>(b.x+b.y)-(a.x+a.y));
+    const cells=[...state.grid].sort((a,b)=>(b.x+b.y)-(a.x+a.y));
+    const ground=cells.find(t=>{const v=project(t.x,t.y,t.height);return Math.abs(p.x-v.x)/32+Math.abs(p.y-v.y)/16<=1;});
+    const hits=units.filter(u=>{const v=this.position(state,u);return Math.abs(p.x-v.x)<18&&p.y<v.y+8&&p.y>v.y-(u.kind==='boss'?68:53);});
+    const actor=view&&state.units.find(u=>u.id===view.selected);
+    const targeting=actor&&canAct(state,actor)&&!view.busy&&['attack','ability'].includes(view.mode);
+    const ability=view?.mode==='attack'?'basic':view?.ability;
+    // A valid tile wins over an overlapping sprite. This lets the player aim
+    // behind an ally, and choose the center of an area spell precisely.
+    if(targeting&&ability){
+      if(ground&&validTarget(state,actor,ground,ability).ok)return{x:ground.x,y:ground.y,unit:targetAtCell(state,ground)};
+      const target=hits.find(u=>validTarget(state,actor,u,ability).ok);
+      if(target)return{x:target.x,y:target.y,unit:target};
+    }
+    if(hits.length)return{x:hits[0].x,y:hits[0].y,unit:hits[0]};
+    return ground?{x:ground.x,y:ground.y,unit:targetAtCell(state,ground)}:null;
   }
   render(state,view,dt){const c=this.c,time=this.fx.time;c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,960,610);c.imageSmoothingEnabled=false;
     const bg=c.createLinearGradient(0,0,0,610);bg.addColorStop(0,'#162a30');bg.addColorStop(.6,'#20383b');bg.addColorStop(1,'#17282e');c.fillStyle=bg;c.fillRect(0,0,960,610);
@@ -20,6 +37,11 @@ export class Renderer{
     c.fillStyle='#7b987919';c.beginPath();c.ellipse(480,371,345,132,0,0,Math.PI*2);c.fill();
     const shake=this.fx.shake;c.translate(480+this.camera.x+Math.sin(time*60)*shake,300+this.camera.y+Math.cos(time*46)*shake*.5);c.scale(this.camera.zoom,this.camera.zoom);c.translate(-480,-300);
     const selected=state.units.find(u=>u.id===view.selected),reach=selected&&canAct(state,selected)&&view.mode==='move'&&!view.busy?reachable(state,selected).cost:null;
+    const focus=view.pending||view.hover,ability=view.mode==='attack'?'basic':view.ability;
+    const impacts=!view.menu&&!view.busy&&selected&&['attack','ability'].includes(view.mode)?impactCells(state,selected,focus,ability):[];
+    const affected=new Set(impacts.map(t=>key(t.x,t.y)));
+    const marked=new Set(impacts.length?targetsFor(state,selected,focus,ability).map(u=>u.id):[]);
+    const route=reach&&view.hover?movementPreview(state,selected,view.hover):null;
     // Terrain does not change during a match. Rasterize its thousands of pixel
     // strokes once, then draw a single surface while units and effects animate.
     if(this.cachedGrid!==state.grid){this.groundCache=document.createElement('canvas');this.groundCache.width=960;this.groundCache.height=610;const ground=this.groundCache.getContext('2d');for(const t of [...state.grid].sort((a,b)=>(a.x+a.y)-(b.x+b.y)||a.y-b.y)){const p=project(t.x,t.y,t.height);this.drawGround(ground,t,p,time);}this.cachedGrid=state.grid;}
@@ -27,17 +49,25 @@ export class Renderer{
     for(const t of [...state.grid].sort((a,b)=>(a.x+a.y)-(b.x+b.y)||a.y-b.y)){const p=project(t.x,t.y,t.height);
       if(!view.menu&&reach?.has(key(t.x,t.y))&&!(t.x===selected.x&&t.y===selected.y)){polygon(c,[[p.x,p.y-14],[p.x+28,p.y],[p.x,p.y+14],[p.x-28,p.y]],'#a8c79c34');stroke(c,p.x-27,p.y,p.x,p.y+13,'#98b38d',1);stroke(c,p.x,p.y+13,p.x+27,p.y,'#98b38d',1);}
       if(!view.menu&&selected&&['attack','ability'].includes(view.mode)&&view.ability!=='stance'&&view.ability!=='step'&&canAct(state,selected)&&!view.busy){const a=validTarget(state,selected,t,view.mode==='attack'?'basic':view.ability);if(a.ok){polygon(c,[[p.x,p.y-13],[p.x+27,p.y],[p.x,p.y+13],[p.x-27,p.y]],view.ability==='shield'?'#83bace44':'#d187624a');}}
+      if(affected.has(key(t.x,t.y))){polygon(c,[[p.x,p.y-13],[p.x+27,p.y],[p.x,p.y+13],[p.x-27,p.y]],view.ability==='shield'?'#a4dbd765':'#f2ca8566');stroke(c,p.x-28,p.y,p.x,p.y+14,'#efd49a',2);stroke(c,p.x,p.y+14,p.x+28,p.y,'#efd49a',2);}
       if(!view.menu&&view.hover?.x===t.x&&view.hover?.y===t.y||!view.menu&&view.pending?.x===t.x&&view.pending?.y===t.y){const pending=view.pending?.x===t.x&&view.pending?.y===t.y;stroke(c,p.x-30,p.y,p.x,p.y-15,pending?'#f2d49c':'#cdd6b7',2);stroke(c,p.x,p.y-15,p.x+30,p.y,pending?'#f2d49c':'#cdd6b7',2);stroke(c,p.x+30,p.y,p.x,p.y+15,pending?'#f2d49c':'#cdd6b7',2);stroke(c,p.x,p.y+15,p.x-30,p.y,pending?'#f2d49c':'#cdd6b7',2);}
     }
+    if(route)this.drawRoute(c,state,selected,route);
     const drawables=state.grid.filter(t=>t.prop).map(t=>({depth:t.x+t.y+.08,type:'prop',item:t}));drawables.push({depth:state.crystal.x+state.crystal.y+.2,type:'crystal',item:state.crystal});
     for(const u of state.units){const dying=this.fx.particles.some(p=>p.kind==='death'&&p.label===u.id);if(u.hp>0||dying){const m=this.fx.motions.get(u.id),k=m?Math.min(1,(time-m.start)/m.duration):0;drawables.push({depth:m?(m.from.x+m.from.y)*(1-k)+(m.to.x+m.to.y)*k+.4:u.x+u.y+.4,type:'unit',item:u});}}
     drawables.sort((a,b)=>a.depth-b.depth);for(const d of drawables){const u=d.item,p=this.position(state,u);if(d.type==='prop'){this.drawProp(c,u,p,time);continue;}if(d.type==='crystal'){this.crystal(c,u,p,time);continue;}this.character(c,u,p,selected?.id===u.id&&!view.menu,time,state,dt);}
+    for(const u of state.units.filter(u=>u.hp>0&&marked.has(u.id))){const p=this.position(state,u);polygon(c,[[p.x,p.y-77],[p.x-4,p.y-83],[p.x+4,p.y-83]],'#f1d493');}
     this.drawEffects(c,state,time);
     if(!view.menu){for(const u of state.units.filter(u=>u.hp>0)){const p=this.position(state,u);this.health(c,u,p,dt);if(u.team==='hero'&&u.done){rect(c,p.x-3,p.y-66,7,7,'#30434a');stroke(c,p.x-2,p.y-63,p.x,p.y-61,'#b3c5a3');stroke(c,p.x,p.y-61,p.x+3,p.y-65,'#b3c5a3');}}this.health(c,state.crystal,this.position(state,state.crystal),dt,56);}
     c.setTransform(1,0,0,1,0,0);
     if(!view.menu){c.font='9px monospace';c.fillStyle='#b1c5b066';c.fillText('ASHFALL / THE CROWN COURT',24,584);c.textAlign='right';c.fillStyle='#afc4b088';c.fillText('WASD / ARROWS PAN · SCROLL ZOOM',936,584);c.textAlign='left';}
     for(let i=0;i<30;i++){const x=(i*173+time*(3+i%4))%960,y=610-((i*107+time*(8+i%3*4))%610);rect(c,x,y,i%3===0?2:1,1,i%4===0?'#c98a565b':'#bec3a423');}
     const vignette=c.createRadialGradient(480,300,150,480,300,600);vignette.addColorStop(0,'#09191d00');vignette.addColorStop(1,'#07131877');c.fillStyle=vignette;c.fillRect(0,0,960,610);
+  }
+  drawRoute(c,state,unit,route){
+    let previous=project(unit.x,unit.y,tile(state,unit.x,unit.y).height);
+    for(const cell of route.path){const p=project(cell.x,cell.y,tile(state,cell.x,cell.y).height);stroke(c,previous.x,previous.y,p.x,p.y,'#e0dc9b',2);rect(c,p.x-2,p.y-2,5,5,'#f0e1b2');previous=p;}
+    c.font='bold 9px monospace';c.textAlign='center';c.fillStyle='#11272deb';c.fillRect(previous.x-25,previous.y+18,50,16);c.fillStyle='#e1ddae';c.fillText(`${route.cost} MOVE`,previous.x,previous.y+29);c.textAlign='left';
   }
   drawGround(c,t,p,time){this.groundFn(c,t,p.x,p.y,time);}
   drawProp(c,t,p,time){this.propFn(c,t,p.x,p.y,time);}
