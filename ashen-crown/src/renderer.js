@@ -67,7 +67,6 @@ export class Renderer{
   drawRoute(c,state,unit,route){
     let previous=project(unit.x,unit.y,tile(state,unit.x,unit.y).height);
     for(const cell of route.path){const p=project(cell.x,cell.y,tile(state,cell.x,cell.y).height);stroke(c,previous.x,previous.y,p.x,p.y,'#e0dc9b',2);rect(c,p.x-2,p.y-2,5,5,'#f0e1b2');previous=p;}
-    c.font='bold 9px monospace';c.textAlign='center';c.fillStyle='#11272deb';c.fillRect(previous.x-25,previous.y+18,50,16);c.fillStyle='#e1ddae';c.fillText(`${route.cost} MOVE`,previous.x,previous.y+29);c.textAlign='left';
   }
   drawGround(c,t,p,time){this.groundFn(c,t,p.x,p.y,time);}
   drawProp(c,t,p,time){this.propFn(c,t,p.x,p.y,time);}

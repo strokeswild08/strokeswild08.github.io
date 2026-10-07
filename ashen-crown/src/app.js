@@ -8,7 +8,7 @@ import {createSprites,drawTile,drawProp} from './art.js';
 import {Camera} from './camera.js';
 import {Effects} from './effects.js';
 import {AudioBus} from './audio.js';
-import {Renderer} from './renderer.js?v=3';
+import {Renderer} from './renderer.js?v=4';
 import {movementPreview} from './preview.js';
 import {UI,$,$$,helpHTML} from './ui.js?v=3';
 let state=createState(),view={selected:'rowan',mode:'move',ability:null,hover:null,pending:null,busy:false,menu:true},screen='menu',paused=false,session=0,noticeTimer,pan=false,drag=null;
