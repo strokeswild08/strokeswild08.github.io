@@ -277,7 +277,11 @@
   }
   function startGame() {
     run={mode:'playing',level:0,time:0,kills:0,deaths:0,lanterns:0};makeWorld(0);hideOverlay();setSound(true);
-    toast('A sleeping lantern. Get close, then press E.');canvas.focus({preventScroll:true});
+    toast('A sleeping lantern. Get close, then press E.');focusGame();
+  }
+  function focusGame() {
+    canvas.focus({preventScroll:true});
+    document.querySelector('.game-shell').scrollIntoView({block:'center',behavior:reducedMotion?'auto':'smooth'});
   }
   function hideOverlay() {$('overlay').hidden=true;}
   function showOverlay(title,copy,button,action,note='') {
@@ -292,8 +296,8 @@
     if(run.mode!=='playing')return;run.mode='paused';clearInput();
     showOverlay('The light<br><em>can wait.</em>','Your journey is right where you left it.','Keep going',resume,'P / ESC TO RESUME');$('pause-button').setAttribute('aria-label','Resume game');
   }
-  function resume(){if(run.mode!=='paused')return;run.mode='playing';hideOverlay();$('pause-button').setAttribute('aria-label','Pause game');canvas.focus({preventScroll:true});}
-  function retry(){run.deaths++;makeWorld(run.level);run.mode='playing';hideOverlay();toast('Still a spark left. Try a different step.');canvas.focus({preventScroll:true});}
+  function resume(){if(run.mode!=='paused')return;run.mode='playing';hideOverlay();$('pause-button').setAttribute('aria-label','Pause game');focusGame();}
+  function retry(){run.deaths++;makeWorld(run.level);run.mode='playing';hideOverlay();toast('Still a spark left. Try a different step.');focusGame();}
   function die(){run.mode='dead';clearInput();sound('hurt');showOverlay('Not out.<br><em>Not yet.</em>','The dark caught you this time.<br>Retry from the start of this chapter.','Try again',retry);}
   function win() {
     run.mode='win';clearInput();sound('win');$('boss-hud').hidden=true;$('context-prompt').hidden=true;$('dialogue').hidden=true;
