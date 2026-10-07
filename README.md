@@ -34,3 +34,8 @@ Keep artwork paths synchronized with the gallery data when updating the collecti
 ## More from Wild Strokes
 
 [View the full portfolio directory](https://github.com/strokeswild08) · [Email](mailto:strokeswild08@gmail.com) · Discord: `wildstrokes23`
+
+## JavaScript tools
+
+**[Facet — Low-poly workbench →](https://strokeswild08.github.io/low-poly-viewer/)**  
+An interactive 3D viewer with procedural demos, local GLB import, wireframe, lighting presets and PNG export. [Code and setup guide](low-poly-viewer/README.md).
