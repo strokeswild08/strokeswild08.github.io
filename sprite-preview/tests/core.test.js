@@ -91,3 +91,11 @@ test('many-color and fully-transparent GIF frames encode successfully',()=>{
   assert.equal(inspectGif(encodeGif([pixels],20,20,60)).frames[0].delay,2);
   assert.equal(inspectGif(encodeGif([new Uint8ClampedArray(16)],2,2,1)).frames.length,1);
 });
+
+
+test('single-play GIF omits the repeat extension',()=>{
+  const pixels=new Uint8ClampedArray([243,184,137,255]);
+  const bytes=encodeGif([pixels,pixels],1,1,12,()=>{},false);
+  assert.equal(inspectGif(bytes).frames.length,2);
+  assert.equal(new TextDecoder().decode(bytes).includes('NETSCAPE2.0'),false);
+});

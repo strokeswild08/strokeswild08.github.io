@@ -1,0 +1,521 @@
+{
+  "name": "Lantern keeper",
+  "image": "keeper-sheet.png",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "columns": 8,
+  "rows": 8,
+  "origin": "top-left",
+  "groundY": 60,
+  "pivot": {
+    "x": 32,
+    "y": 60
+  },
+  "padding": 0,
+  "animations": {
+    "idle": {
+      "row": 1,
+      "fps": 8,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 64,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 128,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 192,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 256,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 320,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 384,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        },
+        {
+          "x": 448,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "duration": 125
+        }
+      ]
+    },
+    "walk": {
+      "row": 2,
+      "fps": 10,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 64,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 128,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 192,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 256,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 320,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 384,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 448,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        }
+      ]
+    },
+    "run": {
+      "row": 3,
+      "fps": 14,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 64,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 128,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 192,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 256,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 320,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 384,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        },
+        {
+          "x": 448,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "duration": 71
+        }
+      ]
+    },
+    "jump": {
+      "row": 4,
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "x": 0,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 64,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 128,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 192,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 256,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 320,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 384,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 448,
+          "y": 192,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        }
+      ]
+    },
+    "attack": {
+      "row": 5,
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "x": 0,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 64,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 128,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 192,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 256,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 320,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 384,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 448,
+          "y": 256,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        }
+      ]
+    },
+    "hurt": {
+      "row": 6,
+      "fps": 10,
+      "loop": false,
+      "frames": [
+        {
+          "x": 0,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 64,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 128,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 192,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 256,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 320,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 384,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        },
+        {
+          "x": 448,
+          "y": 320,
+          "width": 64,
+          "height": 64,
+          "duration": 100
+        }
+      ]
+    },
+    "roll": {
+      "row": 7,
+      "fps": 12,
+      "loop": false,
+      "frames": [
+        {
+          "x": 0,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 64,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 128,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 192,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 256,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 320,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 384,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        },
+        {
+          "x": 448,
+          "y": 384,
+          "width": 64,
+          "height": 64,
+          "duration": 83
+        }
+      ]
+    },
+    "celebrate": {
+      "row": 8,
+      "fps": 9,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 64,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 128,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 192,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 256,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 320,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 384,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        },
+        {
+          "x": 448,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "duration": 111
+        }
+      ]
+    }
+  }
+}

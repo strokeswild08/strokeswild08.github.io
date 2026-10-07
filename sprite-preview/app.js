@@ -1,10 +1,10 @@
 import { LIMITS,layoutFor,clipFor,sequenceFor,frameRect,advance,validateImageFile,validateImageSize,validateGif } from './core.js';
-import { createDemo } from './demos.js';
+import { createDemo,atlasFor } from './demos.js?v=2';
 
 const ui=Object.fromEntries([...document.querySelectorAll('[id]')].map(element=>[element.id,element]));
 const context=ui.preview.getContext('2d'),sheetContext=ui.sheet.getContext('2d');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-const state={ image:null,name:'',layout:null,frames:[],sequence:[],index:0,elapsed:0,playing:!reducedMotion.matches,dirty:true,token:0,exporting:false,sheetTransform:null };
+const state={ image:null,name:'',layout:null,frames:[],sequence:[],index:0,elapsed:0,playing:!reducedMotion.matches,dirty:true,token:0,exporting:false,sheetTransform:null,demo:null };
 let previous=performance.now(),pixelRatio=1,worker=null;
 
 function status(message,error=false) { ui.status.textContent=message;ui.status.classList.toggle('error',error); }
@@ -13,6 +13,7 @@ function filename(suffix) { return `flipbook-${state.name.toLowerCase().replace(
 function currentFrame() { return state.sequence[state.index] ?? 0; }
 
 function playState(playing) {
+  if(playing && ui.mode.value === 'once' && state.index === state.sequence.length-1){state.index=0;state.dirty=true;updateFrameLabels();drawSheet();}
   state.playing=playing;state.elapsed=0;previous=performance.now();
   ui.play.textContent=playing ? 'Ⅱ' : '▶';
   ui.play.setAttribute('aria-label',playing ? 'Pause animation' : 'Play animation');
@@ -22,6 +23,7 @@ function updateSequence() {
   try {
     state.frames=clipFor(state.layout,number('row'),number('first'),number('last'));
     state.row=number('row');
+    syncAnimationLabels();
     state.sequence=sequenceFor(state.frames,ui.mode.value);state.index=0;state.elapsed=0;
     ui.scrubber.max=state.sequence.length-1;state.dirty=true;updateFrameLabels();drawSheet();
     status(state.layout.hasRemainder ? 'Clip updated. Extra pixels at the right or bottom are outside the frame grid.' : 'Clip ready. Tune the speed or step through the frames.');
@@ -42,16 +44,22 @@ function applyLayout() {
   } catch(error) { status(error.message,true); }
 }
 
-function setSource(image,name,demo=false) {
+function setSource(image,name,demo=null) {
   const old=state.image;
-  let frameWidth=Math.min(32,image.width),frameHeight=Math.min(32,image.height);
+  state.demo=demo;
+  let frameWidth=Math.min(demo?.frameSize || 32,image.width),frameHeight=Math.min(demo?.frameSize || 32,image.height);
   while(Math.floor(image.width/frameWidth)*Math.floor(image.height/frameHeight)>LIMITS.frames) {
     frameWidth=Math.min(frameWidth*2,image.width);frameHeight=Math.min(frameHeight*2,image.height);
   }
   state.image=image;state.name=name;
-  ui['source-name'].textContent=name;ui['source-tag'].textContent=demo ? 'DEMO SHEET' : 'LOCAL SHEET';
+  ui['source-name'].textContent=name;ui['source-tag'].textContent=demo ? 'CHARACTER PACK · 64 FRAMES' : 'LOCAL SHEET';
   ui['frame-width'].value=frameWidth;ui['frame-height'].value=frameHeight;
   ui.row.value=demo ? 2 : 1;
+  ui['animation-presets'].hidden=!demo;
+  ui['download-pack'].hidden=!demo;
+  if(demo)ui['download-pack'].href=`assets/${demo.kind}-character-pack.zip`;
+  ui['download-atlas'].disabled=!demo;
+  ui.zoom.value=demo?6:8;ui['zoom-label'].textContent=`${ui.zoom.value}×`;
   applyLayout();
   old?.close?.();
   state.dirty=true;
@@ -60,11 +68,27 @@ function setSource(image,name,demo=false) {
 function showDemo(kind) {
   state.token++;
   const demo=createDemo(kind);
-  setSource(demo.image,demo.name,true);
+  setSource(demo.image,demo.name,demo);
+  selectAnimation(1);
   document.querySelectorAll('[data-demo]').forEach(button=>{
     const active=button.dataset.demo === kind;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));
   });
-  status(`${demo.name}: row 1 is idle, row 2 is a walk cycle.`);
+  status(`${demo.name} · 64 × 64 px · 64 frames · 8 actions. Download the complete PNG + JSON pack for your game.`);
+}
+
+function syncAnimationLabels(){
+  const action=state.demo?.animations[number('row')-1];
+  ui['clip-name'].textContent=action?.name || `Row ${number('row')}`;
+  document.querySelectorAll('[data-animation]').forEach(button=>button.setAttribute('aria-pressed',String(action?.id===button.dataset.animation)));
+}
+function selectAnimation(rowIndex){
+  const action=state.demo?.animations[rowIndex];if(!action)return;
+  if(number('frame-width')!==64||number('frame-height')!==64){ui['frame-width'].value=64;ui['frame-height'].value=64;applyLayout();}
+  ui.row.value=rowIndex+1;ui.first.value=1;ui.last.value=8;
+  ui.fps.value=action.fps;ui['fps-label'].textContent=`${action.fps} FPS`;
+  ui.mode.value=action.loop?'forward':'once';
+  updateSequence();playState(!reducedMotion.matches);
+  status(`${action.name} · ${action.fps} FPS · ${action.loop?'seamless loop':'plays once; press Play to replay'}. All 8 poses share a 64 px cell.`);
 }
 
 async function openImage(file) {
@@ -125,10 +149,12 @@ function render() {
 
 function drawSheet() {
   if (!state.layout) return;
-  const width=1024,height=200;ui.sheet.width=width;ui.sheet.height=height;
+  const width=1024,height=state.demo?900:200;ui.sheet.width=width;ui.sheet.height=height;
   checker(sheetContext,width,height,12);
-  const scale=Math.min((width-20)/state.image.width,(height-20)/state.image.height);
-  const x=(width-state.image.width*scale)/2,y=(height-state.image.height*scale)/2;
+  const margin=state.demo?100:20;
+  const scale=Math.min((width-margin)/state.image.width,(height-30)/state.image.height);
+  const x=state.demo?92:(width-state.image.width*scale)/2,y=(height-state.image.height*scale)/2;
+  if(state.demo){sheetContext.font='11px Arial';sheetContext.fillStyle='#b6c4ce';sheetContext.textAlign='right';state.demo.animations.forEach((a,row)=>sheetContext.fillText(a.name.toUpperCase(),x-12,y+(row+.5)*64*scale+4));}
   state.sheetTransform={x,y,scale};
   sheetContext.imageSmoothingEnabled=false;sheetContext.drawImage(state.image,x,y,state.image.width*scale,state.image.height*scale);
   sheetContext.strokeStyle='#65758a88';sheetContext.lineWidth=1;sheetContext.beginPath();
@@ -182,23 +208,25 @@ function exportGif() {
   if (state.exporting) return;
   const scale=number('export-scale'),width=state.layout.frameWidth*scale,height=state.layout.frameHeight*scale;
   try {validateGif(width,height,state.sequence.length);} catch(error) {return status(error.message,true);}
-  const name=filename(`row-${state.row}.gif`),fps=number('fps');
+  const name=filename(`row-${state.row}.gif`),fps=number('fps'),loop=ui.mode.value!=='once';
   const frames=state.sequence.map(index=>new Uint8ClampedArray(exportCanvas(index,scale).getContext('2d').getImageData(0,0,width,height).data));
   state.exporting=true;ui['export-gif'].disabled=true;ui['export-png'].disabled=true;ui['export-gif'].textContent='Encoding…';status('Building the GIF in a background worker…');
   function finish() {worker?.terminate();worker=null;state.exporting=false;ui['export-gif'].disabled=false;ui['export-png'].disabled=false;ui['export-gif'].textContent='Clip GIF ↓';}
   try {
-    worker=new Worker(new URL('./export-worker.js',import.meta.url),{type:'module'});
+    worker=new Worker(new URL('./export-worker.js?v=2',import.meta.url),{type:'module'});
     worker.onmessage=event=>{
       if (event.data.progress) {status(`Encoding GIF: ${event.data.progress[0]} / ${event.data.progress[1]} frames…`);return;}
       if (event.data.error) {status(event.data.error,true);finish();return;}
-      download(new Blob([event.data.bytes],{type:'image/gif'}),name);finish();status(`Saved ${width} × ${height} looping GIF. GIF timing is rounded to 10 ms steps.`);
+      download(new Blob([event.data.bytes],{type:'image/gif'}),name);finish();status(`Saved ${width} × ${height} ${loop?'looping':'single-play'} GIF. GIF timing is rounded to 10 ms steps.`);
     };
     worker.onerror=()=>{status('The GIF worker could not run. Reload the page and try again.',true);finish();};
-    worker.postMessage({frames,width,height,fps},frames.map(frame=>frame.buffer));
+    worker.postMessage({frames,width,height,fps,loop},frames.map(frame=>frame.buffer));
   } catch {status('GIF export is unavailable in this browser.',true);finish();}
 }
 
 function bindEvents() {
+  document.querySelectorAll('[data-animation]').forEach(button=>button.addEventListener('click',()=>selectAnimation(Number(button.dataset.row))));
+  ui['download-atlas'].addEventListener('click',()=>{if(state.demo){download(new Blob([JSON.stringify(atlasFor(state.demo.kind),null,2)],{type:'application/json'}),`${state.demo.kind}-atlas.json`);status('Animation JSON saved with all frame rectangles, timings and pivots.');}});
   document.querySelectorAll('[data-demo]').forEach(button=>button.addEventListener('click',()=>showDemo(button.dataset.demo)));
   ui['image-file'].addEventListener('change',()=>openImage(ui['image-file'].files[0]));
   for(const id of ['frame-width','frame-height']) ui[id].addEventListener('change',applyLayout);
@@ -242,8 +270,10 @@ function tick(time) {
   const delta=Math.min((time-previous)/1000,.25);previous=time;
   if(document.hidden)return;
   if(state.playing) {
+    const passed=Math.floor((state.elapsed+delta)*number('fps')+1e-8);
     const next=advance(state.index,state.elapsed,delta,number('fps'),state.sequence.length);state.elapsed=next.elapsed;
-    if(next.index !== state.index){state.index=next.index;state.dirty=true;updateFrameLabels();drawSheet();}
+    if(ui.mode.value==='once' && state.index+passed>=state.sequence.length){state.index=state.sequence.length-1;playState(false);state.dirty=true;updateFrameLabels();drawSheet();}
+    else if(next.index !== state.index){state.index=next.index;state.dirty=true;updateFrameLabels();drawSheet();}
   }
   if(state.dirty)render();
 }
