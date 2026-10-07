@@ -4,6 +4,8 @@ Characters, animation and pixel worlds for games and creative projects.
 
 **[Explore the live portfolio →](https://strokeswild08.github.io/)**
 
+**[Browse games, tools and portfolios in one place →](https://strokeswild08.github.io/projects/)**
+
 ## Play a Wild Strokes game
 
 **[Mosslight: The Last Lantern →](https://strokeswild08.github.io/mosslight/)**  
@@ -39,3 +41,8 @@ Keep artwork paths synchronized with the gallery data when updating the collecti
 
 **[Facet — Low-poly workbench →](https://strokeswild08.github.io/low-poly-viewer/)**  
 An interactive 3D viewer with procedural demos, local GLB import, wireframe, lighting presets and PNG export. [Code and setup guide](low-poly-viewer/README.md).
+
+## Sprite animation tool
+
+**[Flipbook — Sprite animation workbench →](https://strokeswild08.github.io/sprite-preview/)**  
+Preview local sprite sheets, choose a clip, tune the frame rate and export transparent PNG/GIF previews. [Code and Roman Urdu guide](sprite-preview/README.md).
