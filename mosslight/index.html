@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111c1b">
+  <meta name="description" content="Mosslight: The Last Lantern. Explore a forgotten ruin, bring its lanterns back to life, and face the Hollow Warden. A playable Wild Strokes pixel adventure.">
+  <title>Mosslight — The Last Lantern | Wild Strokes</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23142120'/%3E%3Cpath d='M11 9h10v17H11zM14 6h4M8 12h16' fill='none' stroke='%23e9b86e' stroke-width='2'/%3E%3Cpath d='M16 12l3 6-3 4-3-4z' fill='%23ffd9a0'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+  <header class="site-header wrap">
+    <a class="studio" href="https://github.com/strokeswild08"><span class="studio-mark">w<span>↗</span></span><span>WILD STROKES<small>PLAYABLE WORLDS</small></span></a>
+    <span class="edition"><i></i> A SHORT PIXEL ADVENTURE</span>
+    <a class="portfolio-link" href="https://strokeswild08.github.io/">More from the studio <span>↗</span></a>
+  </header>
+  <main class="wrap">
+    <section class="heading">
+      <div><p class="eyebrow">01 / A LIGHT WORTH KEEPING</p><h1>Mosslight<span>THE LAST LANTERN</span></h1></div>
+      <p class="intro">The forest took the walls.<br>The dark took everything else.<br><em>Bring back a little light.</em></p>
+    </section>
+    <section class="game-shell" aria-label="Mosslight adventure game">
+      <div class="game-toolbar">
+        <div class="room-label"><span class="tiny-label" id="room-number">CHAPTER I</span><strong id="room-name">The Sunken Garden</strong></div>
+        <div class="vitals"><span class="tiny-label">HEALTH</span><span id="hearts" aria-label="6 of 6 health">♥ ♥ ♥ ♥ ♥ ♥</span></div>
+        <div class="toolbar-actions">
+          <button id="sound-button" class="icon-button" aria-label="Enable sound" title="Sound">♫<span id="sound-label">OFF</span></button>
+          <button id="help-button" class="icon-button" aria-label="How to play" title="How to play">?</button>
+          <button id="pause-button" class="icon-button" aria-label="Pause game" title="Pause">Ⅱ</button>
+          <button id="fullscreen-button" class="icon-button" aria-label="Enter fullscreen" title="Fullscreen">⛶</button>
+        </div>
+      </div>
+      <div class="playfield" id="playfield">
+        <canvas id="game" width="480" height="288" tabindex="0" aria-label="Game view. Move with WASD or arrow keys, strike with Space or J, dodge with Shift or K, and interact with E."></canvas>
+        <div class="boss-hud" id="boss-hud" hidden><span>THE HOLLOW WARDEN</span><div><i id="boss-health"></i></div><small id="boss-phase">ROOT AND RUST</small></div>
+        <div class="context-prompt" id="context-prompt" hidden><kbd>E</kbd><span>Light the lantern</span></div>
+        <div class="dialogue" id="dialogue" aria-live="polite" hidden><span class="dialogue-mark">✧</span><p></p></div>
+        <div class="overlay" id="overlay">
+          <div class="overlay-card title-card">
+            <span class="seal" aria-hidden="true">✧</span>
+            <p class="eyebrow">THE FOREST STILL REMEMBERS</p>
+            <h2 id="overlay-title">One last<br><em>lantern.</em></h2>
+            <p id="overlay-copy">Three forgotten places. Six sleeping lights.<br>One keeper who hasn't given up.</p>
+            <button class="primary-button" id="start-button">Enter the ruins <span>→</span></button>
+            <p class="start-note">HEADPHONES RECOMMENDED · SINGLE-PLAYER DEMO</p>
+          </div>
+        </div>
+        <div class="transition" id="transition" aria-hidden="true"></div>
+      </div>
+      <div class="game-status">
+        <div class="objective"><span class="objective-mark">✦</span><div><span class="tiny-label">YOUR NEXT STEP</span><strong id="objective">Relight the three garden lanterns</strong></div></div>
+        <div class="progress"><span id="lantern-count">0 / 3</span><span class="tiny-label">LANTERNS</span></div>
+        <div class="dash-status"><div class="dash-track"><i id="dash-charge"></i></div><span class="tiny-label" id="dash-label">DODGE READY</span></div>
+      </div>
+      <div class="touch-controls" id="touch-controls" aria-label="Touch controls">
+        <div class="joystick" id="joystick" aria-label="Movement joystick"><div class="joystick-cross"></div><div class="joystick-knob" id="joystick-knob"></div><span>MOVE</span></div>
+        <div class="touch-actions"><button data-action="interact" class="touch-small" aria-label="Interact">✧<small>LIGHT</small></button><button data-action="dash" class="touch-small" aria-label="Dodge">↠<small>DODGE</small></button><button data-action="attack" class="touch-strike" aria-label="Strike">╱<small>STRIKE</small></button></div>
+      </div>
+    </section>
+    <div class="below-game"><p><span class="live-dot"></span> PLAY IN YOUR BROWSER · NO DOWNLOAD</p><span id="best-time">A little courage goes a long way.</span></div>
+    <section class="field-notes" aria-label="Game controls and tips">
+      <div class="field-title"><p class="eyebrow">A KEEPER'S FIELD NOTES</p><h2>Small flame.<br>Steady hands.</h2></div>
+      <div class="note"><span class="note-number">01</span><h3>Find your footing</h3><p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys to move.<br>Your lantern points toward the next light.</p></div>
+      <div class="note"><span class="note-number">02</span><h3>Keep the dark back</h3><p><kbd>SPACE</kbd> / <kbd>J</kbd> to strike. <kbd>SHIFT</kbd> / <kbd>K</kbd> to dodge.<br>Move out of the Warden's amber warnings.</p></div>
+      <div class="note"><span class="note-number">03</span><h3>Leave a light behind</h3><p><kbd>E</kbd> beside a lantern to relight it.<br>Clear the creatures to open the next passage.</p></div>
+    </section>
+  </main>
+  <footer class="wrap"><p>A WILD STROKES DEMO <span>✧</span> ART, DESIGN & PLAY</p><a href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/mosslight">View the project ↗</a></footer>
+  <dialog id="help-dialog" aria-labelledby="help-title"><button class="dialog-close" id="close-help" aria-label="Close instructions">×</button><p class="eyebrow">THE KEEPER'S GUIDE</p><h2 id="help-title">Follow the warmth.</h2><p>Relight three lanterns in each of the first two chapters. Each light wakes the creatures nearby. Defeat them, then follow the gold marker to the passage.</p><dl class="control-list"><div><dt>Move</dt><dd>WASD / Arrow keys</dd></div><div><dt>Strike</dt><dd>Space / J / Left click</dd></div><div><dt>Dodge</dt><dd>Shift / K</dd></div><div><dt>Light / enter passage</dt><dd>E</dd></div><div><dt>Pause</dt><dd>P / Escape</dd></div></dl><p class="help-tip">A dodge protects you briefly. Hearts dropped by creatures restore health. If you fall, you can retry the current chapter.</p><label class="setting"><input id="motion-toggle" type="checkbox"> Reduce camera shake & flashes</label><button class="primary-button" id="help-done">Got it <span>→</span></button></dialog>
+  <noscript><div class="noscript">Please enable JavaScript to play Mosslight.</div></noscript>
+</body>
+</html>

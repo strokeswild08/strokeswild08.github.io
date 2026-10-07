@@ -4,6 +4,11 @@ Characters, animation and pixel worlds for games and creative projects.
 
 **[Explore the live portfolio →](https://strokeswild08.github.io/)**
 
+## Play a Wild Strokes game
+
+**[Mosslight: The Last Lantern →](https://strokeswild08.github.io/mosslight/)**  
+A playable pixel adventure with three chapters, sword combat, lantern encounters and a two-phase boss. [Explore the game source](mosslight/).
+
 ## The collection
 
 - Character sprites, portraits and creatures.
