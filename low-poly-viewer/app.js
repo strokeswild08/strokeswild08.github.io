@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from './vendor/OrbitControls.js';
 import { GLTFLoader } from './vendor/GLTFLoader.js';
-import { createOutpost, createRobot } from './models.js';
+import { createOutpost, createRobot } from './models.js?v=2';
 import { inspectModel, normalizeModel, validateFile, validateGlb, disposeModel } from './viewer-utils.js';
 
 const ui = Object.fromEntries([...document.querySelectorAll('[id]')].map(element => [element.id, element]));
@@ -81,8 +81,8 @@ function init() {
   window.addEventListener('resize', resize);
   reducedMotion.addEventListener('change', () => { controls.enableDamping = !reducedMotion.matches; });
   bindEvents();
-  showDemo('outpost');
   resize();
+  showDemo('outpost');
   setLoading(false);
   let previous = performance.now();
   renderer.setAnimationLoop(time => {

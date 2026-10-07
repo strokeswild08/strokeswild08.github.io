@@ -46,6 +46,22 @@ test('normalization preserves imported transforms and does not bake them into ge
   assert.equal(model.geometry.attributes.position.count,24);
 });
 
+test('custom roof triangles face outward so back-face culling keeps the roof visible', () => {
+  const outpost = createOutpost();
+  const roof = outpost.children.find(node => node.isMesh && !node.geometry.index && node.geometry.attributes.position.count === 24);
+  assert.ok(roof);
+  const points = roof.geometry.attributes.position;
+  const center = new THREE.Vector3(-.65,3.025,-.3);
+  for (let i = 0; i < points.count; i += 3) {
+    const a = new THREE.Vector3().fromBufferAttribute(points,i);
+    const b = new THREE.Vector3().fromBufferAttribute(points,i+1);
+    const c = new THREE.Vector3().fromBufferAttribute(points,i+2);
+    const normal = b.clone().sub(a).cross(c.clone().sub(a));
+    const centroid = a.clone().add(b).add(c).divideScalar(3);
+    assert.ok(normal.dot(centroid.sub(center)) > 0);
+  }
+});
+
 test('triangle counts handle indexed, non-indexed and instanced geometry', () => {
   const group = new THREE.Group();
   group.add(new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshBasicMaterial()));

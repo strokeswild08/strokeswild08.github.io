@@ -41,7 +41,7 @@ function roof(group, width, depth, bottomY, topY, x, z) {
   ];
   const faces = [[0,1,2],[3,4,5],[0,2,4],[0,4,3],[2,1,5],[2,5,4],[0,3,5],[0,5,1]];
   const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(faces.flatMap(face => face.flatMap(index => points[index])), 3));
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(faces.flatMap(face => [...face].reverse().flatMap(index => points[index])), 3));
   geometry.computeVertexNormals();
   return addMesh(group, geometry, '#a96343');
 }
