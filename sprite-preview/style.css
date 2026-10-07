@@ -2,3 +2,5 @@
 
 /* Character library: named actions and a full-size labelled sheet. */
 #viewport{height:540px;flex:none}.animation-presets{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:18px}.animation-presets button{font-size:10px;padding:9px;background:#273240;border:1px solid #3d4a59;border-radius:5px;text-align:left}.animation-presets button[aria-pressed=true]{background:#37514c;border-color:#87a990;color:#e1edcf}.animation-presets button:hover{border-color:var(--accent)}[hidden]{display:none!important}.pack-actions{margin-top:14px;display:grid;gap:8px}.pack-actions button,.pack-actions a{padding:11px;border:1px solid #526759;border-radius:5px;background:#2d403d;color:#dae8cb;font-size:10px;text-align:center}.pack-actions small{display:block;color:#9bac9d;font-size:8px;margin-top:5px}.pack-actions a:hover{border-color:var(--accent)}.stage-label span:first-child{text-transform:uppercase;letter-spacing:2px;color:#c0d4ba}.sheet-heading small{color:#a6b5c3}@media(max-width:780px){#viewport{height:440px}}@media(max-width:440px){#viewport{height:380px}}
+
+.paper-backdrop .stage-label span:first-child{color:#58624f}
