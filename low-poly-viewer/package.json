@@ -1,0 +1,11 @@
+{
+  "name": "facet-low-poly-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A small model inspection workbench by Wild Strokes",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "serve": "python3 -m http.server 8000"
+  }
+}

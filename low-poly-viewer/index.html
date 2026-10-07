@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24493d">
+  <meta name="description" content="A small 3D workbench by Wild Strokes. Inspect low-poly models, adjust the light and export a preview.">
+  <title>Facet — Low-poly workbench · Wild Strokes</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2324493d'/%3E%3Cpath d='M16 22 32 12 48 22 48 42 32 52 16 42Z' fill='none' stroke='%23d9efae' stroke-width='3'/%3E%3Cpath d='m16 22 16 10 16-10M32 32v20' fill='none' stroke='%23d9efae' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css?v=1">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+  <script type="module" src="app.js?v=1"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Wild Strokes portfolio"><span class="brand-mark">W<span>↗</span></span><span>Wild Strokes<span class="brand-sub">ART + CODE</span></span></a>
+    <nav aria-label="Project links"><a href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/low-poly-viewer" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a><a href="../mosslight/">Play Mosslight <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="intro"><div><p class="eyebrow"><span></span> THE SMALL TOOLS COLLECTION / 01</p><h1>Facet<span>.</span></h1><p class="subtitle">A little workbench for your low-poly worlds.</p></div><p class="intro-note">Turn it around. Find the right light.<br>Make the details do the talking.</p></section>
+    <div class="workbench">
+      <section class="viewport-panel" aria-label="3D model preview">
+        <div class="viewer-head"><div><span class="live-dot"></span><span id="model-name">Woodland outpost</span></div><span id="model-kind" class="tag">BUILT-IN DEMO</span></div>
+        <div id="viewport" tabindex="0" aria-label="Interactive 3D preview. Drag to orbit, scroll to zoom. Arrow keys rotate, plus and minus zoom, R resets.">
+          <div class="view-label"><span id="view-label">PERSPECTIVE</span><span>Y ↑</span></div>
+          <div id="loading" role="status">Setting up the workbench…</div>
+          <div class="view-controls" aria-label="Camera controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset-view" aria-label="Reset camera" title="Reset camera (R)">↺</button></div>
+          <div class="view-hint">DRAG TO ORBIT <span>·</span> SCROLL TO ZOOM <span>·</span> RIGHT-DRAG TO PAN</div>
+          <div id="drop-overlay">Drop your .glb here<span>One file. Everything embedded.</span></div>
+        </div>
+        <div class="viewer-foot"><div><span class="stat-label">TRIANGLES</span><strong id="triangles">—</strong></div><div><span class="stat-label">MESHES</span><strong id="meshes">—</strong></div><div><span class="stat-label">ANIMATIONS</span><strong id="animations">0</strong></div><div class="viewer-note">Made to be explored.</div></div>
+      </section>
+      <aside class="controls-panel" aria-label="Workbench settings">
+        <section class="control-section"><h2><span>01</span> Pick a subject</h2><div class="demo-options"><button class="demo active" data-demo="outpost" aria-pressed="true"><span class="demo-icon">⌂</span><span>Woodland outpost<small>A quiet place in the pines</small></span><span class="demo-arrow">↗</span></button><button class="demo" data-demo="robot" aria-pressed="false"><span class="demo-icon robot-icon">▣</span><span>Copper courier<small>A pocket-sized traveller</small></span><span class="demo-arrow">↗</span></button></div><label class="upload-button" for="model-file"><span>＋ Open your model</span><small>.GLB · UP TO 25 MB</small></label><input id="model-file" type="file" accept=".glb" class="file-input"><p class="privacy-note">Your file stays in this browser. Nothing is uploaded.</p></section>
+        <section class="control-section"><h2><span>02</span> Set the scene</h2><label class="field-label" for="lighting">Light</label><select id="lighting"><option value="studio">Soft studio</option><option value="warm">Late afternoon</option><option value="night">Moonlight</option></select><div class="field-row"><span class="field-label">Backdrop</span><div class="swatches" role="group" aria-label="Background color"><button class="swatch selected" data-color="#b8c9bc" style="--swatch:#b8c9bc" aria-label="Sage background" aria-pressed="true"></button><button class="swatch" data-color="#e7ddd0" style="--swatch:#e7ddd0" aria-label="Sand background" aria-pressed="false"></button><button class="swatch" data-color="#242c35" style="--swatch:#242c35" aria-label="Ink background" aria-pressed="false"></button></div></div><label class="toggle-row" for="wireframe"><span>Wireframe<small>See the shape underneath</small></span><input id="wireframe" type="checkbox"><span class="switch" aria-hidden="true"></span></label><label class="toggle-row" for="spin"><span>Turntable<small>Slow, continuous orbit</small></span><input id="spin" type="checkbox"><span class="switch" aria-hidden="true"></span></label><label class="toggle-row" for="grid"><span>Ground grid</span><input id="grid" type="checkbox"><span class="switch" aria-hidden="true"></span></label><div id="animation-controls" hidden><label class="field-label" for="clip">Animation clip</label><select id="clip"></select><label class="toggle-row" for="animate"><span>Play animation</span><input id="animate" type="checkbox" checked><span class="switch" aria-hidden="true"></span></label></div></section>
+        <section class="control-section export-section"><h2><span>03</span> Keep the view</h2><button id="export-png" class="primary-button">Save preview <span>↓</span></button><p class="export-note">PNG · current view · no watermark</p></section>
+      </aside>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite">Ready. Pick a demo or open your own model.</p>
+    <details class="field-notes"><summary>New to 3D? A quick guide <span>＋</span></summary><div><p><strong>Rotate & zoom.</strong> Drag the model with your mouse. Scroll to move closer. On touch screens, use one finger to orbit and pinch to zoom. Focus the preview to use arrow keys, +/− and R.</p><p><strong>Bring your own.</strong> In Blender, use File → Export → glTF 2.0 and choose GLB. Export with embedded textures and without Draco or Meshopt compression. This viewer accepts a single self-contained .glb, up to 25 MB.</p><p><strong>Inspect the geometry.</strong> Wireframe reveals triangle edges. The count is the model’s base triangle count before skinning or modifiers. Preview materials use your model’s original shading.</p></div></details>
+  </main>
+  <footer><span>FACET / A WILD STROKES TOOL</span><span>Small worlds. Plenty to look at.</span><a href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/low-poly-viewer">Built with JavaScript ↗</a></footer>
+  <noscript><p class="noscript">Enable JavaScript to use the 3D workbench.</p></noscript>
+</body>
+</html>
