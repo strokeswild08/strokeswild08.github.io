@@ -1,1 +1,15 @@
-{"name":"flipbook-sprite-preview","version":"1.0.0","private":true,"type":"module","description":"A sprite animation workbench by Wild Strokes","scripts":{"test":"node --test tests/*.test.js","serve":"python3 -m http.server 8000"}}
+{
+  "name": "flipbook-sprite-preview",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A sprite animation workbench by Wild Strokes",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "serve": "python3 -m http.server 8000",
+    "build:art": "node scripts/build-assets.mjs"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.100"
+  }
+}

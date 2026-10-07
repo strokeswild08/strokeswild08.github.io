@@ -1,5 +1,7 @@
 import { LIMITS,layoutFor,clipFor,sequenceFor,frameRect,advance,validateImageFile,validateImageSize,validateGif } from './core.js';
-import { createDemo,atlasFor } from './demos.js?v=2';
+import { createDemo,atlasFor } from './demos.js?v=3';
+
+import { drawForest } from './scene.js?v=1';
 
 const ui=Object.fromEntries([...document.querySelectorAll('[id]')].map(element=>[element.id,element]));
 const context=ui.preview.getContext('2d'),sheetContext=ui.sheet.getContext('2d');
@@ -57,9 +59,9 @@ function setSource(image,name,demo=null) {
   ui.row.value=demo ? 2 : 1;
   ui['animation-presets'].hidden=!demo;
   ui['download-pack'].hidden=!demo;
-  if(demo)ui['download-pack'].href=`assets/${demo.kind}-character-pack.zip`;
+  if(demo)ui['download-pack'].href=`assets/${demo.kind}-character-pack.zip?v=3`;
   ui['download-atlas'].disabled=!demo;
-  ui.zoom.value=demo?6:8;ui['zoom-label'].textContent=`${ui.zoom.value}×`;
+  ui.zoom.value=demo?4:8;ui['zoom-label'].textContent=`${ui.zoom.value}×`;
   applyLayout();
   old?.close?.();
   state.dirty=true;
@@ -69,11 +71,12 @@ function showDemo(kind) {
   state.token++;
   const demo=createDemo(kind);
   setSource(demo.image,demo.name,demo);
+  ui.background.value='scene';ui.viewport.classList.remove('paper-backdrop');
   selectAnimation(1);
   document.querySelectorAll('[data-demo]').forEach(button=>{
     const active=button.dataset.demo === kind;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));
   });
-  status(`${demo.name} · 64 × 64 px · 64 frames · 8 actions. Download the complete PNG + JSON pack for your game.`);
+  status(`${demo.name} · 96 × 96 px · 64 frames · 8 actions. Download the complete PNG + JSON pack for your game.`);
 }
 
 function syncAnimationLabels(){
@@ -83,12 +86,12 @@ function syncAnimationLabels(){
 }
 function selectAnimation(rowIndex){
   const action=state.demo?.animations[rowIndex];if(!action)return;
-  if(number('frame-width')!==64||number('frame-height')!==64){ui['frame-width'].value=64;ui['frame-height'].value=64;applyLayout();}
+  if(number('frame-width')!==state.demo.frameSize||number('frame-height')!==state.demo.frameSize){ui['frame-width'].value=state.demo.frameSize;ui['frame-height'].value=state.demo.frameSize;applyLayout();}
   ui.row.value=rowIndex+1;ui.first.value=1;ui.last.value=8;
   ui.fps.value=action.fps;ui['fps-label'].textContent=`${action.fps} FPS`;
   ui.mode.value=action.loop?'forward':'once';
   updateSequence();playState(!reducedMotion.matches);
-  status(`${action.name} · ${action.fps} FPS · ${action.loop?'seamless loop':'plays once; press Play to replay'}. All 8 poses share a 64 px cell.`);
+  status(`${action.name} · ${action.fps} FPS · ${action.loop?'seamless loop':'plays once; press Play to replay'}. All 8 poses share a 96 px cell.`);
 }
 
 async function openImage(file) {
@@ -136,6 +139,7 @@ function render() {
   const wanted=number('zoom');
   const scale=Math.min(wanted,fit >= 1 ? Math.floor(fit) : fit);
   const x=Math.round((width-frame.frameWidth*scale)/2),y=Math.round((height-frame.frameHeight*scale)/2);
+  if(ui.background.value==='scene')drawForest(context,width,height,y+(state.demo?90:frame.frameHeight)*scale);
   if (ui.onion.checked && state.sequence.length > 1) drawFrame(context,state.sequence[(state.index-1+state.sequence.length)%state.sequence.length],x,y,scale,.18);
   drawFrame(context,currentFrame(),x,y,scale);
   if (ui['pixel-grid'].checked && scale >= 4) {
@@ -154,7 +158,7 @@ function drawSheet() {
   const margin=state.demo?100:20;
   const scale=Math.min((width-margin)/state.image.width,(height-30)/state.image.height);
   const x=state.demo?92:(width-state.image.width*scale)/2,y=(height-state.image.height*scale)/2;
-  if(state.demo){sheetContext.font='11px Arial';sheetContext.fillStyle='#b6c4ce';sheetContext.textAlign='right';state.demo.animations.forEach((a,row)=>sheetContext.fillText(a.name.toUpperCase(),x-12,y+(row+.5)*64*scale+4));}
+  if(state.demo){sheetContext.font='11px Arial';sheetContext.fillStyle='#b6c4ce';sheetContext.textAlign='right';state.demo.animations.forEach((a,row)=>sheetContext.fillText(a.name.toUpperCase(),x-12,y+(row+.5)*state.demo.frameSize*scale+4));}
   state.sheetTransform={x,y,scale};
   sheetContext.imageSmoothingEnabled=false;sheetContext.drawImage(state.image,x,y,state.image.width*scale,state.image.height*scale);
   sheetContext.strokeStyle='#65758a88';sheetContext.lineWidth=1;sheetContext.beginPath();
