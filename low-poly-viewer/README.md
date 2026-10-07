@@ -17,6 +17,8 @@ A small JavaScript tool by Wild Strokes for inspecting a model before sharing it
 
 Your model is read locally. It is not uploaded or stored. The app has no backend, analytics, accounts or CDN dependency.
 
+WebGL 2 provides the full material, texture, shadow and skinning preview. Browsers without WebGL use a basic SVG 3D renderer: orbit, lighting, wireframe, turntable and PNG export still work. That fallback accepts static meshes and object animations up to 12,000 triangles; it does not support textures, skeletal animation or instanced meshes. The current rendering mode is shown in the preview.
+
 ## Run locally
 
 Use a recent Node.js version to run the tests. The browser app itself needs no build or npm install.
