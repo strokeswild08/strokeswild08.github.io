@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#23392e"><meta name="description" content="Studio Desk by Wild Strokes: projects, clients, milestones, tracked payments and file delivery in one thoughtful freelance workspace."><title>Studio Desk · Wild Strokes</title><link rel="icon" type="image/svg+xml" href="cover.svg"><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div id="boot" class="boot"><span class="brand-logo">w.</span><p>Opening your studio…</p></div>
+  <div id="workspace" class="workspace" hidden>
+    <aside class="sidebar"><a class="brand" href="../projects/"><span class="brand-logo">w.</span><span>Studio Desk<small>BY WILD STROKES</small></span></a><div class="workspace-picker"><span class="workspace-icon">W</span><span id="workspace-name">Wild Strokes<small>Creative workspace</small></span><span>⌄</span></div><p class="nav-label">WORKSPACE</p><nav id="navigation" aria-label="Main navigation"></nav><div class="sidebar-bottom"><div class="little-note"><span>✳</span><p>A home for your projects.<br>Room for your next idea.</p></div><button id="settings" class="sidebar-link">Workspace settings <span>↗</span></button><button id="account" class="account"><span class="avatar sage" id="user-initial">O</span><span><strong id="user-name">Owais</strong><small id="mode-label">Demo · this browser</small></span><span>⋯</span></button></div></aside>
+    <div class="main-shell"><header class="topbar"><button id="mobile-nav" class="icon-button" aria-label="Toggle navigation">☰</button><div class="breadcrumb"><span>Workspace</span><span>/</span><strong id="page-label">Overview</strong></div><div class="top-actions"><label class="search-box"><span id="search-icon"></span><input id="search" type="search" placeholder="Search projects or clients" aria-label="Search projects or clients"><kbd>⌘ K</kbd></label><span id="mode-pill" class="mode-pill">DEMO WORKSPACE</span><button id="add-project" class="button primary">+ New project</button></div></header><main id="main" tabindex="-1"></main><footer><span>STUDIO DESK / LESS ADMIN, MORE MAKING</span><a href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/client-portal">Source & setup ↗</a></footer></div>
+  </div>
+  <section id="auth" class="auth" hidden></section>
+  <dialog id="dialog"><div id="dialog-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" class="toast"></div>
+  <input id="upload-input" type="file" hidden>
+  <script type="module" src="app.mjs"></script>
+</body></html>

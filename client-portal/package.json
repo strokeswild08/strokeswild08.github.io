@@ -1,0 +1,1 @@
+{"name":"wild-strokes-studio-desk","private":true,"version":"1.0.0","description":"Freelance client portal with a browser demo and an authenticated Node + SQLite backend","type":"module","engines":{"node":">=24.0.0 <25"},"scripts":{"start":"node server.mjs","test":"node --test model.test.mjs server.test.mjs"}}

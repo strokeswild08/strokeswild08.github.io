@@ -51,3 +51,8 @@ Preview local sprite sheets, choose a clip, tune the frame rate and export trans
 
 **[Signal Lab — Game SFX Studio →](https://strokeswild08.github.io/signal-lab/)**  
 Create procedural game effects with eight presets, waveform preview, pitch/envelope controls and WAV export. Save and restore JSON sound recipes. [Code, setup and tests](signal-lab/README.md).
+
+## Client workspace
+
+**[Studio Desk — Client Portal demo →](https://strokeswild08.github.io/client-portal/)**  
+A freelance workspace for projects, clients, milestones, tracked payments and files. The public demo saves to the browser; the included Node.js + SQLite server adds real accounts and private storage. [Full source, setup and tests](client-portal/README.md).
