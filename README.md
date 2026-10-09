@@ -46,3 +46,8 @@ An interactive 3D viewer with procedural demos, local GLB import, wireframe, lig
 
 **[Flipbook — Sprite animation workbench →](https://strokeswild08.github.io/sprite-preview/)**  
 Preview local sprite sheets, choose a clip, tune the frame rate and export transparent PNG/GIF previews. [Code and Roman Urdu guide](sprite-preview/README.md).
+
+## Game audio tool
+
+**[Signal Lab — Game SFX Studio →](https://strokeswild08.github.io/signal-lab/)**  
+Create procedural game effects with eight presets, waveform preview, pitch/envelope controls and WAV export. Save and restore JSON sound recipes. [Code, setup and tests](signal-lab/README.md).

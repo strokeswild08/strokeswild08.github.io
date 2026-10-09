@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121815"><meta name="description" content="Design game sound effects in your browser. Explore eight presets, sculpt the sound and export a production-ready WAV. A JavaScript project by Wild Strokes.">
+  <title>Signal Lab — Game SFX Studio · Wild Strokes</title>
+  <link rel="icon" type="image/svg+xml" href="cover.svg"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="../projects/" aria-label="Wild Strokes projects"><span class="brand-mark">w.</span> WILD STROKES <span class="brand-divider">/</span><span class="brand-sub">INTERACTIVE TOOLS</span></a><a class="source" href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/signal-lab">View source <span>↗</span></a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow"><span class="dot"></span> THE SOUND OF SMALL WORLDS</p><h1>Signal Lab<span>01</span></h1><p class="lede">Good games have a sound.<br>Find yours.</p></div><div class="intro-note"><span class="edition">BROWSER SFX STUDIO / 001</span><p>From a tiny coin pickup to a portal opening.<br>Pick a sound, make it your own, take it with you.</p><span class="local-tag"><span class="dot"></span> All sound is made on your device</span></div></section>
+    <div class="studio">
+      <aside class="sound-bank"><div class="section-label"><span>01 / SOUND BANK</span><span>8 SOUNDS</span></div><div id="presets" class="preset-list"></div><div class="bank-tip"><span>↳</span><p>Choose a starting point.<br>Press <kbd>1</kbd>–<kbd>8</kbd> to audition.</p></div></aside>
+      <section class="workbench" aria-label="Sound designer">
+        <div class="bench-heading"><div><p id="sound-family" class="eyebrow">COMBAT / 01</p><h2 id="sound-name">Laser<span class="custom-tag" id="custom-tag" hidden>EDITED</span></h2><p id="sound-description">A bright pulse with a fast falling pitch.</p></div><span class="sound-icon" aria-hidden="true">↘</span></div>
+        <div class="scope"><div class="scope-meta"><span><span class="dot"></span> WAVEFORM</span><span id="duration-readout">0.78 SEC</span></div><canvas id="waveform" aria-label="Waveform preview of the current sound" role="img"></canvas><div class="scope-bottom"><span>MONO / 44.1 kHz</span><span id="peak-readout">PEAK −6.0 dB</span></div><div class="playhead" id="playhead"></div></div>
+        <div class="transport"><button id="play" class="play"><span id="play-icon">▶</span> <span id="play-label">Play sound</span><kbd>SPACE</kbd></button><button id="randomize" class="secondary">↝ Variation</button><button id="undo" class="icon-button" aria-label="Undo last change" title="Undo last change" disabled>↶</button><button id="reset" class="icon-button" aria-label="Reset current preset" title="Reset current preset">↺</button></div>
+        <div class="section-label controls-label"><span>02 / SCULPT THE SIGNAL</span><span>LIVE PARAMETERS</span></div>
+        <div class="wave-row"><span class="control-title">Oscillator</span><div id="wave-options" class="wave-options" role="group" aria-label="Oscillator waveform"><button data-wave="sine">∿ <span>Sine</span></button><button data-wave="triangle">△ <span>Triangle</span></button><button data-wave="square">⊓ <span>Square</span></button><button data-wave="saw">⩘ <span>Saw</span></button></div></div>
+        <div class="sliders" id="sliders"></div>
+      </section>
+      <aside class="output"><div class="section-label"><span>03 / TAKE IT WITH YOU</span></div><div class="output-icon" aria-hidden="true">↓</div><h2>Ready for<br>your world.</h2><p class="output-copy">A clean WAV file for your next game, animation or prototype.</p><div class="spec"><span>FORMAT</span><strong>WAV / PCM</strong></div><div class="spec"><span>QUALITY</span><strong>44.1 kHz / 16-bit</strong></div><div class="spec"><span>CHANNELS</span><strong>Mono</strong></div><button id="export" class="export">Download WAV <span>↓</span></button><div class="recipe"><p class="eyebrow">KEEP THE RECIPE</p><p>Save the settings. Pick up where you left off.</p><div class="recipe-actions"><button id="save-recipe">Export JSON ↗</button><button id="load-recipe">Import JSON ↙</button></div><input id="recipe-file" type="file" accept=".json,application/json" hidden></div><div class="volume"><label for="monitor-volume">Monitor volume <output id="monitor-readout">65%</output></label><input id="monitor-volume" type="range" min="0" max="1" step=".01" value=".65"><p>Affects playback only. WAV exports keep their level.</p></div></aside>
+    </div>
+    <section class="notes"><p><span>01</span> Choose a preset.</p><p><span>02</span> Shape it with the controls.</p><p><span>03</span> Drop the WAV into your game.</p></section>
+  </main>
+  <footer><span>WILD STROKES / ART, CODE + SOUND</span><a href="../projects/">Explore more projects ↗</a><span>Built with JavaScript + Web Audio</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
