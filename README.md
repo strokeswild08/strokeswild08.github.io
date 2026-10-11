@@ -61,3 +61,8 @@ A freelance workspace for projects, clients, milestones, tracked payments and fi
 
 **[VOID TEMPLE — Owais Void vs Fisk →](https://strokeswild08.github.io/void-temple/)**  
 A 2D fighting game with a haunted temple arena, three bot difficulties, charged specials and procedural audio. [Game source and controls](void-temple/README.md).
+
+## Navigation algorithms
+
+**[Route Lab — Interactive JavaScript Pathfinding →](https://strokeswild08.github.io/pathfinding-lab/)**  
+Draw maps, animate routes and compare A*, Dijkstra and BFS. Includes weighted terrain, map import/export and independently verified algorithm tests. [Source and usage](pathfinding-lab/README.md).

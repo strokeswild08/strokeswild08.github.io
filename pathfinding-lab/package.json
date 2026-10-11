@@ -1,0 +1,1 @@
+{"name":"strokes-route-lab","version":"1.0.0","private":true,"description":"Interactive pathfinding editor with reusable A*, Dijkstra and BFS algorithms","scripts":{"check":"node --check pathfinding.js && node --check app.js","test":"node tests/pathfinding.cjs"}}
