@@ -56,3 +56,8 @@ Create procedural game effects with eight presets, waveform preview, pitch/envel
 
 **[Studio Desk — Client Portal demo →](https://strokeswild08.github.io/client-portal/)**  
 A freelance workspace for projects, clients, milestones, tracked payments and files. The public demo saves to the browser; the included Node.js + SQLite server adds real accounts and private storage. [Full source, setup and tests](client-portal/README.md).
+
+## Fighting game
+
+**[VOID TEMPLE — Owais Void vs Fisk →](https://strokeswild08.github.io/void-temple/)**  
+A 2D fighting game with a haunted temple arena, three bot difficulties, charged specials and procedural audio. [Game source and controls](void-temple/README.md).
