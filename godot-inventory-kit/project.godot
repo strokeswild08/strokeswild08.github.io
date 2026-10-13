@@ -1,0 +1,21 @@
+config_version=5
+
+[application]
+config/name="Fieldpack — Inventory & Equipment Kit"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/description="A native Godot inventory, equipment and crafting sandbox by Wild Strokes."
+config/icon="res://icon.svg"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/size/window_width_override=1280
+window/size/window_height_override=800
+window/size/min_width=1024
+window/size/min_height=640
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
