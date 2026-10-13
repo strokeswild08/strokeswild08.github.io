@@ -1,0 +1,10 @@
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+node_modules/
+.vs/
+impact-rules-test
+*.sln
+.DS_Store
+Thumbs.db

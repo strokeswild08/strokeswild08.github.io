@@ -1,0 +1,19 @@
+name: Industrial Impact source checks
+on: [push, pull_request]
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: industrial-impact-vfx
+jobs:
+  source-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/effects.test.cjs
+      - run: node tests/ui.test.cjs
+      - run: g++ -std=c++17 -Wall -Wextra -Werror -pedantic tests/rules_test.cpp -o /tmp/industrial-impact-rules
+      - run: /tmp/industrial-impact-rules

@@ -1,0 +1,12 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1-source-prototype",
+  "FriendlyName": "Wild Strokes Industrial Impact",
+  "Description": "Niagara impact spawning component. Niagara assets must be authored and assigned separately.",
+  "Category": "Effects",
+  "CreatedBy": "Wild Strokes",
+  "CanContainContent": false,
+  "Modules": [{"Name": "WildStrokesImpact", "Type": "Runtime", "LoadingPhase": "Default"}],
+  "Plugins": [{"Name": "Niagara", "Enabled": true}]
+}
