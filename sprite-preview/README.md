@@ -114,12 +114,12 @@ npm test
 
 Project code and demo art are published for inspection; no project-wide reuse license has been assigned. The bundled GIF encoder is third-party MIT-licensed code.
 
-## Roman Urdu mein samjho
+## How sprite-sheet playback works
 
-**Sprite sheet** ek image hoti hai jisme animation ke saare frames ek grid mein rakhe hote hain. Hamare character ki sheet 768 × 768 hai aur har frame 96 × 96 hai: 8 columns aur 8 action rows, yani 64 frames.
+A sprite sheet stores animation frames in a regular grid. These character sheets are 768 × 768 pixels, with 96 × 96 cells: eight columns and eight action rows, or 64 frames.
 
-`core.js` frame ka number uski image position mein badalta hai. `app.js` us chhote rectangle ko Canvas par draw karta hai. 10 FPS par har 0.1 second ke baad agla frame dikhaya jata hai. Reverse mein list ulat jati hai; ping-pong mein frames aage ja kar wapas aate hain.
+`core.js` converts a frame number to its source rectangle. `app.js` draws that rectangle on the Canvas. At 10 FPS the next frame appears every 0.1 seconds. Reverse playback reverses the sequence; ping-pong runs forward and then back.
 
-**Complete character pack** se ZIP download karo. Usmein asli transparent PNG, JSON frame data aur saari actions ki GIF previews milti hain. Game mein PNG aur JSON use karo. Action buttons se walk, jump, attack aur baqi poses dekho. Jump, attack, hurt aur roll ek baar chalte hain; Play dabao to dobara chalte hain.
+Download a complete character pack for its transparent PNG, JSON frame data and action GIF previews. Use PNG and JSON in your game. The action buttons preview movement and other poses; jump, attack, hurt and roll play once, and can be replayed with Play.
 
-`demos.js` mein integer-pixel polygons aur limb poses se character aur har action draw hota hai. `gif.js` selected frames ke colors ko palette mein rakhta hai aur GIF banata hai. Export worker ye kaam background mein karta hai. PNG sirf current pose save karta hai; GIF poora selected clip save karta hai.
+`demos.js` generates each pose from integer-pixel polygons and limb positions. `gif.js` builds the palette and encodes the selected frames in an export worker. A PNG export saves the current pose; a GIF export saves the selected animation clip.

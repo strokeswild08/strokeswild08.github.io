@@ -1,68 +1,64 @@
-# Wild Strokes — Pixel Art & Animation
+# Wild Strokes — Games, Tools & Visual Art
 
-Characters, animation and pixel worlds for games and creative projects.
+Playable browser games, native Godot systems, development tools and art portfolios by Wild Strokes.
 
-**[Explore the live portfolio →](https://strokeswild08.github.io/)**
+**[Explore all projects](https://strokeswild08.github.io/projects/)** · **[Pixel art portfolio](https://strokeswild08.github.io/)** · **[GitHub profile](https://github.com/strokeswild08)**
 
-**[Browse games, tools and portfolios in one place →](https://strokeswild08.github.io/projects/)**
+## Playable browser games
 
-## Play a Wild Strokes game
+| Project | What to explore | Demo / source |
+| --- | --- | --- |
+| **VOID TEMPLE** | Fighting prototype: buffered input, combos, parries, bot difficulties, training and gamepad support | [Play](https://strokeswild08.github.io/void-temple/) · [Source & controls](void-temple/README.md) |
+| **Ashen Crown: Last Stand** | Isometric tactical battle with three heroes, cover, abilities and enemy AI | [Play](https://strokeswild08.github.io/ashen-crown/) · [Source](ashen-crown/) |
+| **Mosslight: The Last Lantern** | Pixel adventure with sword combat, lantern encounters and a boss fight | [Play](https://strokeswild08.github.io/mosslight/) · [Source](mosslight/) |
 
-**[Mosslight: The Last Lantern →](https://strokeswild08.github.io/mosslight/)**  
-A playable pixel adventure with three chapters, sword combat, lantern encounters and a two-phase boss. [Explore the game source](mosslight/).
+## Native Godot 4 kits
 
-## The collection
+Download a project ZIP, extract it and import `project.godot` in **Godot 4.4.1**. Press F5 in the editor. The project pages explain each kit; they are not browser exports.
 
-- Character sprites, portraits and creatures.
-- Idle loops, movement cycles, combat animation and pixel effects.
-- Environments, tiles, props and matching game assets.
-- Featured animation previews and a filterable artwork archive.
+| Project | Included systems | Project / source |
+| --- | --- | --- |
+| **Fieldpack** | Backpack/chest storage, drag/drop, split stacks, equipment stats, transactional crafting and saves | [Project & download](https://strokeswild08.github.io/godot-inventory-kit/) · [Setup & source](godot-inventory-kit/README.md) |
+| **Nightshift** | First-person movement, patrol/chase/search AI, key/door interactions, flashlight and checkpoints | [Project & download](https://strokeswild08.github.io/godot-horror-kit/) · [Setup & source](godot-horror-kit/README.md) |
 
-## Project structure
+Both kits include headless integration tests and integration guides. Graphical playthroughs and exported builds have not been verified in the development environment. Their visuals are procedural starter geometry/symbols.
 
-This is the source for the Wild Strokes pixel-art website, served as a static site.
+## Development tools & web applications
 
-| File or folder | Purpose |
-|:--|:--|
-| `index.html` | Page content, featured work, services and contact |
-| `styles.css` | Visual styling and responsive layout |
-| `app.js` | Gallery filters, previews and interactions |
-| `gallery-data.js` | Gallery data loaded by the site |
-| `gallery-data.json` | Gallery data in JSON format |
-| `gallery/` | Portfolio images and animations |
+| Project | Function | Demo / guide |
+| --- | --- | --- |
+| **Route Lab** | A*, Dijkstra and BFS with weighted terrain, an editable map and route animation | [Demo](https://strokeswild08.github.io/pathfinding-lab/) · [Algorithms & tests](pathfinding-lab/README.md) |
+| **Fieldwork** | Layered tilemap editor with custom tiles, collision test and PNG/JSON export | [Open](https://strokeswild08.github.io/tilemap-editor/) · [Source](tilemap-editor/) |
+| **Flipbook** | Sprite-sheet playback, onion skins, PNG/GIF export and complete character packs | [Open](https://strokeswild08.github.io/sprite-preview/) · [English guide](sprite-preview/README.md) |
+| **Signal Lab** | Procedural game SFX, waveform controls, WAV export and JSON recipes | [Open](https://strokeswild08.github.io/signal-lab/) · [Setup & tests](signal-lab/README.md) |
+| **Facet** | Low-poly 3D viewer with local GLB import, wireframe, lighting and PNG export | [Open](https://strokeswild08.github.io/low-poly-viewer/) · [Setup](low-poly-viewer/README.md) |
+| **Studio Desk** | Client workspace: projects, milestones, payments and files; optional Node/SQLite backend | [Browser demo](https://strokeswild08.github.io/client-portal/) · [Server setup & tests](client-portal/README.md) |
 
-Keep artwork paths synchronized with the gallery data when updating the collection.
+Studio Desk's public demo uses browser-local storage. Its included Node/SQLite backend is run separately for authenticated accounts and private records.
+
+## Art portfolios
+
+[Pixel art & animation](https://strokeswild08.github.io/) · [Game UI / UX](https://strokeswild08.github.io/wild-strokes-game-ui-portfolio/) · [Web & product UI / UX](https://strokeswild08.github.io/wild-strokes-uiux/) · [Comics](https://strokeswild08.github.io/wild-strokes-universe/) · [Sound design](https://stately-shortbread-21d46a.netlify.app/)
+
+## Repository structure
+
+This repository hosts the pixel-art website plus independently documented project folders.
+
+| Path | Purpose |
+| --- | --- |
+| `index.html`, `styles.css`, `app.js` | Pixel-art portfolio site |
+| `gallery-data.js`, `gallery-data.json`, `gallery/` | Artwork metadata, images and animation |
+| `projects/` | Project directory linking demos, native downloads and code |
+| `void-temple/`, `ashen-crown/`, `mosslight/` | Browser games |
+| `godot-inventory-kit/`, `godot-horror-kit/` | Native Godot projects |
+| Remaining project folders | Tools and web applications with their own setup guides |
+
+Keep gallery paths synchronized with the artwork metadata. Run and test individual projects using their own README instructions; there is no single repository-wide build command.
+
+## Licensing
+
+Check each project's LICENSE and README before reusing its code or art. Licensing differs between projects; public access to this repository does not assign one license to the whole portfolio.
 
 ## More from Wild Strokes
 
 [View the full portfolio directory](https://github.com/strokeswild08) · [Email](mailto:strokeswild08@gmail.com) · Discord: `wildstrokes23`
-
-## JavaScript tools
-
-**[Facet — Low-poly workbench →](https://strokeswild08.github.io/low-poly-viewer/)**  
-An interactive 3D viewer with procedural demos, local GLB import, wireframe, lighting presets and PNG export. [Code and setup guide](low-poly-viewer/README.md).
-
-## Sprite animation tool
-
-**[Flipbook — Sprite animation workbench →](https://strokeswild08.github.io/sprite-preview/)**  
-Preview local sprite sheets, choose a clip, tune the frame rate and export transparent PNG/GIF previews. [Code and Roman Urdu guide](sprite-preview/README.md).
-
-## Game audio tool
-
-**[Signal Lab — Game SFX Studio →](https://strokeswild08.github.io/signal-lab/)**  
-Create procedural game effects with eight presets, waveform preview, pitch/envelope controls and WAV export. Save and restore JSON sound recipes. [Code, setup and tests](signal-lab/README.md).
-
-## Client workspace
-
-**[Studio Desk — Client Portal demo →](https://strokeswild08.github.io/client-portal/)**  
-A freelance workspace for projects, clients, milestones, tracked payments and files. The public demo saves to the browser; the included Node.js + SQLite server adds real accounts and private storage. [Full source, setup and tests](client-portal/README.md).
-
-## Fighting game
-
-**[VOID TEMPLE — Owais Void vs Fisk →](https://strokeswild08.github.io/void-temple/)**  
-A 2D fighting game with a haunted temple arena, three bot difficulties, charged specials and procedural audio. [Game source and controls](void-temple/README.md).
-
-## Navigation algorithms
-
-**[Route Lab — Interactive JavaScript Pathfinding →](https://strokeswild08.github.io/pathfinding-lab/)**  
-Draw maps, animate routes and compare A*, Dijkstra and BFS. Includes weighted terrain, map import/export and independently verified algorithm tests. [Source and usage](pathfinding-lab/README.md).
