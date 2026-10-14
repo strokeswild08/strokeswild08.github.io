@@ -1,0 +1,25 @@
+name: Asset Shelf Java build and checks
+on:
+  push:
+    paths: ['java-asset-shelf/**', '.github/workflows/asset-shelf.yml']
+  pull_request:
+    paths: ['java-asset-shelf/**', '.github/workflows/asset-shelf.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  java-desktop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile, package and test
+        working-directory: java-asset-shelf
+        run: bash test.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AssetShelf-Java17
+          path: java-asset-shelf/AssetShelf.jar
