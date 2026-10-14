@@ -36,6 +36,10 @@ Both kits include headless integration tests and integration guides. Graphical p
 
 Studio Desk's public demo uses browser-local storage. Its included Node/SQLite backend is run separately for authenticated accounts and private records.
 
+## Java gameplay systems
+
+**[Trail Ledger](java-quest-manager/)** — a Java 17 quest journal with typed gameplay events, prerequisite chains, one-time rewards, validated saves, a Swing noticeboard and a console walkthrough. [Run instructions and tests](java-quest-manager/README.md).
+
 ## Art portfolios
 
 [Pixel art & animation](https://strokeswild08.github.io/) · [Game UI / UX](https://strokeswild08.github.io/wild-strokes-game-ui-portfolio/) · [Web & product UI / UX](https://strokeswild08.github.io/wild-strokes-uiux/) · [Comics](https://strokeswild08.github.io/wild-strokes-universe/) · [Sound design](https://stately-shortbread-21d46a.netlify.app/)

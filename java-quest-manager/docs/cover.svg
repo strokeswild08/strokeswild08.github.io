@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+  <rect width="1200" height="540" fill="#192423"/>
+  <path d="M0 425 Q200 290 360 395 T720 380 T1200 330 V540 H0Z" fill="#253a34"/>
+  <path d="M0 485 Q220 380 420 470 T840 440 T1200 435 V540 H0Z" fill="#315046"/>
+  <g fill="#eadfbc" font-family="sans-serif">
+    <text x="64" y="85" font-size="15" letter-spacing="4">WILD STROKES / JAVA SYSTEMS</text>
+    <text x="60" y="172" font-family="serif" font-size="66">Trail Ledger</text>
+    <text x="64" y="218" font-size="23">A journal for the road home.</text>
+    <text x="64" y="283" font-size="17">Typed events. Quest chains. One-time rewards.</text>
+    <text x="64" y="314" font-size="17">A small engine you can read, run and build on.</text>
+    <text x="64" y="470" font-size="14" letter-spacing="2">JAVA 17 / DESKTOP + CONSOLE / NO DEPENDENCIES</text>
+  </g>
+  <rect x="682" y="55" width="448" height="429" rx="10" fill="#f4efe0"/>
+  <g fill="#192423" font-family="sans-serif">
+    <text x="716" y="102" font-size="13" letter-spacing="3">NOTICEBOARD / MILL ROAD</text>
+    <path d="M716 120 H1096" stroke="#c9bea1"/>
+    <text x="716" y="165" font-family="serif" font-size="29">Before the rain</text>
+    <text x="716" y="201" font-size="15">Mara's lantern is running low.</text>
+    <text x="716" y="250" font-size="16">Gather reed bundles</text>
+    <text x="1040" y="250" font-size="15">3 / 3</text>
+    <rect x="716" y="268" width="378" height="7" rx="3" fill="#3d6d5b"/>
+    <text x="716" y="317" font-size="16">Inspect the footbridge</text>
+    <text x="1040" y="317" font-size="15">1 / 1</text>
+    <rect x="716" y="335" width="378" height="7" rx="3" fill="#3d6d5b"/>
+    <text x="716" y="383" font-size="14">REWARD / 40 GOLD + 80 XP</text>
+    <rect x="716" y="408" width="186" height="43" rx="4" fill="#192423"/>
+    <text x="737" y="435" font-size="14" fill="#f4efe0">Collect reward</text>
+  </g>
+</svg>

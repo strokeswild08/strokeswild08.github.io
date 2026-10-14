@@ -1,0 +1,21 @@
+help
+accept supplies
+accept wolves
+event collect reed 3
+event visit bridge
+claim supplies
+accept beacon
+event defeat wolf 2
+claim wolves
+event visit ridge
+event talk mara
+claim beacon
+accept courier
+event talk courier
+claim courier
+wallet
+list
+save
+load
+wallet
+quit
