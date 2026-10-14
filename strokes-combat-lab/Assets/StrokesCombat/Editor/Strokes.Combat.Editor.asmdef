@@ -1,0 +1,9 @@
+{
+  "name": "Strokes.Combat.Editor",
+  "references": [
+    "Strokes.Combat"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}
