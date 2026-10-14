@@ -1,0 +1,22 @@
+name: Watchtower Godot checks
+on:
+  push:
+    paths: ['godot-ai-arena/**', '.github/workflows/watchtower.yml']
+  pull_request:
+    paths: ['godot-ai-arena/**', '.github/workflows/watchtower.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot 4.4.1
+        run: |
+          curl -L --fail --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp/godot-engine
+      - name: Import and test
+        run: |
+          /tmp/godot-engine/Godot_v4.4.1-stable_linux.x86_64 --headless --path godot-ai-arena --editor --import --quit
+          /tmp/godot-engine/Godot_v4.4.1-stable_linux.x86_64 --headless --path godot-ai-arena --script tests/test_arena.gd
