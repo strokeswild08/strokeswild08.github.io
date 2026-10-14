@@ -1,0 +1,8 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.5",
+  "Category": "Gameplay systems",
+  "Description": "Wild Strokes single-player ability arena source prototype",
+  "Modules": [{"Name": "AbilityForge", "Type": "Runtime", "LoadingPhase": "Default"}],
+  "Plugins": [{"Name": "Niagara", "Enabled": true}, {"Name": "PythonScriptPlugin", "Enabled": true}, {"Name": "EditorScriptingUtilities", "Enabled": true}]
+}
