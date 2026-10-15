@@ -1,0 +1,7 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.5",
+  "Category": "Gameplay Programming",
+  "Description": "Breachline — single-player weapon mechanics prototype by Wild Strokes",
+  "Modules": [{ "Name": "Breachline", "Type": "Runtime", "LoadingPhase": "Default" }]
+}

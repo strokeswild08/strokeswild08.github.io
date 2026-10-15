@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Breachline weapon mechanics schematic cover, not Unreal gameplay">
+<defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0v36" fill="none" stroke="#cdd5b4" stroke-opacity=".07"/></pattern></defs>
+<rect width="1200" height="630" fill="#172b26"/><rect width="1200" height="630" fill="url(#grid)"/>
+<path d="M0 506L1200 300V630H0Z" fill="#21392f"/><path d="M0 581L1200 375" stroke="#91a17c" stroke-opacity=".23"/>
+<g fill="#d9a86c" font-family="Arial, sans-serif"><text x="58" y="64" font-size="13" letter-spacing="3">WILD STROKES / GAMEPLAY SYSTEMS</text><text x="58" y="174" font-size="92" font-weight="900" letter-spacing="-4">BREACHLINE</text></g>
+<text x="63" y="217" fill="#dce0c9" font-size="22" font-family="Arial, sans-serif">Keep your weapon in the fight.</text>
+<g transform="translate(755 283) rotate(-12)" stroke="#a6b18e" stroke-width="2">
+<path d="M-185-8h295v39h-58v45H-5V31h-180z" fill="#314a3c"/><path d="M110-1h118v17H110z" fill="#1b2e27"/><path d="M228-5h30v25h-30z" fill="#d9a86c"/><path d="M-185-6l-85-35v95l85-23z" fill="#283e33"/><path d="M-88 32h40l-8 65h-48z" fill="#253b30"/><path d="M10 75h49L44 128H1z" fill="#d9a86c"/><path d="M-28-26H78v18H-28z" fill="#1b2e27"/><path d="M-15-37h19v11h-19M60-37h19v11H60" fill="none"/><path d="M92 1h-80M92 11h-80M-176 4h55M-176 15h55" stroke="#849171" stroke-width="3"/>
+</g>
+<g fill="none" stroke="#c4a16e" stroke-opacity=".7"><path d="M576 337h-60v68H380"/><path d="M986 264h80v-66h50"/><circle cx="576" cy="337" r="4"/><circle cx="986" cy="264" r="4"/></g>
+<g font-family="monospace" font-size="12" fill="#b8c4a7"><text x="126" y="410">FINITE AMMO / TIMED ACTIONS</text><text x="994" y="178">HITSCAN</text></g>
+<g font-family="monospace" font-size="12"><g fill="#e2e3cb"><text x="63" y="485">READY</text><text x="257" y="485">RELOADING</text><text x="482" y="485">JAMMED</text><text x="689" y="485">CLEARING</text></g><g fill="none" stroke="#d9a86c"><rect x="48" y="457" width="123" height="46"/><rect x="240" y="457" width="161" height="46"/><rect x="465" y="457" width="142" height="46"/><rect x="670" y="457" width="158" height="46"/><path d="M171 480h69m161 0h64m142 0h63"/></g></g>
+<path d="M58 550h1084" stroke="#61765c"/><text x="58" y="588" font-family="monospace" fill="#b6c1a5" font-size="12" letter-spacing="1">UNREAL C++ SOURCE + BROWSER WEAPON BENCH</text><text x="933" y="588" font-family="monospace" fill="#a0af91" font-size="10">SCHEMATIC / NOT GAMEPLAY</text>
+</svg>

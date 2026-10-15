@@ -23,6 +23,10 @@ Download a project ZIP, extract it and import `project.godot` in **Godot 4.4.1**
 
 Both kits include headless integration tests and integration guides. Graphical playthroughs and exported builds have not been verified in the development environment. Their visuals are procedural starter geometry/symbols.
 
+## Unreal gameplay systems
+
+**[Breachline](breachline/)** — weapon state machine with finite ammunition, reload locks, timed jam clearing and a procedural shooting range. [Try the browser weapon bench](https://strokeswild08.github.io/breachline/) · [Unreal source & setup](breachline/README.md). The 2D browser bench is a companion; Unreal compilation and playtesting remain pending.
+
 ## Development tools & web applications
 
 | Project | Function | Demo / guide |

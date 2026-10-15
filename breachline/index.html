@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172725">
+  <meta name="description" content="Breachline: a weapon mechanics study by Wild Strokes. Try the browser drill and inspect the Unreal Engine C++ project.">
+  <title>Breachline / Wild Strokes</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="demo/style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./" aria-label="Breachline home"><img src="assets/mark.svg" alt="" width="28" height="28"> WILD STROKES <span>/ FIELD NOTES 07</span></a><a class="source-link" href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/breachline">View C++ source <span aria-hidden="true">↗</span></a></header>
+<main>
+  <section class="intro"><div><p class="eyebrow"><span class="dot"></span> GAMEPLAY PROGRAMMING STUDY</p><h1>BREACHLINE<span>Keep your weapon in the fight.</span></h1></div><p class="intro-copy">A compact weapon system built around the moments between shots. Fire, reload, clear a stoppage. <strong>Every action has a cost.</strong></p></section>
+  <div class="workspace">
+    <section class="range-panel" aria-label="Interactive weapon drill">
+      <div class="panel-bar"><span><i class="live-dot"></i> LIVE WEAPON BENCH</span><span>01—05 / TARGET DRILL</span></div>
+      <div class="viewport" id="viewport">
+        <canvas id="range" tabindex="0" aria-label="Shooting gallery. Aim with the mouse or touch. Click or hold to fire. R reloads, F clears a jam, J creates a practice jam, T resets."></canvas>
+        <div class="range-label"><span>BR—12 / SERVICE CARBINE</span><small>FIXED CAMERA · BROWSER COMPANION</small></div>
+        <div class="instruction" id="instruction"><span class="instruction-tag">RANGE IS OPEN</span><strong>Pick a target. Take your shot.</strong><span>Click or tap the range to fire. Hold for automatic fire.</span><button id="start" type="button">Enter the range <span aria-hidden="true">→</span></button></div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+        <div class="range-bottom"><span>CONTROLLED RANGE / NO LIVE OPPONENTS</span><button id="sound" aria-pressed="false" type="button">Sound off</button></div>
+      </div>
+      <div class="actionbar"><button id="fire" type="button" class="trigger">Hold to fire <kbd>SPACE</kbd></button><button id="reload" type="button">Reload <kbd>R</kbd></button><button id="clear" type="button">Clear jam <kbd>F</kbd></button><button id="jam" type="button">Practice jam <kbd>J</kbd></button><button id="reset" type="button" class="reset">Reset <kbd>T</kbd></button></div>
+      <div class="range-caption"><span><b>01</b> Aim with your cursor. Recoil settles between shots.</span><span><b>02</b> Orange means a stoppage. Clear it before firing.</span></div>
+    </section>
+    <aside class="telemetry" aria-label="Weapon telemetry">
+      <div class="section-head"><h2>WEAPON STATUS</h2><span class="serial">BR / 012</span></div>
+      <div id="state" class="state" role="status">READY<span>CHAMBER CHECK COMPLETE</span></div>
+      <div class="ammo"><div><span class="tiny-label">MAGAZINE</span><strong id="magazine">12</strong></div><span class="slash">/</span><div><span class="tiny-label">RESERVE</span><strong id="reserve">60</strong></div></div>
+      <div id="rounds" class="rounds" aria-hidden="true"></div>
+      <div class="operation"><div><span id="operation-label">Awaiting input</span><span id="operation-time">—</span></div><div class="track"><div id="progress"></div></div></div>
+      <div class="metrics"><div><strong id="shots">00</strong><span>SHOTS</span></div><div><strong id="hits">00</strong><span>HITS</span></div><div><strong id="accuracy">—</strong><span>ACCURACY</span></div></div>
+      <label class="condition" for="condition">WEAPON CONDITION<select id="condition"><option value="0.06">Field use / 6% jam chance</option><option value="0">Clean / no random jams</option><option value="0.18">Worn / 18% jam chance</option></select><small>Changing condition starts a fresh drill.</small></label>
+      <div class="section-head log-title"><h2>ACTION LOG</h2><span>LAST 5</span></div><ol id="log" class="log"><li><time>00:00</time><span>Range ready. 72 rounds issued.</span></li></ol>
+    </aside>
+  </div>
+  <section class="notes"><div><p class="eyebrow">UNDER THE RECEIVER</p><h2>Small system.<br>Deliberate rules.</h2><p>One state machine owns the ammunition and action timing. The engine handles input, traces and feedback around it.</p></div><article><span class="note-number">01 / STATE</span><h3>Actions cannot overlap.</h3><p>Reloading blocks fire. A jam blocks reloading. Clearing takes one second and returns the weapon to ready.</p></article><article><span class="note-number">02 / ACCOUNTING</span><h3>No free ammunition.</h3><p>Reloads transfer existing reserve rounds. Stoppages do not spend a round. Empty magazines stay empty until reloaded.</p></article><article><span class="note-number">03 / SOURCE</span><h3>Unreal C++ included.</h3><p>A reusable actor component, first-person character and procedural range. This browser bench is a separate 2D companion, not an Unreal export.</p><a href="https://github.com/strokeswild08/strokeswild08.github.io/blob/main/breachline/README.md">Read setup & test notes ↗</a></article></section>
+  <section class="disclosure"><span>BUILD NOTES</span><p>The portable C++ weapon core and browser parity tests run without Unreal. The Unreal integration targets UE 5.5 and still needs an editor build and playtest. Single player; hitscan; procedural placeholder geometry.</p></section>
+</main>
+<footer><a href="https://strokeswild08.github.io/projects/">← More from Wild Strokes</a><span>BREACHLINE / 2026 · SOURCE UNDER MIT</span></footer>
+<script type="module" src="demo/app.mjs"></script>
+</body></html>
