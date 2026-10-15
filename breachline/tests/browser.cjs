@@ -101,6 +101,7 @@ let browser;
   assert.equal(await m.locator('#hits').innerText(), '01', 'Touch target failed');
   await m.locator('#jam').tap(); await m.locator('#clear').tap();
   await m.waitForFunction(() => document.getElementById('state').textContent.startsWith('READY'));
+  assert.equal(await m.locator('#feedback').innerText(), 'ACTION CLEAR / READY', 'Clear completion kept stale stoppage feedback');
   await m.screenshot({ path: path.join(root, 'test-results/mobile.png'), fullPage: true });
   if (process.env.PREVIEW_TO_LOG === '1') {
     const preview = (await m.screenshot({ type: 'jpeg', quality: 45, fullPage: true })).toString('base64');

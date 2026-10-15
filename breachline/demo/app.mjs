@@ -69,10 +69,10 @@ function fire() {
 function action(name) {
   enter(); held = false;
   if (name === 'reload') {
-    if (weapon.reload()) log('Reload started. Fire is blocked.');
+    if (weapon.reload()) { log('Reload started. Fire is blocked.'); feedback('RELOADING / FIRE BLOCKED', 2); }
     else feedback(weapon.phase === Phase.Jammed ? 'CLEAR THE JAM FIRST / F' : 'RELOAD UNAVAILABLE');
   } else if (name === 'clear') {
-    if (weapon.clear()) log('Clearing stoppage. Hold for 1 second.');
+    if (weapon.clear()) { log('Clearing stoppage. Hold for 1 second.'); feedback('CLEARING ACTION', 1.2); }
     else feedback('NO STOPPAGE TO CLEAR');
   } else if (name === 'jam') {
     if (weapon.forceJam()) { log('Practice stoppage introduced. Press F.'); feedback('STOPPAGE / PRESS F', 3); }
@@ -209,8 +209,8 @@ function loop(now) {
   if (entered) elapsed += dt;
   const before = weapon.phase; weapon.advance(dt);
   if (before !== weapon.phase) {
-    if (before === Phase.Reloading) log(`Magazine seated. ${weapon.magazine} loaded / ${weapon.reserve} reserve.`);
-    if (before === Phase.Clearing) log('Action clear. Weapon ready.');
+    if (before === Phase.Reloading) { log(`Magazine seated. ${weapon.magazine} loaded / ${weapon.reserve} reserve.`); feedback('RELOAD COMPLETE', .8); }
+    if (before === Phase.Clearing) { log('Action clear. Weapon ready.'); feedback('ACTION CLEAR / READY', .8); }
   }
   for (const target of targets) target.down = Math.max(0, target.down - dt);
   recoil = Math.max(0, recoil - dt * 7); flash = Math.max(0, flash - dt); hitFlash = Math.max(0, hitFlash - dt);
