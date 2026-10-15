@@ -75,6 +75,8 @@ let browser;
   assert.equal(await page.locator('#shots').innerText(), '00');
   await page.evaluate(() => { Math.random = () => .9; });
   await page.locator('#condition').selectOption('0.06');
+  assert.ok((await page.locator('#state').innerText()).startsWith('READY'), 'Condition reset kept stale stoppage text');
+  assert.equal(await page.locator('#clear').isDisabled(), true);
   for (const x of [.17, .5, .83]) {
     const point = target(x); await page.mouse.click(point.x, point.y); await page.waitForTimeout(180);
   }
@@ -100,6 +102,12 @@ let browser;
   await m.locator('#jam').tap(); await m.locator('#clear').tap();
   await m.waitForFunction(() => document.getElementById('state').textContent.startsWith('READY'));
   await m.screenshot({ path: path.join(root, 'test-results/mobile.png'), fullPage: true });
+  if (process.env.PREVIEW_TO_LOG === '1') {
+    const preview = (await m.screenshot({ type: 'jpeg', quality: 45, fullPage: true })).toString('base64');
+    console.log('BREACHLINE_MOBILE_START');
+    for (let i = 0; i < preview.length; i += 3000) console.log('BREACHLINE_MOBILE_CHUNK=' + preview.slice(i, i + 3000));
+    console.log('BREACHLINE_MOBILE_END');
+  }
   const reduced = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
   const r = await reduced.newPage(); await r.goto(base); await r.locator('#start').click();
   await r.locator('#sound').click(); assert.equal(await r.locator('#sound').getAttribute('aria-pressed'), 'true');

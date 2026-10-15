@@ -27,7 +27,7 @@ The native regression cases cover shot rate, partial reloads, depleted reserve, 
 - Reduced-motion context, sound toggle and browser runtime errors.
 - Desktop and mobile screenshot artifacts.
 
-The local container could not launch Chromium. These browser checks are run in the repository's **Breachline verification** GitHub Actions workflow. Read that run's result before claiming browser verification. Screenshot artifacts are browser captures only.
+The local container could not launch Chromium. The first hosted browser run passed on 15 October 2026 ([run 38687570344](https://github.com/strokeswild08/strokeswild08.github.io/actions/runs/38687570344)). Desktop capture review exposed stale status text after a condition reset; the render invalidation was fixed and a regression assertion was added. Read the latest **Breachline verification** run for the post-fix result. Screenshot artifacts are browser captures only.
 
 ## Still unverified
 

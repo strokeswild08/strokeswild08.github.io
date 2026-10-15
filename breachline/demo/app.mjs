@@ -84,7 +84,8 @@ function reset() {
   held = false; weapon = new Weapon({ jamProbability: Number($('condition').value) });
   hits = elapsed = recoil = flash = hitFlash = 0; pointer = { x: .5, y: .49 };
   for (const target of targets) target.down = 0;
-  lastPhase = weapon.phase; $('log').replaceChildren(); $('feedback').textContent = '';
+  // Invalidate the rendered phase too: the previous drill may have ended jammed.
+  lastPhase = -1; $('log').replaceChildren(); $('feedback').textContent = '';
   log('Fresh drill. 72 rounds issued.'); update();
 }
 function update() {
