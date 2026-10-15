@@ -1,0 +1,7 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.5",
+  "Category": "Games",
+  "Description": "Wild Strokes third-person combat prototype. C++ source; Unreal editor validation pending.",
+  "Modules": [{"Name":"IronVeil","Type":"Runtime","LoadingPhase":"Default"}]
+}
