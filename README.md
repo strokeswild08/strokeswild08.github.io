@@ -33,6 +33,7 @@ Both kits include headless integration tests and integration guides. Graphical p
 | **Signal Lab** | Procedural game SFX, waveform controls, WAV export and JSON recipes | [Open](https://strokeswild08.github.io/signal-lab/) · [Setup & tests](signal-lab/README.md) |
 | **Facet** | Low-poly 3D viewer with local GLB import, wireframe, lighting and PNG export | [Open](https://strokeswild08.github.io/low-poly-viewer/) · [Setup](low-poly-viewer/README.md) |
 | **Studio Desk** | Client workspace: projects, milestones, payments and files; optional Node/SQLite backend | [Browser demo](https://strokeswild08.github.io/client-portal/) · [Server setup & tests](client-portal/README.md) |
+| **Slotline / Java + Spring Boot** | Server-calculated USD quotes, kickoff reservations, private tracking, admin sessions and CSV export | [Source & setup](slotline-java/) · [API guide](slotline-java/docs/API.md) |
 
 Studio Desk's public demo uses browser-local storage. Its included Node/SQLite backend is run separately for authenticated accounts and private records.
 

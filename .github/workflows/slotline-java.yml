@@ -1,0 +1,36 @@
+name: Slotline Java verification
+on:
+  push:
+    paths:
+      - 'slotline-java/**'
+      - '.github/workflows/slotline-java.yml'
+  pull_request:
+    paths:
+      - 'slotline-java/**'
+      - '.github/workflows/slotline-java.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: slotline-java
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: slotline-java/pom.xml
+      - name: Build and run tests
+        run: ./mvnw --batch-mode verify
+      - name: Upload runnable JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: slotline-java-application
+          path: slotline-java/target/slotline-1.0.0.jar
+          if-no-files-found: error
+          retention-days: 30

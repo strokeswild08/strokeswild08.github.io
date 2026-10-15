@@ -1,0 +1,14 @@
+/target/
+/data/
+/release/*.jar
+.env
+.env.*
+!.env.example
+*.log
+*.mv.db
+*.trace.db
+*.lock.db
+*.iml
+.idea/
+.vscode/
+.DS_Store

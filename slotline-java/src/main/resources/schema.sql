@@ -1,0 +1,35 @@
+CREATE TABLE IF NOT EXISTS quotes (
+  id VARCHAR(36) PRIMARY KEY,
+  payload CLOB NOT NULL,
+  created_at VARCHAR(40) NOT NULL,
+  expires_at VARCHAR(40) NOT NULL,
+  used BOOLEAN NOT NULL DEFAULT FALSE
+);
+CREATE TABLE IF NOT EXISTS bookings (
+  id VARCHAR(36) PRIMARY KEY,
+  reference VARCHAR(24) NOT NULL UNIQUE,
+  access_token VARCHAR(64) NOT NULL,
+  quote_id VARCHAR(36) NOT NULL UNIQUE REFERENCES quotes(id),
+  idempotency_key VARCHAR(80) NOT NULL UNIQUE,
+  request_hash VARCHAR(64) NOT NULL,
+  client_name VARCHAR(100) NOT NULL,
+  email VARCHAR(254) NOT NULL,
+  company VARCHAR(120) NOT NULL,
+  brief VARCHAR(3000) NOT NULL,
+  kickoff_date DATE NOT NULL,
+  kickoff_time VARCHAR(5) NOT NULL,
+  slot_key VARCHAR(32) UNIQUE,
+  status VARCHAR(20) NOT NULL,
+  total DECIMAL(12,2) NOT NULL,
+  deposit DECIMAL(12,2) NOT NULL,
+  created_at VARCHAR(40) NOT NULL,
+  updated_at VARCHAR(40) NOT NULL,
+  version BIGINT NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS idx_booking_status ON bookings(status);
+CREATE TABLE IF NOT EXISTS booking_events (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  booking_id VARCHAR(36) NOT NULL REFERENCES bookings(id),
+  status VARCHAR(20) NOT NULL,
+  created_at VARCHAR(40) NOT NULL
+);
