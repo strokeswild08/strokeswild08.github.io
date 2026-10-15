@@ -16,6 +16,7 @@ function drawFrame(context, index, width = WIDTH, height = HEIGHT) {
 function render() {
   if (!ready) return;
   drawFrame(ctx, frame);
+  window.EventDesk?.onView(frame);
   $('scrub').value = frame;
   $('frameValue').textContent = String(frame + 1).padStart(3, '0');
   $('time').textContent = `${(frame / FPS).toFixed(1)}s / 10.2s`;
@@ -28,6 +29,7 @@ function render() {
 }
 function setPlaying(value) {
   if (!ready) return;
+  if (value && !playing) window.EventDesk?.onFrame(frame);
   playing = value; previousTime = null; accumulator = 0;
   $('play').textContent = value ? 'Pause animation' : 'Play animation';
   $('play').setAttribute('aria-pressed', String(value)); render();
@@ -41,12 +43,16 @@ function tick(time) {
     const steps = Math.floor(accumulator / (1000 / FPS));
     if (steps) {
       accumulator -= steps * (1000 / FPS);
-      if ($('loop').checked) {
-        if (frame < first || frame > last) frame = first;
-        frame = first + (frame - first + steps) % (last - first + 1);
-      } else {
-        frame = Math.min(frame + steps, TOTAL - 1);
-        if (frame === TOTAL - 1) setPlaying(false);
+      // Visit every crossed frame so fast playback and loop wraps cannot skip cues.
+      for (let step = 0; step < steps; step++) {
+        if ($('loop').checked) {
+          frame = frame < first || frame >= last ? first : frame + 1;
+        } else {
+          if (frame >= TOTAL - 1) { setPlaying(false); break; }
+          frame++;
+        }
+        window.EventDesk?.onFrame(frame);
+        if (!$('loop').checked && frame === TOTAL - 1) { setPlaying(false); break; }
       }
       render();
     }
@@ -68,6 +74,7 @@ function reset() {
   $('start').value = 1; $('end').value = TOTAL; seek(0);
 }
 $('play').onclick = () => {
+  window.EventDesk?.prepareAudio();
   if (!playing && ((!$('loop').checked && frame === TOTAL - 1) || ($('loop').checked && (frame < first || frame > last)))) frame = $('loop').checked ? first : 0;
   setPlaying(!playing);
 };
