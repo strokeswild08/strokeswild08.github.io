@@ -1,0 +1,1 @@
+This text fixture is deliberately duplicated to demonstrate exact byte checks.
