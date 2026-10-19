@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FORM / 01 — Controller Studio by Wild Strokes</title>
+  <meta name="description" content="Build a custom 3D gaming controller. Explore shell finishes, button colors and an animated exploded view in Wild Strokes' interactive product studio.">
+  <meta name="theme-color" content="#181918">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}</script>
+</head>
+<body>
+  <header><a class="wordmark" href="../">WILD STROKES<span>INDEPENDENT DESIGN LAB</span></a><span class="edition">INTERACTIVE OBJECTS / VOL. 01</span><a class="source" href="https://github.com/strokeswild08/strokeswild08.github.io/tree/main/controller-lab" target="_blank" rel="noopener">SOURCE ↗</a></header>
+  <main>
+    <section class="stage" aria-label="Interactive controller preview">
+      <div class="intro"><p class="eyebrow"><span></span> PRODUCT EXPERIMENT 001</p><h1>Form follows<br><i>your play.</i></h1><p class="subtitle">One object. Your signature.</p></div>
+      <div id="viewport" tabindex="0" role="region" aria-label="3D controller. Drag to rotate, scroll or pinch to zoom. Use the view buttons for preset camera angles."></div>
+      <div id="loading" class="loading">Preparing your studio<span></span></div>
+      <div class="object-note"><b>FORM / 01</b><span>MODULAR GAME CONTROLLER</span></div>
+      <div class="view-controls" aria-label="Camera views"><button data-view="hero" class="active" aria-pressed="true">Perspective</button><button data-view="front" aria-pressed="false">Front</button><button data-view="back" aria-pressed="false">Back</button></div>
+      <div class="stage-bottom"><span>↔ DRAG TO ROTATE <em>·</em> SCROLL TO ZOOM</span><button id="rotate" aria-pressed="false">↻ Auto rotate</button></div>
+      <div class="part-label" id="part-label" hidden></div>
+    </section>
+    <aside class="panel" aria-label="Controller customization">
+      <div class="panel-heading"><span>MAKE IT YOURS</span><span>01 — 04</span></div>
+      <div class="preset-heading"><h2>The starting point.</h2><button id="reset" title="Reset all settings">Reset ↺</button></div>
+      <div class="presets" aria-label="Design presets"><button data-preset="ember" class="active" aria-pressed="true"><i style="--chip:#d55b38"></i>Ember</button><button data-preset="chalk" aria-pressed="false"><i style="--chip:#d4d2bc"></i>Chalk</button><button data-preset="moss" aria-pressed="false"><i style="--chip:#657b59"></i>Moss</button></div>
+      <section class="setting"><div class="setting-title"><h3><small>01</small> Shell color</h3><output id="body-value">#D55B38</output></div><div class="swatches" data-color-group="body"></div></section>
+      <section class="setting"><div class="setting-title"><h3><small>02</small> Surface finish</h3></div><div class="segmented" id="finishes"><button data-finish="matte" class="active" aria-pressed="true">Matte</button><button data-finish="gloss" aria-pressed="false">Gloss</button><button data-finish="metal" aria-pressed="false">Metal</button></div><p class="detail" id="finish-detail">Soft, low-reflection polymer.</p></section>
+      <section class="setting"><div class="setting-title"><h3><small>03</small> The details</h3></div><div class="detail-row"><label for="buttons-color">Buttons</label><input id="buttons-color" type="color" value="#ddd6bd"><label for="sticks-color">Thumbsticks</label><input id="sticks-color" type="color" value="#252928"></div><div class="detail-row"><label for="accent-color">Light ring</label><input id="accent-color" type="color" value="#eabf70"><span class="led-caption">LIVE ACCENT</span></div></section>
+      <section class="setting assembly"><div class="setting-title"><h3><small>04</small> Under the surface</h3><output id="explode-value">0%</output></div><label class="sr-only" for="explode">Exploded view separation</label><input id="explode" type="range" min="0" max="100" value="0"><div class="range-labels"><span>ASSEMBLED</span><button id="explode-toggle">Explore the parts ↗</button></div></section>
+      <div class="lighting"><label for="lighting">LIGHTING</label><select id="lighting"><option value="warm">Warm studio</option><option value="cool">Cool gallery</option><option value="neutral">Neutral daylight</option></select></div>
+      <div class="actions"><button class="primary" id="capture">Save a studio shot <span>↓</span></button><div><button id="save-config">Export design ↓</button><button id="share">Copy design link ↗</button></div></div>
+      <p class="panel-footnote">A digital concept by Owais / Wild Strokes.<br>Designed to explore. Built to customize.</p>
+    </aside>
+  </main>
+  <footer><span>CONCEPT SERIES — NOT A PHYSICAL PRODUCT</span><span>3D DESIGN × CREATIVE DEVELOPMENT</span><a href="mailto:strokeswild08@gmail.com">LET'S BUILD SOMETHING ↗</a></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="fallback">Enable JavaScript to open the 3D studio.</p></noscript>
+  <script type="module">import('./studio.js').catch(error=>{console.error(error);const el=document.querySelector('#loading');el.textContent='The 3D studio could not start. Please use a browser with WebGL 2 and reload.';el.classList.add('error');});</script>
+</body>
+</html>
