@@ -4,6 +4,8 @@
 
 **[Interactive sample demo](https://strokeswild08.github.io/page-delta/web/)** · Real URL checks run through the Python backend below.
 
+![Page Delta comparison interface](docs/preview.jpg)
+
 ## What it does
 
 - Watch a public HTML page or a specific section using a CSS selector.
