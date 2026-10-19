@@ -35,6 +35,7 @@ test('bloom produces a full radial burst and fan locks its aim',()=>{
 });
 test('pulse has bounded ring count and delayed secondary rings',()=>{
   const g=new Encounter();g.spawn({attack:{type:'pulse',count:3,damage:10},x:480,y:245});assert.equal(g.rings.length,3);assert.ok(g.rings[0].r>0);assert.ok(g.rings[1].r<0);
+  const invalid=clone(DEFAULT);invalid.phases[0].attacks[0]={...invalid.phases[0].attacks[0],type:'pulse',count:4};assert.throws(()=>validateConfig(invalid));
 });
 test('phase transitions clear hazards and start a readable grace period',()=>{
   const g=new Encounter();g.start();g.bullets=[{x:0,y:0,vx:0,vy:0,r:5,damage:10}];g.boss.hp=900;g.step(1/120);assert.equal(g.phase,1);assert.equal(g.bullets.length,0);assert.equal(g.cast,null);assert.ok(g.timer>1);

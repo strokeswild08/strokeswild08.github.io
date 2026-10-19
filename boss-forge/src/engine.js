@@ -23,6 +23,7 @@ export function validateConfig(raw){
     const attacks=p.attacks.map(a=>{
       if(!a||!PATTERNS.includes(a.type))throw Error('Unknown attack pattern.');
       finite(a.count,1,36,'Projectile count');if(!Number.isInteger(a.count))throw Error('Projectile count must be an integer.');
+      if(a.type==='pulse'&&a.count>3)throw Error('Pulse patterns support up to three rings.');
       finite(a.windup,.35,3,'Windup');finite(a.cooldown,.3,3,'Cooldown');finite(a.damage,1,30,'Damage');
       return {type:a.type,count:a.count,windup:a.windup,cooldown:a.cooldown,damage:a.damage};
     });

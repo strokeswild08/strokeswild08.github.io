@@ -32,7 +32,7 @@ function renderAttacks(){const list=$('#attack-list');list.replaceChildren();dra
 }
 function renderEditor(){
   $('#boss-name').value=draft.name;$('#boss-hp').value=draft.hp;$('#difficulty').value=draft.difficulty;renderPhases();const p=draft.phases[editPhase];$('#phase-name').value=p.name;$('#threshold').disabled=editPhase===0;
-  $('#threshold').min=editPhase===1?Math.round(draft.phases[2].threshold*100)+5:5;$('#threshold').max=editPhase===2?Math.round(draft.phases[1].threshold*100)-5:95;$('#threshold').value=p.threshold*100;$('#threshold-value').textContent=Math.round(p.threshold*100)+'%';$('#speed').value=p.speed;$('#speed-value').textContent=p.speed+' px/s';renderAttacks();dirty();
+  $('#threshold').min=editPhase===0?100:editPhase===1?Math.round(draft.phases[2].threshold*100)+5:5;$('#threshold').max=editPhase===0?100:editPhase===2?Math.round(draft.phases[1].threshold*100)-5:95;$('#threshold').value=p.threshold*100;$('#threshold-value').textContent=Math.round(p.threshold*100)+'%';$('#speed').value=p.speed;$('#speed-value').textContent=p.speed+' px/s';renderAttacks();dirty();
 }
 $('#boss-name').oninput=e=>{draft.name=e.target.value;dirty();};$('#boss-hp').oninput=e=>{draft.hp=Number(e.target.value);dirty();};$('#difficulty').onchange=e=>{draft.difficulty=e.target.value;dirty();};$('#phase-name').oninput=e=>{draft.phases[editPhase].name=e.target.value;dirty();};
 $('#threshold').oninput=e=>{draft.phases[editPhase].threshold=Number(e.target.value)/100;$('#threshold-value').textContent=e.target.value+'%';renderPhases();dirty();};$('#speed').oninput=e=>{draft.phases[editPhase].speed=Number(e.target.value);$('#speed-value').textContent=e.target.value+' px/s';dirty();};

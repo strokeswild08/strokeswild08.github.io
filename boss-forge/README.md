@@ -6,6 +6,8 @@
 
 The Brass Oracle is a procedural 2D boss in an inlaid circular arena. Tune its attacks in the side panel, apply your blueprint, and test it with real movement, aiming, damage and dodge invulnerability. Everything runs in the browser with no dependencies, account or server.
 
+![Live Nocturne combat and encounter editor](docs/preview.jpg)
+
 ## Design an encounter
 
 - Three editable phases, each with a name, health threshold, projectile speed and ordered attack sequence.
