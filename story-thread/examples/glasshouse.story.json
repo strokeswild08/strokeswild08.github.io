@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "title": "The Glasshouse Letter",
+  "start": "gate",
+  "initial": {
+    "items": [],
+    "flags": [],
+    "reputation": 0,
+    "quests": {}
+  },
+  "nodes": [
+    {
+      "id": "gate",
+      "speaker": "Mara · The caretaker",
+      "text": "The glasshouse has been locked since dawn. And now you arrive with questions. Tell me—are you here to help, or to collect another story?",
+      "x": 70,
+      "y": 90,
+      "ending": false,
+      "choices": [
+        {
+          "id": "help",
+          "label": "I’m here to find the missing botanist.",
+          "target": "trust",
+          "conditions": [],
+          "effects": [
+            {
+              "kind": "quest",
+              "key": "find_elin",
+              "op": "set",
+              "value": "active"
+            },
+            {
+              "kind": "reputation",
+              "key": "",
+              "op": "add",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "look",
+          "label": "Let me look around first.",
+          "target": "courtyard",
+          "conditions": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "trust",
+      "speaker": "Mara · The caretaker",
+      "text": "Then take this brass key. Elin trusted people too easily. If you find anything in her study, bring it back to me.",
+      "x": 420,
+      "y": 50,
+      "ending": false,
+      "choices": [
+        {
+          "id": "key",
+          "label": "Take the key and go to the courtyard.",
+          "target": "courtyard",
+          "conditions": [],
+          "effects": [
+            {
+              "kind": "item",
+              "key": "brass_key",
+              "op": "add",
+              "value": true
+            },
+            {
+              "kind": "flag",
+              "key": "mara_trust",
+              "op": "add",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "courtyard",
+      "speaker": "The courtyard",
+      "text": "Rain runs down the greenhouse windows. A brass lock guards the study door. An unmarked path disappears behind the hedges.",
+      "x": 780,
+      "y": 210,
+      "ending": false,
+      "choices": [
+        {
+          "id": "study",
+          "label": "Unlock the study.",
+          "target": "study",
+          "conditions": [
+            {
+              "kind": "item",
+              "key": "brass_key",
+              "op": "has",
+              "value": true
+            }
+          ],
+          "effects": []
+        },
+        {
+          "id": "hedge",
+          "label": "Follow the path behind the hedges.",
+          "target": "hedge",
+          "conditions": [],
+          "effects": []
+        },
+        {
+          "id": "return",
+          "label": "Return to Mara.",
+          "target": "gate",
+          "conditions": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "speaker": "Elin’s study",
+      "text": "Inside a field journal, you find a letter: “I went to the old observatory. Tell Mara I am safe.” The ink is still fresh.",
+      "x": 1140,
+      "y": 60,
+      "ending": false,
+      "choices": [
+        {
+          "id": "letter",
+          "label": "Take the letter back to Mara.",
+          "target": "reunion",
+          "conditions": [],
+          "effects": [
+            {
+              "kind": "item",
+              "key": "elin_letter",
+              "op": "add",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hedge",
+      "speaker": "The hidden path",
+      "text": "A groundskeeper steps from the fog. “Elin passed this way. But I won’t trade her secrets with a stranger.”",
+      "x": 1140,
+      "y": 390,
+      "ending": false,
+      "choices": [
+        {
+          "id": "trusted",
+          "label": "Mara trusts me. Let me help.",
+          "target": "study",
+          "conditions": [
+            {
+              "kind": "flag",
+              "key": "mara_trust",
+              "op": "has",
+              "value": true
+            }
+          ],
+          "effects": []
+        },
+        {
+          "id": "rep",
+          "label": "I’ve already offered to help.",
+          "target": "study",
+          "conditions": [
+            {
+              "kind": "reputation",
+              "key": "",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "effects": []
+        },
+        {
+          "id": "back",
+          "label": "Return to the courtyard.",
+          "target": "courtyard",
+          "conditions": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "reunion",
+      "speaker": "Mara · The caretaker",
+      "text": "She reads the letter twice. Her shoulders finally soften. “The observatory. Of course. Thank you for treating her story with care.”",
+      "x": 1510,
+      "y": 90,
+      "ending": false,
+      "choices": [
+        {
+          "id": "complete",
+          "label": "Give Mara the letter.",
+          "target": "end",
+          "conditions": [
+            {
+              "kind": "item",
+              "key": "elin_letter",
+              "op": "has",
+              "value": true
+            },
+            {
+              "kind": "quest",
+              "key": "find_elin",
+              "op": "is",
+              "value": "active"
+            }
+          ],
+          "effects": [
+            {
+              "kind": "quest",
+              "key": "find_elin",
+              "op": "set",
+              "value": "complete"
+            },
+            {
+              "kind": "item",
+              "key": "elin_letter",
+              "op": "remove",
+              "value": true
+            },
+            {
+              "kind": "reputation",
+              "key": "",
+              "op": "add",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "end",
+      "speaker": "Case closed",
+      "text": "The glasshouse opens again. Somewhere beyond the rain, a new chapter waits. Your choices restored a little trust.",
+      "x": 1880,
+      "y": 130,
+      "ending": true,
+      "choices": []
+    }
+  ]
+}

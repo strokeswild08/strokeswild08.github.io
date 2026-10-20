@@ -6,6 +6,10 @@
 
 Build conversations on a warm case-file connection board. Write a scene, connect player choices, add inventory/flag/reputation/quest rules, then test the consequences in a live story preview. The included **The Glasshouse Letter** mystery demonstrates a complete quest with locked routes, alternate choices and a resolved ending.
 
+![Thread & Ink scene board and inspector](docs/preview.jpg)
+
+[Example JSON blueprint](examples/glasshouse.story.json)
+
 ## In the workshop
 
 - Create, select, rename and drag scene cards. Follow directed SVG connections and find scenes in the index.
