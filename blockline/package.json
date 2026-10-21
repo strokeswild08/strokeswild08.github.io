@@ -1,0 +1,9 @@
+{
+  "name": "blockline-city-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Seeded 3D city plans, an explorable miniature and a readable procedural generation core.",
+  "scripts": { "test": "node --test tests/*.test.js" },
+  "engines": { "node": ">=20" }
+}

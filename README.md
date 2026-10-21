@@ -31,6 +31,7 @@ Both kits include headless integration tests and integration guides. Graphical p
 
 | Project | Function | Demo / guide |
 | --- | --- | --- |
+| **Blockline** | Seeded 3D cities with districts, connected bridges, ambient traffic, parcel inspection and JSON/PNG export | [City workshop](https://strokeswild08.github.io/blockline/) · [Source & tests](blockline/) |
 | **Route Lab** | A*, Dijkstra and BFS with weighted terrain, an editable map and route animation | [Demo](https://strokeswild08.github.io/pathfinding-lab/) · [Algorithms & tests](pathfinding-lab/README.md) |
 | **Fieldwork** | Layered tilemap editor with custom tiles, collision test and PNG/JSON export | [Open](https://strokeswild08.github.io/tilemap-editor/) · [Source](tilemap-editor/) |
 | **Flipbook** | Sprite-sheet playback, onion skins, PNG/GIF export and complete character packs | [Open](https://strokeswild08.github.io/sprite-preview/) · [English guide](sprite-preview/README.md) |
@@ -71,3 +72,4 @@ Check each project's LICENSE and README before reusing its code or art. Licensin
 ## More from Wild Strokes
 
 [View the full portfolio directory](https://github.com/strokeswild08) · [Email](mailto:strokeswild08@gmail.com) · Discord: `wildstrokes23`
+

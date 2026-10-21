@@ -1,0 +1,11 @@
+{
+  "format": "blockline-city",
+  "version": 1,
+  "config": {
+    "seed": "PORT-062",
+    "size": 5,
+    "density": 78,
+    "height": 58,
+    "greenery": 24
+  }
+}
