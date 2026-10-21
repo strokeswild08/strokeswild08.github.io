@@ -112,6 +112,7 @@ export class CityScene {
     const size = this.city ? Math.max(this.city.bounds.maxX * 2, this.city.bounds.maxZ * 2) : 200;
     const narrow = Math.max(1, 1.3 / this.camera.aspect);
     const position = new THREE.Vector3(size * 1.05 * narrow, size * 0.92 * narrow, size * 1.1 * narrow);
+    this.controls.maxDistance = Math.max(560, position.length() * 1.6);
     this.controls.target.set(0, 3, 0);
     this.camera.position.copy(position); this.controls.update(); this.plan = false;
   }
